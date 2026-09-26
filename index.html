@@ -1,1008 +1,1561 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nuno Amaro — Media Engineer | Front-end Developer &amp; UX/UI Designer</title>
-  <meta name="description" content="Portfolio de Nuno Amaro, étudiant en Ingénierie des Médias à la HEIG-VD, spécialisé en développement web front-end et UX/UI design." />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Nuno Amaro — Media Engineer | Front-end Developer &amp; UX/UI Designer
+    </title>
+    <meta
+      name="description"
+      content="Portfolio de Nuno Amaro, étudiant en Ingénierie des Médias à la HEIG-VD, spécialisé en développement web front-end et UX/UI design."
+    />
 
-  <!-- Open Graph -->
-  <meta property="og:type"        content="website" />
-  <meta property="og:title"       content="Nuno Amaro — Media Engineer" />
-  <meta property="og:description" content="Front-end developer &amp; UX/UI designer based in Switzerland." />
-  <meta property="og:url"         content="https://nunoamaro.dev" />
-  <meta property="og:image"       content="assets/og-image.png" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Nuno Amaro — Media Engineer" />
+    <meta
+      property="og:description"
+      content="Front-end developer &amp; UX/UI designer based in Switzerland."
+    />
+    <meta property="og:url" content="https://nuno-amaro.netlify.app" />
+    <meta
+      property="og:image"
+      content="https://nuno-amaro.netlify.app/assets/og-image.png"
+    />
 
-  <!-- Favicon -->
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="css/components.css" />
-  <link rel="stylesheet" href="css/animations.css" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/animations.css" />
 
-  <style>
-    /* ── Page-specific ── */
-    .hero {
-      min-height: 100svh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: clamp(2rem, 5vw, 5rem);
-      padding-top: calc(var(--nav-height) + clamp(2rem, 5vw, 4rem));
-      padding-bottom: clamp(4rem, 8vw, 6rem);
-    }
-
-    @media (max-width: 900px) {
+    <style>
+      /* ── Page-specific ── */
       .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        padding-top: calc(var(--nav-height) + 3rem);
-        padding-bottom: 3rem;
-        text-align: center;
+        min-height: 100svh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: clamp(2rem, 5vw, 5rem);
+        padding-top: calc(var(--nav-height) + clamp(2rem, 5vw, 4rem));
+        padding-bottom: clamp(4rem, 8vw, 6rem);
       }
-      .hero__visual { order: -1; margin-bottom: 1rem; }
-      .hero__ctas { justify-content: center; }
-      .hero__meta { justify-content: center; }
-    }
 
-    .hero__label-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+          min-height: auto;
+          padding-top: calc(var(--nav-height) + 3rem);
+          padding-bottom: 3rem;
+          text-align: center;
+        }
+        .hero__visual {
+          order: -1;
+          margin-bottom: 1rem;
+        }
+        .hero__ctas {
+          justify-content: center;
+        }
+        .hero__meta {
+          justify-content: center;
+        }
+      }
 
-    .hero__title {
-      margin-bottom: 1.25rem;
-      line-height: 0.95;
-    }
+      .hero__label-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
 
-    .hero__title em {
-      font-style: normal;
-      color: var(--accent);
-    }
+      .hero__title {
+        margin-bottom: 1.25rem;
+        line-height: 0.95;
+      }
 
-    .hero__subtitle {
-      margin-bottom: 1rem;
-      max-width: 42ch;
-    }
+      .hero__title em {
+        font-style: normal;
+        color: var(--accent);
+      }
 
-    .hero__tagline {
-      margin-bottom: 2.5rem;
-      max-width: 48ch;
-    }
+      .hero__subtitle {
+        margin-bottom: 1rem;
+        max-width: 42ch;
+      }
 
-    .hero__ctas {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-    }
+      .hero__tagline {
+        margin-bottom: 2.5rem;
+        max-width: 48ch;
+      }
 
-    .hero__meta {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap;
-    }
+      .hero__ctas {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+      }
 
-    .hero__meta-item {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
+      .hero__meta {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+        flex-wrap: wrap;
+      }
 
-    .hero__meta-val {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--text);
-      letter-spacing: -0.02em;
-    }
+      .hero__meta-item {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
 
-    .hero__meta-label {
-      font-size: 0.68rem;
-      color: var(--text-subtle);
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
+      .hero__meta-val {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--text);
+        letter-spacing: -0.02em;
+      }
 
-    .hero__scroll {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+      .hero__meta-label {
+        font-size: 0.68rem;
+        color: var(--text-subtle);
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
 
-    /* About short */
-    .about-intro {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(3rem, 6vw, 7rem);
-      align-items: center;
-    }
+      .hero__scroll {
+        position: absolute;
+        bottom: 2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
 
-    @media (max-width: 768px) {
-      .about-intro { grid-template-columns: 1fr; }
-    }
+      /* About short */
+      .about-intro {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(3rem, 6vw, 7rem);
+        align-items: center;
+      }
 
-    .about-intro__highlight {
-      font-family: var(--font-display);
-      font-size: clamp(1.6rem, 3vw, 2.6rem);
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.15;
-      letter-spacing: -0.025em;
-      margin-bottom: 1.5rem;
-    }
+      @media (max-width: 768px) {
+        .about-intro {
+          grid-template-columns: 1fr;
+        }
+      }
 
-    .about-intro__highlight em {
-      font-style: normal;
-      color: var(--accent);
-    }
+      .about-intro__highlight {
+        font-family: var(--font-display);
+        font-size: clamp(1.6rem, 3vw, 2.6rem);
+        font-weight: 700;
+        color: var(--text);
+        line-height: 1.15;
+        letter-spacing: -0.025em;
+        margin-bottom: 1.5rem;
+      }
 
-    /* Profile pillars */
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3.5rem;
-    }
+      .about-intro__highlight em {
+        font-style: normal;
+        color: var(--accent);
+      }
 
-    @media (max-width: 640px) {
-      .pillars { grid-template-columns: 1fr; }
-    }
+      /* Profile pillars */
+      .pillars {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 3.5rem;
+      }
 
-    .pillar {
-      padding: 2rem 1.75rem;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: var(--surface);
-      transition: all 0.3s var(--ease-out);
-      position: relative;
-      overflow: hidden;
-    }
+      @media (max-width: 640px) {
+        .pillars {
+          grid-template-columns: 1fr;
+        }
+      }
 
-    .pillar::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s var(--ease-out);
-    }
+      .pillar {
+        padding: 2rem 1.75rem;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: var(--surface);
+        transition: all 0.3s var(--ease-out);
+        position: relative;
+        overflow: hidden;
+      }
 
-    .pillar:hover::before { transform: scaleX(1); }
+      .pillar::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s var(--ease-out);
+      }
 
-    .pillar:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
+      .pillar:hover::before {
+        transform: scaleX(1);
+      }
 
-    .pillar__num {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
+      .pillar:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+      }
 
-    .pillar__title {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin-bottom: 1rem;
-    }
+      .pillar__num {
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+      }
 
-    .pillar__list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.375rem;
-    }
+      .pillar__title {
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text);
+        margin-bottom: 1rem;
+      }
 
-    .pillar__item {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
+      .pillar__list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.375rem;
+      }
 
-    /* Projects */
-    .projects-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
+      .pillar__item {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
 
-    .projects-row {
-      display: grid;
-      gap: 2rem;
-    }
+      /* Projects */
+      .projects-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
 
-    .projects-row--1 { grid-template-columns: 1fr; }
-    .projects-row--2 { grid-template-columns: 1fr 1fr; }
-    .projects-row--2-1 { grid-template-columns: 2fr 1fr; }
+      .projects-row {
+        display: grid;
+        gap: 2rem;
+      }
 
-    @media (max-width: 768px) {
-      .projects-row--2,
-      .projects-row--2-1 { grid-template-columns: 1fr; }
-    }
+      .projects-row--1 {
+        grid-template-columns: 1fr;
+      }
+      .projects-row--2 {
+        grid-template-columns: 1fr 1fr;
+      }
+      .projects-row--2-1 {
+        grid-template-columns: 2fr 1fr;
+      }
 
-    /* Skills grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
+      @media (max-width: 768px) {
+        .projects-row--2,
+        .projects-row--2-1 {
+          grid-template-columns: 1fr;
+        }
+      }
 
-    @media (max-width: 1024px) { .skills-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 480px)  { .skills-grid { grid-template-columns: 1fr; } }
+      /* Skills grid */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+      }
 
-    /* CTA section */
-    .cta-section {
-      text-align: center;
-      padding: clamp(4rem, 8vw, 7rem) var(--gutter);
-      background: var(--surface-alt);
-      border-radius: 32px;
-      margin-block: clamp(2rem, 5vw, 4rem);
-      position: relative;
-      overflow: hidden;
-    }
+      @media (max-width: 1024px) {
+        .skills-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 480px) {
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
 
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(ellipse at center, var(--accent-light) 0%, transparent 70%);
-      pointer-events: none;
-    }
+      /* CTA section */
+      .cta-section {
+        text-align: center;
+        padding: clamp(4rem, 8vw, 7rem) var(--gutter);
+        background: var(--surface-alt);
+        border-radius: 32px;
+        margin-block: clamp(2rem, 5vw, 4rem);
+        position: relative;
+        overflow: hidden;
+      }
 
-    .cta-section__title {
-      margin-bottom: 1.25rem;
-    }
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          ellipse at center,
+          var(--accent-light) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
 
-    .cta-section__desc {
-      max-width: 44ch;
-      margin-inline: auto;
-      margin-bottom: 2.5rem;
-    }
+      .cta-section__title {
+        margin-bottom: 1.25rem;
+      }
 
-    .cta-section__actions {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+      .cta-section__desc {
+        max-width: 44ch;
+        margin-inline: auto;
+        margin-bottom: 2.5rem;
+      }
 
-    /* Hero visual decorative elements */
-    .hero__visual {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+      .cta-section__actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
 
-    .hero-card--loc {
-      top: 12%;
-      right: -5%;
-      transform: rotate(2deg);
-    }
+      /* Hero visual decorative elements */
+      .hero__visual {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-    .hero-card--tech {
-      bottom: 20%;
-      left: -8%;
-      transform: rotate(-1.5deg);
-    }
+      .hero-card--loc {
+        top: 12%;
+        right: -5%;
+        transform: rotate(2deg);
+      }
 
-    .hero-card--ui {
-      top: 50%;
-      right: -12%;
-      transform: rotate(1deg) translateY(-50%);
-    }
+      .hero-card--tech {
+        bottom: 20%;
+        left: -8%;
+        transform: rotate(-1.5deg);
+      }
 
-    @media (max-width: 900px) {
-      .hero-card--loc { right: 0; }
-      .hero-card--tech { left: 0; }
-      .hero-card--ui { display: none; }
-    }
+      .hero-card--ui {
+        top: 50%;
+        right: -12%;
+        transform: rotate(1deg) translateY(-50%);
+      }
 
-    /* Process bg number */
-    .process-bg-num {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      font-family: var(--font-display);
-      font-size: 12rem;
-      font-weight: 800;
-      color: var(--border);
-      opacity: 0.3;
-      pointer-events: none;
-      letter-spacing: -0.05em;
-      user-select: none;
-      line-height: 1;
-    }
-  </style>
-</head>
-<body>
+      @media (max-width: 900px) {
+        .hero-card--loc {
+          right: 0;
+        }
+        .hero-card--tech {
+          left: 0;
+        }
+        .hero-card--ui {
+          display: none;
+        }
+      }
 
-<!-- ─── Custom Cursor ──────────────────────────────────────── -->
-<div class="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" aria-hidden="true">
-  <span class="cursor-label"></span>
-</div>
+      /* Process bg number */
+      .process-bg-num {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: var(--font-display);
+        font-size: 12rem;
+        font-weight: 800;
+        color: var(--border);
+        opacity: 0.3;
+        pointer-events: none;
+        letter-spacing: -0.05em;
+        user-select: none;
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ─── Custom Cursor ──────────────────────────────────────── -->
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true">
+      <span class="cursor-label"></span>
+    </div>
 
-<!-- ─── Navbar ────────────────────────────────────────────── -->
-<header class="navbar" role="banner">
-  <div class="navbar__inner">
-    <a href="index.html" class="navbar__logo" aria-label="Nuno Amaro — Home">
-      <div class="logo-mark" aria-hidden="true">NA</div>
-      <span class="logo-text">Nuno Amaro</span>
-    </a>
+    <!-- ─── Navbar ────────────────────────────────────────────── -->
+    <header class="navbar" role="banner">
+      <div class="navbar__inner">
+        <a
+          href="index.html"
+          class="navbar__logo"
+          aria-label="Nuno Amaro — Home"
+        >
+          <div class="logo-mark" aria-hidden="true">NA</div>
+          <span class="logo-text">Nuno Amaro</span>
+        </a>
 
-    <nav class="navbar__links" role="navigation" aria-label="Main navigation">
-      <a href="#work"    class="navbar__link" data-i18n="nav.work">Work</a>
-      <a href="about.html"   class="navbar__link" data-i18n="nav.about">About</a>
-      <a href="#skills"  class="navbar__link" data-i18n="nav.skills">Skills</a>
-      <a href="contact.html" class="navbar__link" data-i18n="nav.contact">Contact</a>
+        <nav
+          class="navbar__links"
+          role="navigation"
+          aria-label="Main navigation"
+        >
+          <a href="#work" class="navbar__link" data-i18n="nav.work">Work</a>
+          <a href="about.html" class="navbar__link" data-i18n="nav.about"
+            >About</a
+          >
+          <a href="#skills" class="navbar__link" data-i18n="nav.skills"
+            >Skills</a
+          >
+          <a href="contact.html" class="navbar__link" data-i18n="nav.contact"
+            >Contact</a
+          >
+        </nav>
+
+        <div class="navbar__actions">
+          <div class="lang-switcher" aria-label="Language switcher">
+            <button
+              class="lang-btn lang-active"
+              data-lang="en"
+              aria-pressed="true"
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+            <div class="lang-divider" aria-hidden="true"></div>
+            <button
+              class="lang-btn"
+              data-lang="fr"
+              aria-pressed="false"
+              aria-label="Passer en français"
+            >
+              FR
+            </button>
+          </div>
+          <button
+            class="theme-toggle"
+            aria-label="Toggle dark/light mode"
+            title="Toggle theme"
+          >
+            <span class="theme-toggle-icon">☾</span>
+          </button>
+          <a href="contact.html" class="navbar__cta" data-i18n="nav.cta"
+            >Let's talk ↗</a
+          >
+          <button
+            class="menu-toggle"
+            aria-label="Toggle mobile menu"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ─── Mobile Nav ────────────────────────────────────────── -->
+    <nav class="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+      <ul class="mobile-nav__links" role="list">
+        <li>
+          <a href="#work" class="mobile-nav__link" data-i18n="nav.work">Work</a>
+        </li>
+        <li>
+          <a href="about.html" class="mobile-nav__link" data-i18n="nav.about"
+            >About</a
+          >
+        </li>
+        <li>
+          <a href="#skills" class="mobile-nav__link" data-i18n="nav.skills"
+            >Skills</a
+          >
+        </li>
+        <li>
+          <a
+            href="contact.html"
+            class="mobile-nav__link"
+            data-i18n="nav.contact"
+            >Contact</a
+          >
+        </li>
+      </ul>
+      <div class="mobile-nav__footer">
+        <a
+          href="https://www.linkedin.com/in/amaro-nuno/"
+          class="mobile-nav__social"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        <a
+          href="https://github.com/Pantufas17"
+          class="mobile-nav__social"
+          target="_blank"
+          rel="noopener"
+          >GitHub</a
+        >
+      </div>
     </nav>
 
-    <div class="navbar__actions">
-      <div class="lang-switcher" aria-label="Language switcher">
-        <button class="lang-btn lang-active" data-lang="en" aria-pressed="true"  aria-label="Switch to English">EN</button>
-        <div class="lang-divider" aria-hidden="true"></div>
-        <button class="lang-btn"              data-lang="fr" aria-pressed="false" aria-label="Passer en français">FR</button>
-      </div>
-      <button class="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">
-        <span class="theme-toggle-icon">☾</span>
-      </button>
-      <a href="contact.html" class="navbar__cta" data-i18n="nav.cta">Let's talk ↗</a>
-      <button class="menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</header>
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- ─── HERO ──────────────────────────────────────────────── -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <main>
+      <section class="hero container" aria-label="Introduction">
+        <!-- Left: Text -->
+        <div class="hero__content">
+          <h1
+            class="hero__title hero-enter hero-enter-2"
+            data-i18n-html="hero.title"
+          >
+            Media<br />
+            <em>Engineer</em><br />
+            building<br />
+            <span style="color: var(--text-muted); font-weight: 400"
+              >experiences.</span
+            >
+          </h1>
 
-<!-- ─── Mobile Nav ────────────────────────────────────────── -->
-<nav class="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
-  <ul class="mobile-nav__links" role="list">
-    <li><a href="#work"        class="mobile-nav__link" data-i18n="nav.work">Work</a></li>
-    <li><a href="about.html"   class="mobile-nav__link" data-i18n="nav.about">About</a></li>
-    <li><a href="#skills"      class="mobile-nav__link" data-i18n="nav.skills">Skills</a></li>
-    <li><a href="contact.html" class="mobile-nav__link" data-i18n="nav.contact">Contact</a></li>
-  </ul>
-  <div class="mobile-nav__footer">
-    <a href="https://www.linkedin.com/in/amaro-nuno/" class="mobile-nav__social" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/Pantufas17"      class="mobile-nav__social" target="_blank" rel="noopener">GitHub</a>
-  </div>
-</nav>
+          <p
+            class="text-lead hero__subtitle hero-enter hero-enter-3"
+            data-i18n-html="hero.subtitle"
+          >
+            Front-end developer &amp; UX/UI designer<br class="hide-mobile" />
+            based in Switzerland.
+          </p>
 
-<!-- ════════════════════════════════════════════════════════ -->
-<!-- ─── HERO ──────────────────────────────────────────────── -->
-<!-- ════════════════════════════════════════════════════════ -->
-<main>
-<section class="hero container" aria-label="Introduction">
+          <p
+            class="hero__tagline hero-enter hero-enter-4"
+            style="
+              font-size: 0.92rem;
+              color: var(--text-muted);
+              line-height: 1.7;
+              margin-bottom: 2.5rem;
+            "
+            data-i18n="hero.tagline"
+          >
+            I design and develop digital experiences at the intersection of
+            design, technology, and user experience.
+          </p>
 
-  <!-- Left: Text -->
-  <div class="hero__content">
+          <div class="hero__ctas hero-enter hero-enter-5">
+            <a href="#work" class="btn btn-primary" aria-label="View my work">
+              <span data-i18n="hero.cta-work">View my work</span>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M1 7h12M7 1l6 6-6 6"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <a
+              href="contact.html"
+              class="btn btn-secondary"
+              data-i18n="hero.cta-talk"
+              >Let's talk</a
+            >
+          </div>
 
-    <h1 class="hero__title hero-enter hero-enter-2" data-i18n-html="hero.title">
-      Media<br />
-      <em>Engineer</em><br />
-      building<br />
-      <span style="color: var(--text-muted); font-weight: 400;">experiences.</span>
-    </h1>
-
-    <p class="text-lead hero__subtitle hero-enter hero-enter-3" data-i18n-html="hero.subtitle">
-      Front-end developer &amp; UX/UI designer<br class="hide-mobile" />
-      based in Switzerland.
-    </p>
-
-    <p class="hero__tagline hero-enter hero-enter-4" style="font-size:0.92rem; color: var(--text-muted); line-height:1.7; margin-bottom: 2.5rem;" data-i18n="hero.tagline">
-      I design and develop digital experiences at the intersection of design, technology, and user experience.
-    </p>
-
-    <div class="hero__ctas hero-enter hero-enter-5">
-      <a href="#work" class="btn btn-primary" aria-label="View my work">
-        <span data-i18n="hero.cta-work">View my work</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a href="contact.html" class="btn btn-secondary" data-i18n="hero.cta-talk">Let's talk</a>
-    </div>
-
-    <div class="hero__meta hero-enter hero-enter-6">
-      <div class="hero__meta-item">
-        <span class="hero__meta-val" data-count="5" data-suffix="+">5+</span>
-        <span class="hero__meta-label" data-i18n="hero.meta-projects">Projects</span>
-      </div>
-      <div class="hero__meta-item">
-        <span class="hero__meta-val">3rd</span>
-        <span class="hero__meta-label" data-i18n="hero.meta-year">Year HEIG-VD</span>
-      </div>
-      <div class="hero__meta-item">
-        <span class="hero__meta-val">CH</span>
-        <span class="hero__meta-label" data-i18n="hero.meta-country">Switzerland</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Right: Visual -->
-  <div class="hero__visual hero-enter hero-enter-3">
-    <div class="hero-visual__bg" aria-hidden="true"></div>
-
-    <!-- Photo frame -->
-    <div class="hero-photo-frame">
-      <img
-        src="assets/img/Nuno_photo2.jpg"
-        alt="Nuno Amaro — Media Engineer"
-        class="hero-photo"
-        width="480"
-        height="600"
-        loading="eager"
-      />
-    </div>
-  </div><!-- /hero__visual -->
-
-  <!-- Scroll indicator -->
-  <div class="hero__scroll" aria-hidden="true">
-    <div class="scroll-indicator">
-      <span class="scroll-indicator__text">Scroll</span>
-      <div class="scroll-indicator__line"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── Tech Marquee ──────────────────────────────────────── -->
-<div class="marquee-wrapper" aria-hidden="true">
-  <div class="marquee-track">
-    <span class="marquee-item">HTML</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">CSS</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">JavaScript</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">Vue.js</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">PHP</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">Laravel</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">UX / UI</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">Java</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">SQL</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">Git</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">Figma</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">Adobe CC</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">Responsive Design</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">HEIG-VD</span>
-    <span class="marquee-dot"></span>
-  </div>
-</div>
-
-<!-- ════════════════════════════════════════════════════════ -->
-<!-- ─── SHORT ABOUT ───────────────────────────────────────── -->
-<!-- ════════════════════════════════════════════════════════ -->
-<section class="section-pad" aria-labelledby="about-heading">
-  <div class="container">
-    <div class="about-intro">
-      <!-- Left: Highlight text -->
-      <div class="reveal-left">
-        <div class="section-header__meta" style="margin-bottom:1.5rem;">
-          <span class="section-header__number">01</span>
-          <div class="section-header__line"></div>
-          <span class="section-header__label" data-i18n="about.label">About</span>
+          <div class="hero__meta hero-enter hero-enter-6">
+            <div class="hero__meta-item">
+              <span class="hero__meta-val" data-count="5" data-suffix="+"
+                >5+</span
+              >
+              <span class="hero__meta-label" data-i18n="hero.meta-projects"
+                >Projects</span
+              >
+            </div>
+            <div class="hero__meta-item">
+              <span class="hero__meta-val">3rd</span>
+              <span class="hero__meta-label" data-i18n="hero.meta-year"
+                >Year HEIG-VD</span
+              >
+            </div>
+            <div class="hero__meta-item">
+              <span class="hero__meta-val">CH</span>
+              <span class="hero__meta-label" data-i18n="hero.meta-country"
+                >Switzerland</span
+              >
+            </div>
+          </div>
         </div>
-        <p class="about-intro__highlight" id="about-heading" data-i18n-html="about.title">
-          A little bit<br />
-          about <em>me.</em>
-        </p>
-        <p class="text-lead" style="margin-bottom:1.5rem;" data-i18n="about.p1">
-          I'm a 3rd-year Media Engineering student at HEIG-VD in Switzerland, with a strong interest in building digital experiences that sit at the intersection of design, technology, and user experience.
-        </p>
-        <p style="font-size:0.92rem; color: var(--text-muted); line-height:1.75; margin-bottom:2rem;" data-i18n="about.p2">
-          My training gives me a global view of projects — from understanding a user's need and thinking through the experience, to crafting the interface and contributing to its development.
-        </p>
-        <a href="about.html" class="btn btn-ghost">
-          <span data-i18n="about.more">More about me</span>
-          <span class="btn-arrow" aria-hidden="true">→</span>
-        </a>
-      </div>
 
-      <!-- Right: Pillars -->
-      <div class="reveal-right">
-        <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-subtle); margin-bottom:1rem;" data-i18n="about.what">What I do</p>
-        <div class="pillars" style="grid-template-columns:1fr; gap:1rem; margin-top:0;">
+        <!-- Right: Visual -->
+        <div class="hero__visual hero-enter hero-enter-3">
+          <div class="hero-visual__bg" aria-hidden="true"></div>
 
-          <div class="pillar reveal delay-1">
-            <div class="pillar__num" data-i18n="about.p1-num">01 — Design</div>
-            <div class="pillar__title" data-i18n-html="about.p1-title">UX / UI</div>
-            <div class="pillar__list">
-              <span class="pillar__item" data-i18n-html="about.p1-i1">Wireframes &amp; prototypes</span>
-              <span class="pillar__item" data-i18n="about.p1-i2">User experience design</span>
-              <span class="pillar__item" data-i18n-html="about.p1-i3">Visual design &amp; design systems</span>
-            </div>
+          <!-- Photo frame -->
+          <div class="hero-photo-frame">
+            <img
+              src="assets/img/Nuno_photo2.jpg"
+              alt="Nuno Amaro — Media Engineer"
+              class="hero-photo"
+              width="480"
+              height="600"
+              loading="eager"
+            />
           </div>
-
-          <div class="pillar reveal delay-2">
-            <div class="pillar__num" data-i18n="about.p2-num">02 — Development</div>
-            <div class="pillar__title" data-i18n-html="about.p2-title">Front-end &amp; Web</div>
-            <div class="pillar__list">
-              <span class="pillar__item" data-i18n="about.p2-i1">HTML, CSS, JavaScript</span>
-              <span class="pillar__item" data-i18n="about.p2-i2">Vue.js, PHP, Laravel</span>
-              <span class="pillar__item" data-i18n-html="about.p2-i3">Responsive &amp; accessible code</span>
-            </div>
-          </div>
-
-          <div class="pillar reveal delay-3">
-            <div class="pillar__num" data-i18n="about.p3-num">03 — Digital</div>
-            <div class="pillar__title" data-i18n-html="about.p3-title">Media &amp; Communication</div>
-            <div class="pillar__list">
-              <span class="pillar__item" data-i18n="about.p3-i1">Project management</span>
-              <span class="pillar__item" data-i18n-html="about.p3-i2">Digital communication &amp; strategy</span>
-              <span class="pillar__item" data-i18n="about.p3-i3">Creative development</span>
-            </div>
-          </div>
-
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+        <!-- /hero__visual -->
 
-<!-- ════════════════════════════════════════════════════════ -->
-<!-- ─── SELECTED WORK ─────────────────────────────────────── -->
-<!-- ════════════════════════════════════════════════════════ -->
-<section class="section-pad" id="work" aria-labelledby="work-heading">
-  <div class="container">
-
-    <div class="section-header reveal">
-      <div class="section-header__meta">
-        <span class="section-header__number">02</span>
-        <div class="section-header__line"></div>
-        <span class="section-header__label" data-i18n="work.label">Selected work</span>
-      </div>
-      <h2 class="section-header__title" id="work-heading" data-i18n="work.title">Things I've built.</h2>
-      <p class="section-header__desc text-lead" data-i18n="work.desc">A curated selection of projects across design, development, and digital experience.</p>
-    </div>
-
-    <!-- Drag carousel -->
-    <div class="projects-carousel-wrap reveal">
-      <div class="projects-carousel" id="projectsCarousel">
-
-        <!-- 01 — F1 Safety -->
-        <a href="work/f1-data-visualization.html" class="project-card project-card--featured" aria-label="View F1 Safety project">
-          <div class="project-card__img-placeholder" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a0005 50%, #2d000d 100%);">
-            <span style="color:#E8003D; font-size: clamp(1.2rem, 3vw, 2rem); font-weight:800; letter-spacing:-0.03em;">F1 SAFETY</span>
+        <!-- Scroll indicator -->
+        <div class="hero__scroll" aria-hidden="true">
+          <div class="scroll-indicator">
+            <span class="scroll-indicator__text">Scroll</span>
+            <div class="scroll-indicator__line"></div>
           </div>
-          <div class="project-card__body">
-            <div class="project-card__meta">
-              <span class="project-card__category">Data Viz · Scrollytelling · 3D</span>
-              <span class="project-card__year">2026</span>
-            </div>
-            <h3 class="project-card__title">The Evolution of F1 Safety</h3>
-            <p class="project-card__desc" data-i18n="work.f1-desc">An interactive data-driven experience exploring the evolution of Formula 1 safety and performance from 1950 to today.</p>
-            <div class="project-card__tags">
-              <span class="tag">React</span>
-              <span class="tag">D3.js</span>
-              <span class="tag">Three.js</span>
-              <span class="tag">GSAP</span>
-            </div>
-            <span class="project-card__link">
-              <span data-i18n="work.view-cs">View case study</span>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 13L13 1M13 1H5M13 1v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </a>
+        </div>
+      </section>
 
-        <!-- 02 — CrewUp -->
-        <a href="work/crewup.html" class="project-card" aria-label="View CrewUp project">
-          <div class="project-card__img-placeholder">
-            <span>CrewUp</span>
-          </div>
-          <div class="project-card__body">
-            <div class="project-card__meta">
-              <span class="project-card__category">Web App · UX/UI</span>
-              <span class="project-card__year">[ADD DATE]</span>
-            </div>
-            <h3 class="project-card__title">CrewUp</h3>
-            <p class="project-card__desc" data-i18n="work.crewup-desc">A web application designed to organise and manage sporting events — from team creation to event coordination.</p>
-            <div class="project-card__tags">
-              <span class="tag">Vue.js</span>
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">UX/UI</span>
-            </div>
-            <span class="project-card__link">
-              <span data-i18n="work.view-cs">View case study</span>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 13L13 1M13 1H5M13 1v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- 03 — HUG -->
-        <a href="work/hug.html" class="project-card" aria-label="View HUG Blood Donation project">
-          <div class="project-card__img-placeholder">
-            <span>HUG</span>
-          </div>
-          <div class="project-card__body">
-            <div class="project-card__meta">
-              <span class="project-card__category">UX/UI · Web</span>
-              <span class="project-card__year">[ADD DATE]</span>
-            </div>
-            <h3 class="project-card__title">Blood Donation — HUG</h3>
-            <p class="project-card__desc" data-i18n="work.hug-desc">A web platform promoting blood donation, developed in collaboration with Geneva University Hospitals (HUG).</p>
-            <div class="project-card__tags">
-              <span class="tag">UX/UI</span>
-              <span class="tag">Web</span>
-              <span class="tag">HUG</span>
-            </div>
-            <span class="project-card__link">
-              <span data-i18n="work.view-cs">View case study</span>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 13L13 1M13 1H5M13 1v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- 04 — ODDS -->
-        <a href="work/odds.html" class="project-card" aria-label="View ODDS project">
-          <div class="project-card__img-placeholder">
-            <span>ODDS</span>
-          </div>
-          <div class="project-card__body">
-            <div class="project-card__meta">
-              <span class="project-card__category">UX Research · Digital Product</span>
-              <span class="project-card__year">[ADD DATE]</span>
-            </div>
-            <h3 class="project-card__title">ODDS</h3>
-            <p class="project-card__desc" data-i18n="work.odds-desc">A digital platform designed to improve organ donation in Switzerland — from UX research to interface design and prototype.</p>
-            <div class="project-card__tags">
-              <span class="tag">UX Research</span>
-              <span class="tag">Prototyping</span>
-              <span class="tag">UI</span>
-            </div>
-            <span class="project-card__link">
-              <span data-i18n="work.view-cs">View case study</span>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 13L13 1M13 1H5M13 1v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- 05 — La Chaux-de-Fonds -->
-        <a href="work/la-chaux-de-fonds.html" class="project-card" aria-label="View La Chaux-de-Fonds project">
-          <div class="project-card__img-placeholder">
-            <span style="font-size: clamp(1.5rem, 3vw, 2.5rem);">La CdF</span>
-          </div>
-          <div class="project-card__body">
-            <div class="project-card__meta">
-              <span class="project-card__category">Client Project · Web</span>
-              <span class="project-card__year">[ADD DATE]</span>
-            </div>
-            <h3 class="project-card__title">La Chaux-de-Fonds</h3>
-            <p class="project-card__desc" data-i18n="work.cdf-desc">Complete website designed and developed for the municipality of La Chaux-de-Fonds, based on a formal project brief.</p>
-            <div class="project-card__tags">
-              <span class="tag">HTML/CSS</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Client project</span>
-            </div>
-            <span class="project-card__link">
-              <span data-i18n="work.view-cs">View case study</span>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 13L13 1M13 1H5M13 1v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- 06 — Etoile Blanche -->
-        <a href="work/etoile-blanche.html" class="project-card" aria-label="View Etoile Blanche project">
-          <div class="project-card__img-placeholder">
-            <span style="font-size: 1.8rem;">ÉB</span>
-          </div>
-          <div class="project-card__body">
-            <div class="project-card__meta">
-              <span class="project-card__category">Digital Presence · UX</span>
-              <span class="project-card__year">[ADD DATE]</span>
-            </div>
-            <h3 class="project-card__title">Etoile Blanche</h3>
-            <p class="project-card__desc" data-i18n="work.eb-desc">Redesign of the digital presence and online communication for a Lausanne restaurant.</p>
-            <div class="project-card__tags">
-              <span class="tag">UX/UI</span>
-              <span class="tag">Redesign</span>
-              <span class="tag">Web</span>
-            </div>
-            <span class="project-card__link">
-              <span data-i18n="work.view-cs">View case study</span>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 13L13 1M13 1H5M13 1v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </a>
-
-      </div><!-- /projects-carousel -->
-    </div><!-- /projects-carousel-wrap -->
-
-    <!-- Navigation: dots + arrows -->
-    <div class="carousel-nav reveal">
-      <div class="carousel-dots" id="carouselDots" aria-hidden="true"></div>
-      <div class="carousel-arrows">
-        <button class="carousel-arrow" id="carouselPrev" aria-label="Previous project" disabled>&#8592;</button>
-        <button class="carousel-arrow" id="carouselNext" aria-label="Next project">&#8594;</button>
-      </div>
-    </div>
-
-    <div style="text-align:center; margin-top:2.5rem;" class="reveal">
-      <a href="work/index.html" class="btn btn-secondary" data-i18n="work.view-all">View all projects</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════ -->
-<!-- ─── SKILLS ────────────────────────────────────────────── -->
-<!-- ════════════════════════════════════════════════════════ -->
-<section class="section-pad" id="skills" style="background: var(--bg-alt);" aria-labelledby="skills-heading">
-  <div class="container">
-
-    <div class="section-header reveal">
-      <div class="section-header__meta">
-        <span class="section-header__number">03</span>
-        <div class="section-header__line"></div>
-        <span class="section-header__label" data-i18n="skills.label">Expertise</span>
-      </div>
-      <h2 class="section-header__title" id="skills-heading" data-i18n-html="skills.title">Skills &amp; tools.</h2>
-    </div>
-
-    <div class="skills-grid">
-
-      <div class="skill-category reveal delay-1">
-        <div class="skill-category__number">01</div>
-        <div class="skill-category__title">Development</div>
-        <div class="skill-category__items">
-          <span class="skill-badge">HTML</span>
-          <span class="skill-badge">CSS</span>
-          <span class="skill-badge">JavaScript</span>
-          <span class="skill-badge">Vue.js</span>
-          <span class="skill-badge">PHP</span>
-          <span class="skill-badge">Laravel</span>
-          <span class="skill-badge">Blade</span>
-          <span class="skill-badge">Java</span>
-          <span class="skill-badge">SQL</span>
+      <!-- ─── Tech Marquee ──────────────────────────────────────── -->
+      <div class="marquee-wrapper" aria-hidden="true">
+        <div class="marquee-track">
+          <span class="marquee-item">HTML</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">CSS</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">JavaScript</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Vue.js</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">PHP</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Laravel</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">UX / UI</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Java</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">SQL</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Git</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Figma</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Adobe CC</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Responsive Design</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">HEIG-VD</span>
+          <span class="marquee-dot"></span>
         </div>
       </div>
 
-      <div class="skill-category reveal delay-2">
-        <div class="skill-category__number">02</div>
-        <div class="skill-category__title">Design</div>
-        <div class="skill-category__items">
-          <span class="skill-badge">UX Design</span>
-          <span class="skill-badge">UI Design</span>
-          <span class="skill-badge">Wireframing</span>
-          <span class="skill-badge">Prototyping</span>
-          <span class="skill-badge">Responsive Design</span>
-          <span class="skill-badge">Design Systems</span>
-          <span class="skill-badge">Figma</span>
+      <!-- ════════════════════════════════════════════════════════ -->
+      <!-- ─── SHORT ABOUT ───────────────────────────────────────── -->
+      <!-- ════════════════════════════════════════════════════════ -->
+      <section class="section-pad" aria-labelledby="about-heading">
+        <div class="container">
+          <div class="about-intro">
+            <!-- Left: Highlight text -->
+            <div class="reveal-left">
+              <div class="section-header__meta" style="margin-bottom: 1.5rem">
+                <span class="section-header__number">01</span>
+                <div class="section-header__line"></div>
+                <span class="section-header__label" data-i18n="about.label"
+                  >About</span
+                >
+              </div>
+              <p
+                class="about-intro__highlight"
+                id="about-heading"
+                data-i18n-html="about.title"
+              >
+                A little bit<br />
+                about <em>me.</em>
+              </p>
+              <p
+                class="text-lead"
+                style="margin-bottom: 1.5rem"
+                data-i18n="about.p1"
+              >
+                I'm a 3rd-year Media Engineering student at HEIG-VD in
+                Switzerland, with a strong interest in building digital
+                experiences that sit at the intersection of design, technology,
+                and user experience.
+              </p>
+              <p
+                style="
+                  font-size: 0.92rem;
+                  color: var(--text-muted);
+                  line-height: 1.75;
+                  margin-bottom: 2rem;
+                "
+                data-i18n="about.p2"
+              >
+                My training gives me a global view of projects — from
+                understanding a user's need and thinking through the experience,
+                to crafting the interface and contributing to its development.
+              </p>
+              <a href="about.html" class="btn btn-ghost">
+                <span data-i18n="about.more">More about me</span>
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <!-- Right: Pillars -->
+            <div class="reveal-right">
+              <p
+                style="
+                  font-size: 0.7rem;
+                  font-weight: 600;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                  color: var(--text-subtle);
+                  margin-bottom: 1rem;
+                "
+                data-i18n="about.what"
+              >
+                What I do
+              </p>
+              <div
+                class="pillars"
+                style="grid-template-columns: 1fr; gap: 1rem; margin-top: 0"
+              >
+                <div class="pillar reveal delay-1">
+                  <div class="pillar__num" data-i18n="about.p1-num">
+                    01 — Design
+                  </div>
+                  <div class="pillar__title" data-i18n-html="about.p1-title">
+                    UX / UI
+                  </div>
+                  <div class="pillar__list">
+                    <span class="pillar__item" data-i18n-html="about.p1-i1"
+                      >Wireframes &amp; prototypes</span
+                    >
+                    <span class="pillar__item" data-i18n="about.p1-i2"
+                      >User experience design</span
+                    >
+                    <span class="pillar__item" data-i18n-html="about.p1-i3"
+                      >Visual design &amp; design systems</span
+                    >
+                  </div>
+                </div>
+
+                <div class="pillar reveal delay-2">
+                  <div class="pillar__num" data-i18n="about.p2-num">
+                    02 — Development
+                  </div>
+                  <div class="pillar__title" data-i18n-html="about.p2-title">
+                    Front-end &amp; Web
+                  </div>
+                  <div class="pillar__list">
+                    <span class="pillar__item" data-i18n="about.p2-i1"
+                      >HTML, CSS, JavaScript</span
+                    >
+                    <span class="pillar__item" data-i18n="about.p2-i2"
+                      >Vue.js, PHP, Laravel</span
+                    >
+                    <span class="pillar__item" data-i18n-html="about.p2-i3"
+                      >Responsive &amp; accessible code</span
+                    >
+                  </div>
+                </div>
+
+                <div class="pillar reveal delay-3">
+                  <div class="pillar__num" data-i18n="about.p3-num">
+                    03 — Digital
+                  </div>
+                  <div class="pillar__title" data-i18n-html="about.p3-title">
+                    Media &amp; Communication
+                  </div>
+                  <div class="pillar__list">
+                    <span class="pillar__item" data-i18n="about.p3-i1"
+                      >Project management</span
+                    >
+                    <span class="pillar__item" data-i18n-html="about.p3-i2"
+                      >Digital communication &amp; strategy</span
+                    >
+                    <span class="pillar__item" data-i18n="about.p3-i3"
+                      >Creative development</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════════ -->
+      <!-- ─── SELECTED WORK ─────────────────────────────────────── -->
+      <!-- ════════════════════════════════════════════════════════ -->
+      <section class="section-pad" id="work" aria-labelledby="work-heading">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="section-header__meta">
+              <span class="section-header__number">02</span>
+              <div class="section-header__line"></div>
+              <span class="section-header__label" data-i18n="work.label"
+                >Selected work</span
+              >
+            </div>
+            <h2
+              class="section-header__title"
+              id="work-heading"
+              data-i18n="work.title"
+            >
+              Things I've built.
+            </h2>
+            <p class="section-header__desc text-lead" data-i18n="work.desc">
+              A curated selection of projects across design, development, and
+              digital experience.
+            </p>
+          </div>
+
+          <!-- Drag carousel -->
+          <div class="projects-carousel-wrap reveal">
+            <div class="projects-carousel" id="projectsCarousel">
+              <!-- 01 — F1 Safety -->
+              <a
+                href="work/f1-data-visualization.html"
+                class="project-card project-card--featured"
+                aria-label="View F1 Safety project"
+              >
+                <div
+                  class="project-card__img-placeholder"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #0a0a0a 0%,
+                      #1a0005 50%,
+                      #2d000d 100%
+                    );
+                  "
+                >
+                  <span
+                    style="
+                      color: #e8003d;
+                      font-size: clamp(1.2rem, 3vw, 2rem);
+                      font-weight: 800;
+                      letter-spacing: -0.03em;
+                    "
+                    >F1 SAFETY</span
+                  >
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__meta">
+                    <span class="project-card__category"
+                      >Data Viz · Scrollytelling · 3D</span
+                    >
+                    <span class="project-card__year">2026</span>
+                  </div>
+                  <h3 class="project-card__title">
+                    The Evolution of F1 Safety
+                  </h3>
+                  <p class="project-card__desc" data-i18n="work.f1-desc">
+                    An interactive data-driven experience exploring the
+                    evolution of Formula 1 safety and performance from 1950 to
+                    today.
+                  </p>
+                  <div class="project-card__tags">
+                    <span class="tag">React</span>
+                    <span class="tag">D3.js</span>
+                    <span class="tag">Three.js</span>
+                    <span class="tag">GSAP</span>
+                  </div>
+                  <span class="project-card__link">
+                    <span data-i18n="work.view-cs">View case study</span>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M1 13L13 1M13 1H5M13 1v8"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+
+              <!-- 02 — CrewUp -->
+              <a
+                href="work/crewup.html"
+                class="project-card"
+                aria-label="View CrewUp project"
+              >
+                <div class="project-card__img-placeholder">
+                  <span>CrewUp</span>
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__meta">
+                    <span class="project-card__category">Web App · UX/UI</span>
+                    <span class="project-card__year">[ADD DATE]</span>
+                  </div>
+                  <h3 class="project-card__title">CrewUp</h3>
+                  <p class="project-card__desc" data-i18n="work.crewup-desc">
+                    A web application designed to organise and manage sporting
+                    events — from team creation to event coordination.
+                  </p>
+                  <div class="project-card__tags">
+                    <span class="tag">Vue.js</span>
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">UX/UI</span>
+                  </div>
+                  <span class="project-card__link">
+                    <span data-i18n="work.view-cs">View case study</span>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M1 13L13 1M13 1H5M13 1v8"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+
+              <!-- 03 — HUG -->
+              <a
+                href="work/hug.html"
+                class="project-card"
+                aria-label="View HUG Blood Donation project"
+              >
+                <div class="project-card__img-placeholder">
+                  <span>HUG</span>
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__meta">
+                    <span class="project-card__category">UX/UI · Web</span>
+                    <span class="project-card__year">[ADD DATE]</span>
+                  </div>
+                  <h3 class="project-card__title">Blood Donation — HUG</h3>
+                  <p class="project-card__desc" data-i18n="work.hug-desc">
+                    A web platform promoting blood donation, developed in
+                    collaboration with Geneva University Hospitals (HUG).
+                  </p>
+                  <div class="project-card__tags">
+                    <span class="tag">UX/UI</span>
+                    <span class="tag">Web</span>
+                    <span class="tag">HUG</span>
+                  </div>
+                  <span class="project-card__link">
+                    <span data-i18n="work.view-cs">View case study</span>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M1 13L13 1M13 1H5M13 1v8"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+
+              <!-- 04 — ODDS -->
+              <a
+                href="work/odds.html"
+                class="project-card"
+                aria-label="View ODDS project"
+              >
+                <div class="project-card__img-placeholder">
+                  <span>ODDS</span>
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__meta">
+                    <span class="project-card__category"
+                      >UX Research · Digital Product</span
+                    >
+                    <span class="project-card__year">[ADD DATE]</span>
+                  </div>
+                  <h3 class="project-card__title">ODDS</h3>
+                  <p class="project-card__desc" data-i18n="work.odds-desc">
+                    A digital platform designed to improve organ donation in
+                    Switzerland — from UX research to interface design and
+                    prototype.
+                  </p>
+                  <div class="project-card__tags">
+                    <span class="tag">UX Research</span>
+                    <span class="tag">Prototyping</span>
+                    <span class="tag">UI</span>
+                  </div>
+                  <span class="project-card__link">
+                    <span data-i18n="work.view-cs">View case study</span>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M1 13L13 1M13 1H5M13 1v8"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+
+              <!-- 05 — La Chaux-de-Fonds -->
+              <a
+                href="work/la-chaux-de-fonds.html"
+                class="project-card"
+                aria-label="View La Chaux-de-Fonds project"
+              >
+                <div class="project-card__img-placeholder">
+                  <span style="font-size: clamp(1.5rem, 3vw, 2.5rem)"
+                    >La CdF</span
+                  >
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__meta">
+                    <span class="project-card__category"
+                      >Client Project · Web</span
+                    >
+                    <span class="project-card__year">[ADD DATE]</span>
+                  </div>
+                  <h3 class="project-card__title">La Chaux-de-Fonds</h3>
+                  <p class="project-card__desc" data-i18n="work.cdf-desc">
+                    Complete website designed and developed for the municipality
+                    of La Chaux-de-Fonds, based on a formal project brief.
+                  </p>
+                  <div class="project-card__tags">
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Client project</span>
+                  </div>
+                  <span class="project-card__link">
+                    <span data-i18n="work.view-cs">View case study</span>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M1 13L13 1M13 1H5M13 1v8"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+
+              <!-- 06 — Etoile Blanche -->
+              <a
+                href="work/etoile-blanche.html"
+                class="project-card"
+                aria-label="View Etoile Blanche project"
+              >
+                <div class="project-card__img-placeholder">
+                  <span style="font-size: 1.8rem">ÉB</span>
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__meta">
+                    <span class="project-card__category"
+                      >Digital Presence · UX</span
+                    >
+                    <span class="project-card__year">[ADD DATE]</span>
+                  </div>
+                  <h3 class="project-card__title">Etoile Blanche</h3>
+                  <p class="project-card__desc" data-i18n="work.eb-desc">
+                    Redesign of the digital presence and online communication
+                    for a Lausanne restaurant.
+                  </p>
+                  <div class="project-card__tags">
+                    <span class="tag">UX/UI</span>
+                    <span class="tag">Redesign</span>
+                    <span class="tag">Web</span>
+                  </div>
+                  <span class="project-card__link">
+                    <span data-i18n="work.view-cs">View case study</span>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M1 13L13 1M13 1H5M13 1v8"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </div>
+            <!-- /projects-carousel -->
+          </div>
+          <!-- /projects-carousel-wrap -->
+
+          <!-- Navigation: dots + arrows -->
+          <div class="carousel-nav reveal">
+            <div
+              class="carousel-dots"
+              id="carouselDots"
+              aria-hidden="true"
+            ></div>
+            <div class="carousel-arrows">
+              <button
+                class="carousel-arrow"
+                id="carouselPrev"
+                aria-label="Previous project"
+                disabled
+              >
+                &#8592;
+              </button>
+              <button
+                class="carousel-arrow"
+                id="carouselNext"
+                aria-label="Next project"
+              >
+                &#8594;
+              </button>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 2.5rem" class="reveal">
+            <a
+              href="work/index.html"
+              class="btn btn-secondary"
+              data-i18n="work.view-all"
+              >View all projects</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════════ -->
+      <!-- ─── SKILLS ────────────────────────────────────────────── -->
+      <!-- ════════════════════════════════════════════════════════ -->
+      <section
+        class="section-pad"
+        id="skills"
+        style="background: var(--bg-alt)"
+        aria-labelledby="skills-heading"
+      >
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="section-header__meta">
+              <span class="section-header__number">03</span>
+              <div class="section-header__line"></div>
+              <span class="section-header__label" data-i18n="skills.label"
+                >Expertise</span
+              >
+            </div>
+            <h2
+              class="section-header__title"
+              id="skills-heading"
+              data-i18n-html="skills.title"
+            >
+              Skills &amp; tools.
+            </h2>
+          </div>
+
+          <div class="skills-grid">
+            <div class="skill-category reveal delay-1">
+              <div class="skill-category__number">01</div>
+              <div class="skill-category__title">Development</div>
+              <div class="skill-category__items">
+                <span class="skill-badge">HTML</span>
+                <span class="skill-badge">CSS</span>
+                <span class="skill-badge">JavaScript</span>
+                <span class="skill-badge">Vue.js</span>
+                <span class="skill-badge">PHP</span>
+                <span class="skill-badge">Laravel</span>
+                <span class="skill-badge">Blade</span>
+                <span class="skill-badge">Java</span>
+                <span class="skill-badge">SQL</span>
+              </div>
+            </div>
+
+            <div class="skill-category reveal delay-2">
+              <div class="skill-category__number">02</div>
+              <div class="skill-category__title">Design</div>
+              <div class="skill-category__items">
+                <span class="skill-badge">UX Design</span>
+                <span class="skill-badge">UI Design</span>
+                <span class="skill-badge">Wireframing</span>
+                <span class="skill-badge">Prototyping</span>
+                <span class="skill-badge">Responsive Design</span>
+                <span class="skill-badge">Design Systems</span>
+                <span class="skill-badge">Figma</span>
+              </div>
+            </div>
+
+            <div class="skill-category reveal delay-3">
+              <div class="skill-category__number">03</div>
+              <div class="skill-category__title">Tools</div>
+              <div class="skill-category__items">
+                <span class="skill-badge">Git</span>
+                <span class="skill-badge">GitHub</span>
+                <span class="skill-badge">VS Code</span>
+                <span class="skill-badge">Netlify</span>
+                <span class="skill-badge">Azure</span>
+                <span class="skill-badge">Adobe CC</span>
+                <span class="skill-badge">Photoshop</span>
+                <span class="skill-badge">Illustrator</span>
+              </div>
+            </div>
+
+            <div class="skill-category reveal delay-4">
+              <div class="skill-category__number">04</div>
+              <div class="skill-category__title">Digital</div>
+              <div class="skill-category__items">
+                <span class="skill-badge">Project Management</span>
+                <span class="skill-badge">Digital Communication</span>
+                <span class="skill-badge">Web Strategy</span>
+                <span class="skill-badge">Content Creation</span>
+                <span class="skill-badge">Teamwork</span>
+                <span class="skill-badge">Agile</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Second Marquee ────────────────────────────────────── -->
+      <div
+        class="marquee-wrapper"
+        aria-hidden="true"
+        style="background: var(--bg-alt)"
+      >
+        <div class="marquee-track" style="animation-direction: reverse">
+          <span class="marquee-item">Vue.js</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Laravel</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">UX Research</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Figma</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Responsive Design</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Git</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Adobe CC</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Design Systems</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Prototyping</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">PHP</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">SQL</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">JavaScript</span>
+          <span class="marquee-dot"></span>
         </div>
       </div>
 
-      <div class="skill-category reveal delay-3">
-        <div class="skill-category__number">03</div>
-        <div class="skill-category__title">Tools</div>
-        <div class="skill-category__items">
-          <span class="skill-badge">Git</span>
-          <span class="skill-badge">GitHub</span>
-          <span class="skill-badge">VS Code</span>
-          <span class="skill-badge">Netlify</span>
-          <span class="skill-badge">Azure</span>
-          <span class="skill-badge">Adobe CC</span>
-          <span class="skill-badge">Photoshop</span>
-          <span class="skill-badge">Illustrator</span>
+      <!-- ════════════════════════════════════════════════════════ -->
+      <!-- ─── PROCESS ───────────────────────────────────────────── -->
+      <!-- ════════════════════════════════════════════════════════ -->
+      <section
+        class="section-pad"
+        id="process"
+        aria-labelledby="process-heading"
+      >
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="section-header__meta">
+              <span class="section-header__number">04</span>
+              <div class="section-header__line"></div>
+              <span class="section-header__label" data-i18n="process.label"
+                >Process</span
+              >
+            </div>
+            <h2
+              class="section-header__title"
+              id="process-heading"
+              data-i18n="process.title"
+            >
+              How I work.
+            </h2>
+            <p
+              class="section-header__desc text-lead"
+              data-i18n="process.subtitle"
+            >
+              I don't start by opening a code editor. I start by understanding.
+            </p>
+          </div>
+
+          <div class="reveal">
+            <div class="process-step">
+              <div class="process-step__num">01</div>
+              <div class="process-step__content">
+                <h3 class="process-step__title" data-i18n="process.1-title">
+                  Understand
+                </h3>
+                <p class="process-step__desc" data-i18n="process.1-desc">
+                  I begin by listening — to the problem, the users, and the
+                  goals. No assumptions. Understanding deeply before acting.
+                </p>
+              </div>
+            </div>
+
+            <div class="process-step">
+              <div class="process-step__num">02</div>
+              <div class="process-step__content">
+                <h3 class="process-step__title" data-i18n="process.2-title">
+                  Explore
+                </h3>
+                <p class="process-step__desc" data-i18n="process.2-desc">
+                  Research, competitive analysis, user journeys. I generate
+                  ideas and challenge them before committing to a direction.
+                </p>
+              </div>
+            </div>
+
+            <div class="process-step">
+              <div class="process-step__num">03</div>
+              <div class="process-step__content">
+                <h3 class="process-step__title" data-i18n="process.3-title">
+                  Design
+                </h3>
+                <p class="process-step__desc" data-i18n="process.3-desc">
+                  From rough wireframes to polished interfaces. I translate
+                  thinking into visuals — always with the user experience at the
+                  core.
+                </p>
+              </div>
+            </div>
+
+            <div class="process-step">
+              <div class="process-step__num">04</div>
+              <div class="process-step__content">
+                <h3 class="process-step__title" data-i18n="process.4-title">
+                  Build
+                </h3>
+                <p class="process-step__desc" data-i18n="process.4-desc">
+                  I develop the solution with clean, maintainable code.
+                  Responsive by default. Accessible from the start.
+                </p>
+              </div>
+            </div>
+
+            <div class="process-step">
+              <div class="process-step__num">05</div>
+              <div class="process-step__content">
+                <h3 class="process-step__title" data-i18n="process.5-title">
+                  Improve
+                </h3>
+                <p class="process-step__desc" data-i18n="process.5-desc">
+                  Shipping is not the end. I test, observe, and iterate —
+                  because good products grow over time.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════════ -->
+      <!-- ─── CONTACT CTA ───────────────────────────────────────── -->
+      <!-- ════════════════════════════════════════════════════════ -->
+      <section class="section-pad-sm" aria-label="Contact call to action">
+        <div class="container">
+          <div class="cta-section reveal">
+            <div
+              class="section-header__meta"
+              style="justify-content: center; margin-bottom: 1.5rem"
+            >
+              <span class="section-header__number">05</span>
+              <div class="section-header__line"></div>
+              <span class="section-header__label" data-i18n="cta.label"
+                >Let's connect</span
+              >
+            </div>
+            <h2
+              class="section-header__title cta-section__title"
+              data-i18n-html="cta.title"
+            >
+              Have a project<br />in mind?
+            </h2>
+            <p class="text-lead cta-section__desc" data-i18n="cta.desc">
+              A project, an opportunity, or just want to say hello? I'd love to
+              hear from you.
+            </p>
+            <div class="cta-section__actions">
+              <a href="contact.html" class="btn btn-primary">
+                <span data-i18n="cta.btn">Get in touch</span>
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M1 7h12M7 1l6 6-6 6"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/amaro-nuno/"
+                class="btn btn-secondary"
+                target="_blank"
+                rel="noopener"
+              >
+                LinkedIn ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ─── Footer ────────────────────────────────────────────── -->
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <div class="logo-mark" aria-hidden="true">NA</div>
+            <p style="margin-top: 1rem" data-i18n="footer.brand">
+              Designing and building digital experiences with curiosity.
+            </p>
+          </div>
+
+          <div class="footer__nav">
+            <div class="footer__nav-group">
+              <div class="footer__nav-label" data-i18n="footer.nav-label">
+                Navigation
+              </div>
+              <ul class="footer__nav-links" role="list">
+                <li><a href="index.html" class="footer__nav-link">Home</a></li>
+                <li>
+                  <a href="#work" class="footer__nav-link" data-i18n="nav.work"
+                    >Work</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="about.html"
+                    class="footer__nav-link"
+                    data-i18n="nav.about"
+                    >About</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="contact.html"
+                    class="footer__nav-link"
+                    data-i18n="nav.contact"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="footer__nav-group">
+              <div class="footer__nav-label" data-i18n="footer.soc-label">
+                Social
+              </div>
+              <ul class="footer__nav-links" role="list">
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/amaro-nuno/"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener"
+                    >LinkedIn ↗</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/Pantufas17"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub ↗</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="mailto:nunoamarofaria@hotmail.com"
+                    class="footer__nav-link"
+                    >Email</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <span class="footer__copyright" data-i18n="footer.copy"
+            >© 2026 Nuno Amaro. All rights reserved.</span
+          >
+          <!-- <span class="footer__tagline" data-i18n-html="footer.tagline">Designed &amp; built with curiosity.</span> -->
         </div>
       </div>
+    </footer>
 
-      <div class="skill-category reveal delay-4">
-        <div class="skill-category__number">04</div>
-        <div class="skill-category__title">Digital</div>
-        <div class="skill-category__items">
-          <span class="skill-badge">Project Management</span>
-          <span class="skill-badge">Digital Communication</span>
-          <span class="skill-badge">Web Strategy</span>
-          <span class="skill-badge">Content Creation</span>
-          <span class="skill-badge">Teamwork</span>
-          <span class="skill-badge">Agile</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ─── Second Marquee ────────────────────────────────────── -->
-<div class="marquee-wrapper" aria-hidden="true" style="background: var(--bg-alt);">
-  <div class="marquee-track" style="animation-direction: reverse;">
-    <span class="marquee-item">Vue.js</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">Laravel</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">UX Research</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">Figma</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">Responsive Design</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">Git</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">Adobe CC</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">Design Systems</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">Prototyping</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">PHP</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">SQL</span>
-    <span class="marquee-dot"></span>
-    <span class="marquee-item">JavaScript</span>
-    <span class="marquee-dot"></span>
-  </div>
-</div>
-
-<!-- ════════════════════════════════════════════════════════ -->
-<!-- ─── PROCESS ───────────────────────────────────────────── -->
-<!-- ════════════════════════════════════════════════════════ -->
-<section class="section-pad" id="process" aria-labelledby="process-heading">
-  <div class="container">
-
-    <div class="section-header reveal">
-      <div class="section-header__meta">
-        <span class="section-header__number">04</span>
-        <div class="section-header__line"></div>
-        <span class="section-header__label" data-i18n="process.label">Process</span>
-      </div>
-      <h2 class="section-header__title" id="process-heading" data-i18n="process.title">How I work.</h2>
-      <p class="section-header__desc text-lead" data-i18n="process.subtitle">I don't start by opening a code editor. I start by understanding.</p>
-    </div>
-
-    <div class="reveal">
-      <div class="process-step">
-        <div class="process-step__num">01</div>
-        <div class="process-step__content">
-          <h3 class="process-step__title" data-i18n="process.1-title">Understand</h3>
-          <p class="process-step__desc" data-i18n="process.1-desc">I begin by listening — to the problem, the users, and the goals. No assumptions. Understanding deeply before acting.</p>
-        </div>
-      </div>
-
-      <div class="process-step">
-        <div class="process-step__num">02</div>
-        <div class="process-step__content">
-          <h3 class="process-step__title" data-i18n="process.2-title">Explore</h3>
-          <p class="process-step__desc" data-i18n="process.2-desc">Research, competitive analysis, user journeys. I generate ideas and challenge them before committing to a direction.</p>
-        </div>
-      </div>
-
-      <div class="process-step">
-        <div class="process-step__num">03</div>
-        <div class="process-step__content">
-          <h3 class="process-step__title" data-i18n="process.3-title">Design</h3>
-          <p class="process-step__desc" data-i18n="process.3-desc">From rough wireframes to polished interfaces. I translate thinking into visuals — always with the user experience at the core.</p>
-        </div>
-      </div>
-
-      <div class="process-step">
-        <div class="process-step__num">04</div>
-        <div class="process-step__content">
-          <h3 class="process-step__title" data-i18n="process.4-title">Build</h3>
-          <p class="process-step__desc" data-i18n="process.4-desc">I develop the solution with clean, maintainable code. Responsive by default. Accessible from the start.</p>
-        </div>
-      </div>
-
-      <div class="process-step">
-        <div class="process-step__num">05</div>
-        <div class="process-step__content">
-          <h3 class="process-step__title" data-i18n="process.5-title">Improve</h3>
-          <p class="process-step__desc" data-i18n="process.5-desc">Shipping is not the end. I test, observe, and iterate — because good products grow over time.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════ -->
-<!-- ─── CONTACT CTA ───────────────────────────────────────── -->
-<!-- ════════════════════════════════════════════════════════ -->
-<section class="section-pad-sm" aria-label="Contact call to action">
-  <div class="container">
-    <div class="cta-section reveal">
-      <div class="section-header__meta" style="justify-content:center; margin-bottom:1.5rem;">
-        <span class="section-header__number">05</span>
-        <div class="section-header__line"></div>
-        <span class="section-header__label" data-i18n="cta.label">Let's connect</span>
-      </div>
-      <h2 class="section-header__title cta-section__title" data-i18n-html="cta.title">Have a project<br />in mind?</h2>
-      <p class="text-lead cta-section__desc" data-i18n="cta.desc">A project, an opportunity, or just want to say hello? I'd love to hear from you.</p>
-      <div class="cta-section__actions">
-        <a href="contact.html" class="btn btn-primary">
-          <span data-i18n="cta.btn">Get in touch</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/amaro-nuno/" class="btn btn-secondary" target="_blank" rel="noopener">
-          LinkedIn ↗
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- ─── Footer ────────────────────────────────────────────── -->
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <div class="logo-mark" aria-hidden="true">NA</div>
-        <p style="margin-top:1rem;" data-i18n="footer.brand">Designing and building digital experiences with curiosity.</p>
-      </div>
-
-      <div class="footer__nav">
-        <div class="footer__nav-group">
-          <div class="footer__nav-label" data-i18n="footer.nav-label">Navigation</div>
-          <ul class="footer__nav-links" role="list">
-            <li><a href="index.html"    class="footer__nav-link">Home</a></li>
-            <li><a href="#work"         class="footer__nav-link" data-i18n="nav.work">Work</a></li>
-            <li><a href="about.html"    class="footer__nav-link" data-i18n="nav.about">About</a></li>
-            <li><a href="contact.html"  class="footer__nav-link" data-i18n="nav.contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer__nav-group">
-          <div class="footer__nav-label" data-i18n="footer.soc-label">Social</div>
-          <ul class="footer__nav-links" role="list">
-            <li><a href="https://www.linkedin.com/in/amaro-nuno/" class="footer__nav-link" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-            <li><a href="https://github.com/Pantufas17"      class="footer__nav-link" target="_blank" rel="noopener">GitHub ↗</a></li>
-            <li><a href="mailto:nunoamarofaria@hotmail.com"                class="footer__nav-link">Email</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer__bottom">
-      <span class="footer__copyright" data-i18n="footer.copy">© 2026 Nuno Amaro. All rights reserved.</span>
-      <!-- <span class="footer__tagline" data-i18n-html="footer.tagline">Designed &amp; built with curiosity.</span> -->
-    </div>
-  </div>
-</footer>
-
-<!-- ─── Scripts ───────────────────────────────────────────── -->
-<script src="js/i18n.js"       defer></script>
-<script src="js/main.js"       defer></script>
-<script src="js/cursor.js"     defer></script>
-<script src="js/animations.js" defer></script>
-<script src="js/marquee.js"    defer></script>
-
-</body>
+    <!-- ─── Scripts ───────────────────────────────────────────── -->
+    <script src="js/i18n.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/cursor.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/marquee.js" defer></script>
+  </body>
 </html>
