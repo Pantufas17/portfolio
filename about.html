@@ -74,11 +74,16 @@
       .interests-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
+        gap: 1.5rem;
       }
-      @media (max-width: 600px) {
+      @media (max-width: 900px) {
         .interests-grid {
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 540px) {
+        .interests-grid {
+          grid-template-columns: 1fr;
         }
       }
       .stat-item {
@@ -293,13 +298,21 @@
                 <img
                   src="assets/img/Nuno_photo2.jpg"
                   alt="Nuno Amaro — Media Engineer"
-                  style="width:100%; height:100%; object-fit:cover; display:block;"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                  "
                   loading="eager"
                 />
               </div>
 
               <!-- Stats under photo -->
-              <div class="grid-3" style="margin-top: 1.5rem; gap: 0.75rem; max-width: 420px;">
+              <div
+                class="grid-3"
+                style="margin-top: 1.5rem; gap: 0.75rem; max-width: 420px"
+              >
                 <div class="stat-item reveal delay-1">
                   <span class="stat-item__val" data-count="5" data-suffix="+"
                     >5+</span
@@ -359,10 +372,10 @@
                   data-i18n="ap.p2"
                 >
                   I'm particularly interested in the intersection of design and
-                  technology — building digital experiences that are both
-                  visually strong and technically solid. I enjoy working on
-                  projects where I can think about the user, design the
-                  interface, and contribute to the code.
+                  technology building digital experiences that are both visually
+                  strong and technically solid. I enjoy working on projects
+                  where I can think about the user, design the interface, and
+                  contribute to the code.
                 </p>
                 <p
                   style="
@@ -373,9 +386,9 @@
                   data-i18n="ap.p3"
                 >
                   My formation at HEIG-VD gives me a global perspective on
-                  digital projects — from understanding a user's need and
-                  thinking through the experience, to designing the interface
-                  and participating in its development.
+                  digital projects from understanding a user's need and thinking
+                  through the experience, to designing the interface and
+                  participating in its development.
                 </p>
               </div>
 
@@ -513,7 +526,7 @@
       </section>
 
       <!-- ─── Beyond the screen ──────────────────────────────────── -->
-      <section class="section-pad">
+      <section id="personal" class="section-pad">
         <div class="container">
           <div
             class="section-header reveal"
@@ -534,55 +547,408 @@
           </div>
 
           <div class="interests-grid" data-stagger="100">
-            <div class="interest-card">
-              <span class="interest-card__emoji">📸</span>
-              <div class="interest-card__title">Photography</div>
-              <div class="interest-card__desc">
-                [ADD: Your relationship with photography — street, portrait,
-                architecture?]
-              </div>
-            </div>
+            <!-- Sport -->
+            <a
+              href="passions.html#sport"
+              class="interest-card"
+              aria-label="Passion Sport"
+            >
+              <img
+                src="assets/img/soccer.jpg"
+                alt="Sport"
+                class="interest-card__bg"
+                loading="lazy"
+              />
+              <div class="interest-card__overlay"></div>
 
-            <div class="interest-card">
-              <span class="interest-card__emoji">🎬</span>
-              <div class="interest-card__title">Video / Film</div>
-              <div class="interest-card__desc">
-                [ADD: Your interest in video production or cinema]
+              <!-- Resting state content -->
+              <div class="interest-card__content">
+                <span class="interest-card__tag">Passion 01</span>
+                <h3 class="interest-card__title" data-i18n="ap.int-sport">
+                  Sport
+                </h3>
+                <p class="interest-card__desc" data-i18n="ap.int-sport-desc">
+                  Football, condition physique &amp; discipline.
+                </p>
               </div>
-            </div>
 
-            <div class="interest-card">
-              <span class="interest-card__emoji">🏃</span>
-              <div class="interest-card__title">Sport</div>
-              <div class="interest-card__desc">
-                [ADD: Your sport(s) — running, football, climbing?]
+              <!-- Floating Preview Window (revealed on hover) -->
+              <div class="interest-card__preview">
+                <div class="interest-preview__header">
+                  <span class="interest-preview__tag">Passion 01</span>
+                  <span class="interest-preview__badge">Preview</span>
+                </div>
+                <div>
+                  <h3 class="interest-preview__title" data-i18n="ap.int-sport">
+                    Sport
+                  </h3>
+                  <p
+                    class="interest-preview__text"
+                    data-i18n="ap.int-sport-preview"
+                  >
+                    Le sport est mon moteur quotidien. Passionné de football et
+                    d'entraînement physique, j'y puise ma rigueur, le sens du
+                    collectif et le dépassement de soi.
+                  </p>
+                </div>
+                <div class="interest-preview__footer">
+                  <span
+                    class="interest-preview__cta-label"
+                    data-i18n="ap.int-preview-cta"
+                    >Découvrir la passion</span
+                  >
+                  <div class="interest-preview__arrow-btn" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </div>
+                </div>
               </div>
-            </div>
+            </a>
 
-            <div class="interest-card">
-              <span class="interest-card__emoji">🎵</span>
-              <div class="interest-card__title">Music</div>
-              <div class="interest-card__desc">
-                [ADD: Your relationship with music]
-              </div>
-            </div>
+            <!-- Cars -->
+            <a
+              href="passions.html#cars"
+              class="interest-card"
+              aria-label="Passion Cars"
+            >
+              <img
+                src="assets/img/cars.jpg"
+                alt="Cars"
+                class="interest-card__bg"
+                loading="lazy"
+              />
+              <div class="interest-card__overlay"></div>
 
-            <div class="interest-card">
-              <span class="interest-card__emoji">🌍</span>
-              <div class="interest-card__title">Travel</div>
-              <div class="interest-card__desc">
-                [ADD: Places you've been, inspiration from travel]
+              <!-- Resting state content -->
+              <div class="interest-card__content">
+                <span class="interest-card__tag">Passion 02</span>
+                <h3 class="interest-card__title" data-i18n="ap.int-cars">
+                  Cars
+                </h3>
+                <p class="interest-card__desc" data-i18n="ap.int-cars-desc">
+                  Design automobile, ingénierie &amp; motorsport.
+                </p>
               </div>
-            </div>
 
-            <div class="interest-card">
-              <span class="interest-card__emoji">💡</span>
-              <div class="interest-card__title">Creative tech</div>
-              <div class="interest-card__desc">
-                Experimenting with generative design, creative coding, and
-                digital art
+              <!-- Floating Preview Window (revealed on hover) -->
+              <div class="interest-card__preview">
+                <div class="interest-preview__header">
+                  <span class="interest-preview__tag">Passion 02</span>
+                  <span class="interest-preview__badge">Preview</span>
+                </div>
+                <div>
+                  <h3 class="interest-preview__title" data-i18n="ap.int-cars">
+                    Cars
+                  </h3>
+                  <p
+                    class="interest-preview__text"
+                    data-i18n="ap.int-cars-preview"
+                  >
+                    Une passion née dès le plus jeune âge — du design automobile
+                    à l'ingénierie mécanique en passant par le sport auto et la
+                    Formule 1.
+                  </p>
+                </div>
+                <div class="interest-preview__footer">
+                  <span
+                    class="interest-preview__cta-label"
+                    data-i18n="ap.int-preview-cta"
+                    >Découvrir la passion</span
+                  >
+                  <div class="interest-preview__arrow-btn" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </div>
+                </div>
               </div>
-            </div>
+            </a>
+
+            <!-- Photo & Video -->
+            <a
+              href="passions.html#photo"
+              class="interest-card"
+              aria-label="Passion Photo & Video"
+            >
+              <img
+                src="assets/img/photoVideo.jpeg"
+                alt="Photo & Video"
+                class="interest-card__bg"
+                loading="lazy"
+              />
+              <div class="interest-card__overlay"></div>
+
+              <!-- Resting state content -->
+              <div class="interest-card__content">
+                <span class="interest-card__tag">Passion 03</span>
+                <h3 class="interest-card__title" data-i18n="ap.int-photo">
+                  Photo & Video
+                </h3>
+                <p class="interest-card__desc" data-i18n="ap.int-photo-desc">
+                  Lumière, composition &amp; storytelling visuel.
+                </p>
+              </div>
+
+              <!-- Floating Preview Window (revealed on hover) -->
+              <div class="interest-card__preview">
+                <div class="interest-preview__header">
+                  <span class="interest-preview__tag">Passion 03</span>
+                  <span class="interest-preview__badge">Preview</span>
+                </div>
+                <div>
+                  <h3 class="interest-preview__title" data-i18n="ap.int-photo">
+                    Photo & Video
+                  </h3>
+                  <p
+                    class="interest-preview__text"
+                    data-i18n="ap.int-photo-preview"
+                  >
+                    Capturer la lumière, composer des plans et raconter des
+                    histoires visuelles. Le prolongement naturel de ma
+                    sensibilité créative et technique.
+                  </p>
+                </div>
+                <div class="interest-preview__footer">
+                  <span
+                    class="interest-preview__cta-label"
+                    data-i18n="ap.int-preview-cta"
+                    >Découvrir la passion</span
+                  >
+                  <div class="interest-preview__arrow-btn" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- Animals -->
+            <a
+              href="passions.html#animals"
+              class="interest-card"
+              aria-label="Passion Animals"
+            >
+              <img
+                src="assets/img/animals.jpg"
+                alt="Animals"
+                class="interest-card__bg"
+                loading="lazy"
+                style="object-position: center top;"
+              />
+              <div class="interest-card__overlay"></div>
+
+              <!-- Resting state content -->
+              <div class="interest-card__content">
+                <span class="interest-card__tag">Passion 04</span>
+                <h3 class="interest-card__title" data-i18n="ap.int-animals">
+                  Animals
+                </h3>
+                <p class="interest-card__desc" data-i18n="ap.int-animals-desc">
+                  Loyauté, énergie &amp; connexion essentielle.
+                </p>
+              </div>
+
+              <!-- Floating Preview Window (revealed on hover) -->
+              <div class="interest-card__preview">
+                <div class="interest-preview__header">
+                  <span class="interest-preview__tag">Passion 04</span>
+                  <span class="interest-preview__badge">Preview</span>
+                </div>
+                <div>
+                  <h3
+                    class="interest-preview__title"
+                    data-i18n="ap.int-animals"
+                  >
+                    Animals
+                  </h3>
+                  <p
+                    class="interest-preview__text"
+                    data-i18n="ap.int-animals-preview"
+                  >
+                    Grand amoureux des animaux, de leur authenticité et de leur
+                    énergie positive. Passer du temps avec eux me permet de
+                    déconnecter et de me ressourcer.
+                  </p>
+                </div>
+                <div class="interest-preview__footer">
+                  <span
+                    class="interest-preview__cta-label"
+                    data-i18n="ap.int-preview-cta"
+                    >Découvrir la passion</span
+                  >
+                  <div class="interest-preview__arrow-btn" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- Gaming -->
+            <a
+              href="passions.html#gaming"
+              class="interest-card"
+              aria-label="Passion Gaming"
+            >
+              <img
+                src="assets/img/gaming.jpg"
+                alt="Gaming"
+                class="interest-card__bg"
+                loading="lazy"
+              />
+              <div class="interest-card__overlay"></div>
+
+              <!-- Resting state content -->
+              <div class="interest-card__content">
+                <span class="interest-card__tag">Passion 05</span>
+                <h3 class="interest-card__title" data-i18n="ap.int-gaming">
+                  Gaming
+                </h3>
+                <p class="interest-card__desc" data-i18n="ap.int-gaming-desc">
+                  Univers immersifs, ergonomie UI/UX &amp; stratégie.
+                </p>
+              </div>
+
+              <!-- Floating Preview Window (revealed on hover) -->
+              <div class="interest-card__preview">
+                <div class="interest-preview__header">
+                  <span class="interest-preview__tag">Passion 05</span>
+                  <span class="interest-preview__badge">Preview</span>
+                </div>
+                <div>
+                  <h3 class="interest-preview__title" data-i18n="ap.int-gaming">
+                    Gaming
+                  </h3>
+                  <p
+                    class="interest-preview__text"
+                    data-i18n="ap.int-gaming-preview"
+                  >
+                    Les jeux vidéo m'inspirent par leur narration immersive, la
+                    création d'univers interactifs et l'ergonomie poussée de
+                    leurs interfaces UX/UI.
+                  </p>
+                </div>
+                <div class="interest-preview__footer">
+                  <span
+                    class="interest-preview__cta-label"
+                    data-i18n="ap.int-preview-cta"
+                    >Découvrir la passion</span
+                  >
+                  <div class="interest-preview__arrow-btn" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- Friends -->
+            <a
+              href="passions.html#friends"
+              class="interest-card"
+              aria-label="Passion Friends"
+            >
+              <img
+                src="assets/img/friends.jpg"
+                alt="Friends"
+                class="interest-card__bg"
+                loading="lazy"
+              />
+              <div class="interest-card__overlay"></div>
+
+              <!-- Resting state content -->
+              <div class="interest-card__content">
+                <span class="interest-card__tag">Passion 06</span>
+                <h3 class="interest-card__title" data-i18n="ap.int-friends">
+                  Friends
+                </h3>
+                <p class="interest-card__desc" data-i18n="ap.int-friends-desc">
+                  Rires partagés, projets &amp; inspiration mutuelle.
+                </p>
+              </div>
+
+              <!-- Floating Preview Window (revealed on hover) -->
+              <div class="interest-card__preview">
+                <div class="interest-preview__header">
+                  <span class="interest-preview__tag">Passion 06</span>
+                  <span class="interest-preview__badge">Preview</span>
+                </div>
+                <div>
+                  <h3
+                    class="interest-preview__title"
+                    data-i18n="ap.int-friends"
+                  >
+                    Friends
+                  </h3>
+                  <p
+                    class="interest-preview__text"
+                    data-i18n="ap.int-friends-preview"
+                  >
+                    Partager des moments forts, des rires et des idées
+                    ambitieuses avec mes amis proches constitue la base de mon
+                    équilibre et de ma motivation.
+                  </p>
+                </div>
+                <div class="interest-preview__footer">
+                  <span
+                    class="interest-preview__cta-label"
+                    data-i18n="ap.int-preview-cta"
+                    >Découvrir la passion</span
+                  >
+                  <div class="interest-preview__arrow-btn" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </section>
