@@ -66,8 +66,12 @@ const TRANSLATIONS = {
     'work.eb-desc':     'Redesign of the digital presence and online communication for a Lausanne restaurant.',
 
     /* Home — Skills */
-    'skills.label': 'Expertise',
-    'skills.title': 'Skills &amp; tools.',
+    'skills.label':   'Expertise',
+    'skills.title':   'Skills &amp; tools.',
+    'skills.dev':     'Development',
+    'skills.design':  'Design',
+    'skills.tools':   'Tools',
+    'skills.digital': 'Digital',
 
     /* Home — Process */
     'process.label':    'Process',
@@ -276,8 +280,12 @@ const TRANSLATIONS = {
     'work.eb-desc':     "Refonte de la présence digitale et de la communication en ligne du restaurant Etoile Blanche à Lausanne.",
 
     /* Home — Skills */
-    'skills.label': 'Expertise',
-    'skills.title': 'Compétences &amp; outils.',
+    'skills.label':   'Expertise',
+    'skills.title':   'Compétences &amp; outils.',
+    'skills.dev':     'Développement',
+    'skills.design':  'Design',
+    'skills.tools':   'Outils',
+    'skills.digital': 'Digital',
 
     /* Home — Process */
     'process.label':    'Processus',

@@ -831,13 +831,32 @@
   padding: 5px 12px;
   border-radius: var(--radius-full);
   background: var(--bg);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
   transition: all var(--duration-base) var(--ease-out);
 }
 
-.skill-badge:hover {
+.skill-badge:hover,
+.skill-badge:focus-visible {
   color: var(--accent);
   border-color: var(--accent);
   background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 82, 186, 0.15);
+}
+
+.skill-badge__arrow {
+  font-size: 0.7rem;
+  opacity: 0.5;
+  transition: transform 0.2s var(--ease-out), opacity 0.2s var(--ease-out);
+}
+
+.skill-badge:hover .skill-badge__arrow {
+  opacity: 1;
+  transform: translate(1px, -1px);
 }
 
 /* ─── Process Steps ─────────────────────────────────────────── */
