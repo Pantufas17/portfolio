@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Nuno Amaro</title>
+  <meta name="description" content="All projects by Nuno Amaro — front-end developer and UX/UI designer based in Switzerland." />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <style>
+    .work-hero {
+      padding-top: calc(var(--nav-height) + clamp(3rem, 8vw, 6rem));
+      padding-bottom: clamp(3rem, 6vw, 5rem);
+    }
+    .all-projects {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .project-row-item {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.75rem 0;
+      border-top: 1px solid var(--border);
+      text-decoration: none;
+      transition: all 0.3s var(--ease-out);
+    }
+    .project-row-item:last-child { border-bottom: 1px solid var(--border); }
+    .project-row-item:hover { padding-left: 1rem; }
+    .project-row-item:hover .project-row-item__title { color: var(--accent); }
+
+    .project-row-item__num {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-subtle);
+      letter-spacing: 0.08em;
+    }
+    .project-row-item__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      transition: color 0.3s var(--ease-out);
+    }
+    .project-row-item__cat {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-subtle);
+      letter-spacing: 0.05em;
+      margin-top: 0.25rem;
+    }
+    .project-row-item__arrow {
+      font-size: 1.25rem;
+      color: var(--border);
+      transition: all 0.3s var(--ease-out);
+    }
+    .project-row-item:hover .project-row-item__arrow {
+      color: var(--accent);
+      transform: translate(4px, -4px);
+    }
+    @media (max-width: 600px) {
+      .project-row-item {
+        grid-template-columns: 50px 1fr auto;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"><span class="cursor-label"></span></div>
+
+<header class="navbar">
+  <div class="navbar__inner">
+    <a href="../index.html" class="navbar__logo">
+      <div class="logo-mark">NA</div>
+      <span class="logo-text">Nuno Amaro</span>
+    </a>
+    <nav class="navbar__links">
+      <a href="../index.html#work"   class="navbar__link active" data-i18n="nav.work">Work</a>
+      <a href="../about.html"        class="navbar__link"        data-i18n="nav.about">About</a>
+      <a href="../index.html#skills" class="navbar__link"        data-i18n="nav.skills">Skills</a>
+      <a href="../contact.html"      class="navbar__link"        data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="navbar__actions">
+      <div class="lang-switcher" aria-label="Language switcher">
+        <button class="lang-btn lang-active" data-lang="en" aria-pressed="true"  aria-label="Switch to English">EN</button>
+        <div class="lang-divider" aria-hidden="true"></div>
+        <button class="lang-btn"             data-lang="fr" aria-pressed="false" aria-label="Passer en français">FR</button>
+      </div>
+      <button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">☾</span></button>
+      <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta">Let's talk ↗</a>
+      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav">
+  <ul class="mobile-nav__links">
+    <li><a href="../index.html#work" class="mobile-nav__link" data-i18n="nav.work">Work</a></li>
+    <li><a href="../about.html"      class="mobile-nav__link" data-i18n="nav.about">About</a></li>
+    <li><a href="../contact.html"    class="mobile-nav__link" data-i18n="nav.contact">Contact</a></li>
+  </ul>
+  <div class="mobile-nav__footer">
+    <a href="https://www.linkedin.com/in/amaro-nuno/" class="mobile-nav__social" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/Pantufas17"           class="mobile-nav__social" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="work-hero">
+  <div class="container">
+    <div class="section-header__meta" style="margin-bottom:1.5rem;">
+      <span class="section-header__number" data-i18n="nav.work">Work</span>
+      <div class="section-header__line"></div>
+      <span class="section-header__label" data-i18n="wi.sublabel">Selected projects</span>
+    </div>
+    <h1 class="hero-enter hero-enter-1" style="margin-bottom:1.5rem;" data-i18n-html="wi.title">Things I've<br />built.</h1>
+    <p class="text-lead hero-enter hero-enter-2" style="max-width:44ch;" data-i18n="wi.desc">
+      A selection of projects across web development, UX/UI design, and digital experience — from student projects to real-world collaborations.
+    </p>
+  </div>
+</section>
+
+<section class="section-pad-sm">
+  <div class="container">
+
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:3rem;" class="reveal">
+      <p class="text-label" data-i18n="wi.count">6 projects</p>
+    </div>
+
+    <div class="all-projects reveal">
+
+      <a href="f1-data-visualization.html" class="project-row-item">
+        <span class="project-row-item__num">01</span>
+        <div>
+          <div class="project-row-item__title">The Evolution of F1 Safety</div>
+          <div class="project-row-item__cat" data-i18n="wi.f1-cat">Data Visualization · Scrollytelling · 3D · Front-end</div>
+        </div>
+        <span class="project-row-item__arrow">↗</span>
+      </a>
+
+      <a href="crewup.html" class="project-row-item">
+        <span class="project-row-item__num">02</span>
+        <div>
+          <div class="project-row-item__title">CrewUp</div>
+          <div class="project-row-item__cat" data-i18n="wi.crewup-cat">Web App · UX/UI · Front-end</div>
+        </div>
+        <span class="project-row-item__arrow">↗</span>
+      </a>
+
+      <a href="hug.html" class="project-row-item">
+        <span class="project-row-item__num">03</span>
+        <div>
+          <div class="project-row-item__title">Blood Donation — HUG</div>
+          <div class="project-row-item__cat" data-i18n="wi.hug-cat">UX/UI · Web · Real-world collaboration</div>
+        </div>
+        <span class="project-row-item__arrow">↗</span>
+      </a>
+
+      <a href="odds.html" class="project-row-item">
+        <span class="project-row-item__num">04</span>
+        <div>
+          <div class="project-row-item__title">ODDS</div>
+          <div class="project-row-item__cat" data-i18n="wi.odds-cat">UX Research · Digital Product · Inter-course</div>
+        </div>
+        <span class="project-row-item__arrow">↗</span>
+      </a>
+
+      <a href="la-chaux-de-fonds.html" class="project-row-item">
+        <span class="project-row-item__num">05</span>
+        <div>
+          <div class="project-row-item__title">La Chaux-de-Fonds</div>
+          <div class="project-row-item__cat" data-i18n="wi.cdf-cat">Client Project · Web Design &amp; Development</div>
+        </div>
+        <span class="project-row-item__arrow">↗</span>
+      </a>
+
+      <a href="etoile-blanche.html" class="project-row-item">
+        <span class="project-row-item__num">06</span>
+        <div>
+          <div class="project-row-item__title">Etoile Blanche</div>
+          <div class="project-row-item__cat" data-i18n="wi.eb-cat">Digital Presence · UX/UI · Redesign</div>
+        </div>
+        <span class="project-row-item__arrow">↗</span>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-pad-sm">
+  <div class="container">
+    <div class="cta-section reveal" style="background:var(--surface-alt); padding:clamp(3rem,6vw,5rem) clamp(2rem,5vw,4rem); border-radius:24px; text-align:center; position:relative; overflow:hidden;">
+      <div style="position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(ellipse at center,var(--accent-light) 0%,transparent 70%);pointer-events:none;"></div>
+      <h2 style="margin-bottom:1rem;" data-i18n="cta.title-short">Have a project in mind?</h2>
+      <p class="text-lead" style="max-width:40ch; margin-inline:auto; margin-bottom:2rem;" data-i18n="wi.cta-desc">Let's build something great together.</p>
+      <a href="../contact.html" class="btn btn-primary" data-i18n="cta.btn">Get in touch →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="logo-mark">NA</div>
+        <p style="margin-top:1rem;" data-i18n="footer.brand">Designing and building digital experiences with curiosity.</p>
+      </div>
+      <div class="footer__nav">
+        <div class="footer__nav-group">
+          <div class="footer__nav-label" data-i18n="footer.nav-label">Navigation</div>
+          <ul class="footer__nav-links">
+            <li><a href="../index.html"      class="footer__nav-link">Home</a></li>
+            <li><a href="../index.html#work" class="footer__nav-link" data-i18n="nav.work">Work</a></li>
+            <li><a href="../about.html"      class="footer__nav-link" data-i18n="nav.about">About</a></li>
+            <li><a href="../contact.html"    class="footer__nav-link" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-group">
+          <div class="footer__nav-label" data-i18n="footer.soc-label">Social</div>
+          <ul class="footer__nav-links">
+            <li><a href="https://www.linkedin.com/in/amaro-nuno/" class="footer__nav-link" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+            <li><a href="https://github.com/Pantufas17"           class="footer__nav-link" target="_blank" rel="noopener">GitHub ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copyright" data-i18n="footer.copy">© 2026 Nuno Amaro. All rights reserved.</span>
+      <span class="footer__tagline" data-i18n-html="footer.tagline">Designed &amp; built with curiosity.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/i18n.js"       defer></script>
+<script src="../js/main.js"       defer></script>
+<script src="../js/cursor.js"     defer></script>
+<script src="../js/animations.js" defer></script>
+</body>
+</html>
