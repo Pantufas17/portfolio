@@ -1,294 +1,550 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Savoir-Vivre — Nuno Amaro</title>
-  <meta name="description" content="Savoir-Vivre — Court-métrage et comédie noire réalisé dans le cadre de l'atelier vidéo TechAv à la HEIG-VD. Réalisation et cadrage par Nuno Amaro." />
-  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="../css/components.css" />
-  <link rel="stylesheet" href="../css/animations.css" />
-  <style>
-    .case-accent { --accent: #d97706; --accent-light: rgba(217, 119, 6, 0.10); }
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    .team-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.25rem;
-      text-align: center;
-    }
-    .team-card__name {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--text);
-      margin-bottom: 0.25rem;
-    }
-    .team-card__role {
-      font-size: 0.78rem;
-      color: var(--accent);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .deliverables-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.25rem;
-      margin-top: 1.5rem;
-    }
-    .deliverable-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
-    }
-    .deliverable-item h4 {
-      font-family: var(--font-display);
-      margin-bottom: 0.5rem;
-      font-size: 1.05rem;
-    }
-    .deliverable-item p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-  </style>
-</head>
-<body>
-
-<div class="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" aria-hidden="true"><span class="cursor-label"></span></div>
-
-<header class="navbar">
-  <div class="navbar__inner">
-    <a href="../index.html" class="navbar__logo">
-      <div class="logo-mark">NA</div>
-      <span class="logo-text">Nuno Amaro</span>
-    </a>
-    <nav class="navbar__links">
-      <a href="../index.html#work"   class="navbar__link active" data-i18n="nav.work">Projets</a>
-      <a href="../about.html"        class="navbar__link"        data-i18n="nav.about">À propos</a>
-      <a href="../index.html#skills" class="navbar__link"        data-i18n="nav.skills">Compétences</a>
-      <a href="../contact.html"      class="navbar__link"        data-i18n="nav.contact">Contact</a>
-    </nav>
-    <div class="navbar__actions">
-      <div class="lang-switcher" aria-label="Language switcher">
-        <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="Switch to English">EN</button>
-        <div class="lang-divider" aria-hidden="true"></div>
-        <button class="lang-btn lang-active" data-lang="fr" aria-pressed="true" aria-label="Passer en français">FR</button>
-      </div>
-      <button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">☾</span></button>
-      <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta">Me contacter ↗</a>
-      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-
-<nav class="mobile-nav">
-  <ul class="mobile-nav__links">
-    <li><a href="../index.html#work" class="mobile-nav__link" data-i18n="nav.work">Projets</a></li>
-    <li><a href="../about.html"      class="mobile-nav__link" data-i18n="nav.about">À propos</a></li>
-    <li><a href="../contact.html"    class="mobile-nav__link" data-i18n="nav.contact">Contact</a></li>
-  </ul>
-  <div class="mobile-nav__footer">
-    <a href="https://www.linkedin.com/in/amaro-nuno/" class="mobile-nav__social" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/Pantufas17"           class="mobile-nav__social" target="_blank" rel="noopener">GitHub</a>
-  </div>
-</nav>
-
-<main>
-
-<section class="case-hero">
-  <div class="container">
-    <a href="../index.html#work" class="back-link">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M3 8l5-5M3 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span data-i18n="case.all-projects">Tous les projets</span>
-    </a>
-
-    <div class="section-header__meta" style="margin-bottom:1.5rem;">
-      <span class="section-header__number" style="color:var(--accent);">Audiovisuel · Réalisation &amp; Cadrage · Court-Métrage</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Savoir-Vivre — Nuno Amaro</title>
+    <meta
+      name="description"
+      content="Savoir-Vivre — Court-métrage et comédie noire réalisé dans le cadre de l'atelier vidéo TechAv à la HEIG-VD. Réalisation et cadrage par Nuno Amaro."
+    />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <style>
+      .case-accent {
+        --accent: #d97706;
+        --accent-light: rgba(217, 119, 6, 0.1);
+      }
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      .team-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 1.25rem;
+        text-align: center;
+      }
+      .team-card__name {
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--text);
+        margin-bottom: 0.25rem;
+      }
+      .team-card__role {
+        font-size: 0.78rem;
+        color: var(--accent);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .deliverables-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.25rem;
+        margin-top: 1.5rem;
+      }
+      .deliverable-item {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 1.5rem;
+      }
+      .deliverable-item h4 {
+        font-family: var(--font-display);
+        margin-bottom: 0.5rem;
+        font-size: 1.05rem;
+      }
+      .deliverable-item p {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true">
+      <span class="cursor-label"></span>
     </div>
 
-    <h1 class="hero-enter hero-enter-1" style="margin-bottom:1.5rem;">Savoir-Vivre<br /><span style="color:var(--accent);">Court-Métrage Satirique</span></h1>
-    <p class="text-lead hero-enter hero-enter-2" style="max-width:54ch; margin-bottom:2rem;" data-i18n="sv.lead">
-      Comédie noire réalisée en atelier intensif de 2 semaines, explorant avec ironie le véritable coût de la courtoisie et de la gentillesse dans notre société moderne.
-    </p>
-
-    <div class="case-meta-grid hero-enter hero-enter-3">
-      <div class="case-meta-item">
-        <div class="case-meta-item__label" data-i18n="case.context-label">Cadre</div>
-        <div class="case-meta-item__value">Atelier TechAv (HEIG-VD)</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label" data-i18n="case.date-label">Date</div>
-        <div class="case-meta-item__value">Décembre 2025</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label" data-i18n="case.role-label">Mon Rôle</div>
-        <div class="case-meta-item__value">Cadreur &amp; Réalisateur</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label" data-i18n="case.tools-label">Outils &amp; Matériel</div>
-        <div class="case-meta-item__value">Caméra · Son Live · DaVinci · Premiere</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Cover Image -->
-<div class="container" style="margin-block:2rem;">
-  <div class="reveal" style="border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow-lg);">
-    <img src="../assets/img/projets/SavoirVivre/Savoir_Vivre.png" alt="Affiche et scènes du court-métrage Savoir-Vivre" style="width:100%; height:auto; display:block;" />
-  </div>
-</div>
-
-<!-- 01 Note d'intention & Synopsis -->
-<section class="case-section">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">01 — Note d'Intention &amp; Synopsis</div>
-    <h2 class="case-section__title reveal" data-i18n="sv.s1-title">Le piège de la gentillesse ordinaire.</h2>
-    <div class="reveal">
-      <p style="margin-bottom:1.5rem;" data-i18n="sv.s1-p1">
-        À partir de la consigne académique portant sur les <em>« petits gestes gentils du quotidien »</em>, notre équipe a choisi une approche à contre-courant : interroger la place de l'altruisme dans un monde professionnel ultra-individualiste et cadencé par la rentabilité.
-      </p>
-      <blockquote style="border-left:3px solid var(--accent); padding-left:1.25rem; font-style:italic; color:var(--text); margin-block:1.75rem;">
-        « Aujourd'hui, la courtoisie devient un luxe dangereux et l'altruisme est souvent synonyme d'échec. Valentin n'est pas incompétent, il est juste trop humain. »
-      </blockquote>
-      <p style="margin-bottom:1.5rem;" data-i18n="sv.s1-p2">
-        <strong>L'histoire :</strong> Valentin est un homme sincère et bienveillant. Pris dans la précipitation de sa routine matinale, il s'arrête systématiquement pour aider les personnes qu'il croise (ramasser un objet, tenir une porte, renseigner un passant). Ces précieuses minutes perdues s'accumulent. Arrivé à son bureau avec quelques secondes de retard fatidiques, son patron le licencie sans appel. La sentence tombe non par manque de compétence, mais par excès d'humanité.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- 02 Rôle & Équipe -->
-<section class="case-section" style="background:var(--surface-alt);">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">02 — Réalisation &amp; Équipe</div>
-    <h2 class="case-section__title reveal" data-i18n="sv.s2-title">Direction artistique et travail de plateau.</h2>
-    <div class="reveal">
-      <p style="margin-bottom:1.5rem;" data-i18n="sv.s2-p1">
-        En tant que <strong>cadreur et réalisateur</strong>, ma mission comprenait la scénarisation visuelle (découpage technique plan par plan, choix des focales, gestion de la lumière naturelle et artificielle), la direction des acteurs sur le plateau, ainsi que la coordination avec le preneur de son live pour assurer une cohérence narrative sans faille.
-      </p>
-      
-      <div class="team-grid">
-        <div class="team-card">
-          <div class="team-card__name">Nuno Amaro</div>
-          <div class="team-card__role">Cadreur &amp; Réalisateur</div>
-        </div>
-        <div class="team-card">
-          <div class="team-card__name">Thierry Koulbanis</div>
-          <div class="team-card__role">Monteur &amp; Post-Prod</div>
-        </div>
-        <div class="team-card">
-          <div class="team-card__name">Valentin Ferrini</div>
-          <div class="team-card__role">Acteur Principal (Valentin)</div>
-        </div>
-        <div class="team-card">
-          <div class="team-card__name">Teicir Bouazizi</div>
-          <div class="team-card__role">Actrice</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 03 Livrables & Rendu Technique -->
-<section class="case-section">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">03 — Production &amp; Livrables</div>
-    <h2 class="case-section__title reveal" data-i18n="sv.s3-title">Un package complet de production audiovisuelle.</h2>
-    <div class="reveal">
-      <p style="margin-bottom:1.5rem;" data-i18n="sv.s3-p1">
-        Le projet s'est conclu par la livraison d'un écosystème de diffusion complet respectant les normes professionnelles de l'industrie :
-      </p>
-
-      <div class="deliverables-list">
-        <div class="deliverable-item">
-          <h4>🎬 Film Principal</h4>
-          <p>Format Full HD (1920x1080 25p), compression H.264, son direct 48 kHz avec séquence live et mixage stéréo.</p>
-        </div>
-        <div class="deliverable-item">
-          <h4>🌐 Teaser Web (30s)</h4>
-          <p>Montage rythmé présentant l'ambiance et le dilemme moral pour diffusion sur site.</p>
-        </div>
-        <div class="deliverable-item">
-          <h4>📱 Teaser Social (10s)</h4>
-          <p>Format court et dynamique calibré pour les réseaux sociaux (Instagram / TikTok).</p>
-        </div>
-        <div class="deliverable-item">
-          <h4>📑 Dossier Technique &amp; Affiche</h4>
-          <p>Dossier de production complet de 9 pages (storyboard, note d'intention, feuille de service) et affiche A4 300 dpi.</p>
-        </div>
-      </div>
-
-      <div style="margin-top:2.5rem; text-align:center;">
-        <a href="../assets/pdf/TechAv - dossier.pdf" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="sv.pdf-btn">
-          Consulter le dossier de production (PDF) ↗
+    <header class="navbar">
+      <div class="navbar__inner">
+        <a href="../index.html" class="navbar__logo">
+          <div class="logo-mark">NA</div>
+          <span class="logo-text">Nuno Amaro</span>
         </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Next Project -->
-<section class="case-section" style="border-top:1px solid var(--border);">
-  <div class="container">
-    <a href="naturaquest.html" class="next-project reveal">
-      <span class="next-project__label" data-i18n="case.next">Projet suivant</span>
-      <h3 class="next-project__title">NaturaQuest ↗</h3>
-    </a>
-  </div>
-</section>
-
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <div class="logo-mark">NA</div>
-        <p style="margin-top:1rem;" data-i18n="footer.brand">Conception et développement d'expériences numériques avec curiosité.</p>
-      </div>
-      <div class="footer__nav">
-        <div class="footer__nav-group">
-          <div class="footer__nav-label" data-i18n="footer.nav-label">Navigation</div>
-          <ul class="footer__nav-links">
-            <li><a href="../index.html"      class="footer__nav-link">Accueil</a></li>
-            <li><a href="../index.html#work" class="footer__nav-link" data-i18n="nav.work">Projets</a></li>
-            <li><a href="../about.html"      class="footer__nav-link" data-i18n="nav.about">À propos</a></li>
-            <li><a href="../contact.html"    class="footer__nav-link" data-i18n="nav.contact">Contact</a></li>
-          </ul>
+        <nav class="navbar__links">
+          <a
+            href="../index.html#work"
+            class="navbar__link active"
+            data-i18n="nav.work"
+            >Projets</a
+          >
+          <a href="../about.html" class="navbar__link" data-i18n="nav.about"
+            >À propos</a
+          >
+          <a
+            href="../index.html#skills"
+            class="navbar__link"
+            data-i18n="nav.skills"
+            >Compétences</a
+          >
+          <a href="../contact.html" class="navbar__link" data-i18n="nav.contact"
+            >Contact</a
+          >
+        </nav>
+        <div class="navbar__actions">
+          <div class="lang-switcher" aria-label="Language switcher">
+            <button
+              class="lang-btn"
+              data-lang="en"
+              aria-pressed="false"
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+            <div class="lang-divider" aria-hidden="true"></div>
+            <button
+              class="lang-btn lang-active"
+              data-lang="fr"
+              aria-pressed="true"
+              aria-label="Passer en français"
+            >
+              FR
+            </button>
+          </div>
+          <button class="theme-toggle" aria-label="Toggle theme">
+            <span class="theme-toggle-icon">☾</span>
+          </button>
+          <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta"
+            >Me contacter ↗</a
+          >
+          <button class="menu-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
         </div>
-        <div class="footer__nav-group">
-          <div class="footer__nav-label" data-i18n="footer.soc-label">Réseaux</div>
-          <ul class="footer__nav-links">
-            <li><a href="https://www.linkedin.com/in/amaro-nuno/" class="footer__nav-link" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-            <li><a href="https://github.com/Pantufas17"           class="footer__nav-link" target="_blank" rel="noopener">GitHub ↗</a></li>
-          </ul>
+      </div>
+    </header>
+
+    <nav class="mobile-nav">
+      <ul class="mobile-nav__links">
+        <li>
+          <a
+            href="../index.html#work"
+            class="mobile-nav__link"
+            data-i18n="nav.work"
+            >Projets</a
+          >
+        </li>
+        <li>
+          <a href="../about.html" class="mobile-nav__link" data-i18n="nav.about"
+            >À propos</a
+          >
+        </li>
+        <li>
+          <a
+            href="../contact.html"
+            class="mobile-nav__link"
+            data-i18n="nav.contact"
+            >Contact</a
+          >
+        </li>
+      </ul>
+      <div class="mobile-nav__footer">
+        <a
+          href="https://www.linkedin.com/in/amaro-nuno/"
+          class="mobile-nav__social"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        <a
+          href="https://github.com/Pantufas17"
+          class="mobile-nav__social"
+          target="_blank"
+          rel="noopener"
+          >GitHub</a
+        >
+      </div>
+    </nav>
+
+    <main>
+      <section class="case-hero">
+        <div class="container">
+          <a href="../index.html#work" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M13 8H3M3 8l5-5M3 8l5 5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span data-i18n="case.all-projects">Tous les projets</span>
+          </a>
+
+          <div class="section-header__meta" style="margin-bottom: 1.5rem">
+            <span class="section-header__number" style="color: var(--accent)"
+              >Audiovisuel · Réalisation &amp; Cadrage · Court-Métrage</span
+            >
+          </div>
+
+          <h1 class="hero-enter hero-enter-1" style="margin-bottom: 1.5rem">
+            Savoir-Vivre<br /><span style="color: var(--accent)"
+              >Court-Métrage Satirique</span
+            >
+          </h1>
+          <p
+            class="text-lead hero-enter hero-enter-2"
+            style="max-width: 54ch; margin-bottom: 2rem"
+            data-i18n="sv.lead"
+          >
+            Comédie noire réalisée en atelier intensif de 2 semaines, explorant
+            avec ironie le véritable coût de la courtoisie et de la gentillesse
+            dans notre société moderne.
+          </p>
+
+          <div class="case-meta-grid hero-enter hero-enter-3">
+            <div class="case-meta-item">
+              <div class="case-meta-item__label" data-i18n="case.context-label">
+                Cadre
+              </div>
+              <div class="case-meta-item__value">Atelier TechAv (HEIG-VD)</div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label" data-i18n="case.date-label">
+                Date
+              </div>
+              <div class="case-meta-item__value">Décembre 2025</div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label" data-i18n="case.role-label">
+                Mon Rôle
+              </div>
+              <div class="case-meta-item__value">Cadreur &amp; Réalisateur</div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label" data-i18n="case.tools-label">
+                Outils &amp; Matériel
+              </div>
+              <div class="case-meta-item__value">
+                Caméra · Son Live · DaVinci · Premiere
+              </div>
+            </div>
+          </div>
+          <div class="hero-enter hero-enter-4" style="margin-top: 2.5rem">
+            <a
+              href="../assets/pdf/SavoirVivre.pdf"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Découvrir le pdf du projet ↗
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cover Image -->
+      <div class="container" style="margin-block: 2rem">
+        <div
+          class="reveal"
+          style="
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+          "
+        >
+          <img
+            src="../assets/img/projets/SavoirVivre/Savoir_Vivre2.png"
+            alt="Affiche et scènes du court-métrage Savoir-Vivre"
+            style="width: 100%; height: auto; display: block"
+          />
         </div>
       </div>
-    </div>
-    <div class="footer__bottom">
-      <span class="footer__copyright" data-i18n="footer.copy">© 2026 Nuno Amaro. Tous droits réservés.</span>
-      <span class="footer__tagline" data-i18n-html="footer.tagline">Conçu et développé avec passion.</span>
-    </div>
-  </div>
-</footer>
 
-<script src="../js/i18n.js"       defer></script>
-<script src="../js/main.js"       defer></script>
-<script src="../js/cursor.js"     defer></script>
-<script src="../js/animations.js" defer></script>
-</body>
+      <!-- 01 Note d'intention & Synopsis -->
+      <section class="case-section">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">
+            01 — Note d'Intention &amp; Synopsis
+          </div>
+          <h2 class="case-section__title reveal" data-i18n="sv.s1-title">
+            Le piège de la gentillesse ordinaire.
+          </h2>
+          <div class="reveal">
+            <p style="margin-bottom: 1.5rem" data-i18n="sv.s1-p1">
+              À partir de la consigne académique portant sur les
+              <em>« petits gestes gentils du quotidien »</em>, notre équipe a
+              choisi une approche à contre-courant : interroger la place de
+              l'altruisme dans un monde professionnel ultra-individualiste et
+              cadencé par la rentabilité.
+            </p>
+            <blockquote
+              style="
+                border-left: 3px solid var(--accent);
+                padding-left: 1.25rem;
+                font-style: italic;
+                color: var(--text);
+                margin-block: 1.75rem;
+              "
+            >
+              « Aujourd'hui, la courtoisie devient un luxe dangereux et
+              l'altruisme est souvent synonyme d'échec. Valentin n'est pas
+              incompétent, il est juste trop humain. »
+            </blockquote>
+            <p style="margin-bottom: 1.5rem" data-i18n="sv.s1-p2">
+              <strong>L'histoire :</strong> Valentin est un homme sincère et
+              bienveillant. Pris dans la précipitation de sa routine matinale,
+              il s'arrête systématiquement pour aider les personnes qu'il croise
+              (ramasser un objet, tenir une porte, renseigner un passant). Ces
+              précieuses minutes perdues s'accumulent. Arrivé à son bureau avec
+              quelques secondes de retard fatidiques, son patron le licencie
+              sans appel. La sentence tombe non par manque de compétence, mais
+              par excès d'humanité.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 Rôle & Équipe -->
+      <section class="case-section" style="background: var(--surface-alt)">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">
+            02 — Réalisation &amp; Équipe
+          </div>
+          <h2 class="case-section__title reveal" data-i18n="sv.s2-title">
+            Direction artistique et travail de plateau.
+          </h2>
+          <div class="reveal">
+            <p style="margin-bottom: 1.5rem" data-i18n="sv.s2-p1">
+              En tant que <strong>cadreur et réalisateur</strong>, ma mission
+              comprenait la scénarisation visuelle (découpage technique plan par
+              plan, choix des focales, gestion de la lumière naturelle et
+              artificielle), la direction des acteurs sur le plateau, ainsi que
+              la coordination avec le preneur de son live pour assurer une
+              cohérence narrative sans faille.
+            </p>
+
+            <div class="team-grid">
+              <div class="team-card">
+                <div class="team-card__name">Nuno Amaro</div>
+                <div class="team-card__role">Cadreur &amp; Réalisateur</div>
+              </div>
+              <div class="team-card">
+                <div class="team-card__name">Thierry Koulbanis</div>
+                <div class="team-card__role">Monteur &amp; Post-Prod</div>
+              </div>
+              <div class="team-card">
+                <div class="team-card__name">Valentin Ferrini</div>
+                <div class="team-card__role">Acteur Principal (Valentin)</div>
+              </div>
+              <div class="team-card">
+                <div class="team-card__name">Teicir Bouazizi</div>
+                <div class="team-card__role">Actrice</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 Livrables & Rendu Technique -->
+      <section class="case-section">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">
+            03 — Production &amp; Livrables
+          </div>
+          <h2 class="case-section__title reveal" data-i18n="sv.s3-title">
+            Un package complet de production audiovisuelle.
+          </h2>
+          <div class="reveal">
+            <p style="margin-bottom: 1.5rem" data-i18n="sv.s3-p1">
+              Le projet s'est conclu par la livraison d'un écosystème de
+              diffusion complet respectant les normes professionnelles de
+              l'industrie :
+            </p>
+
+            <div class="deliverables-list">
+              <div class="deliverable-item">
+                <h4>Film Principal</h4>
+                <p>
+                  Format Full HD (1920x1080 25p), compression H.264, son direct
+                  48 kHz avec séquence live et mixage stéréo.
+                </p>
+              </div>
+              <div class="deliverable-item">
+                <h4>Teaser Web (30s)</h4>
+                <p>
+                  Montage rythmé présentant l'ambiance et le dilemme moral pour
+                  diffusion sur site.
+                </p>
+              </div>
+              <div class="deliverable-item">
+                <h4>Teaser Social (10s)</h4>
+                <p>
+                  Format court et dynamique calibré pour les réseaux sociaux
+                  (Instagram / TikTok).
+                </p>
+              </div>
+              <div class="deliverable-item">
+                <h4>Dossier Technique &amp; Affiche</h4>
+                <p>
+                  Dossier de production complet de 9 pages (storyboard, note
+                  d'intention, feuille de service) et affiche A4 300 dpi.
+                </p>
+              </div>
+            </div>
+
+            <div style="margin-top: 2.5rem; text-align: center">
+              <a
+                href="../assets/videos/SavoirVivre/NunTeiThiVal.mp4"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-primary"
+                data-i18n="sv.video-btn"
+              >
+                Consulter la vidéo de court-métrage ↗
+              </a>
+            </div>
+            <div style="margin-top: 1.5rem; text-align: center">
+              <a
+                href="../assets/videos/SavoirVivre/NunTeiThiVal30sec.mp4"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-primary"
+                data-i18n="sv.teaser30-btn"
+              >
+                Consulter le teaser de 30 secondes ↗
+              </a>
+            </div>
+            <div style="margin-top: 1.5rem; text-align: center">
+              <a
+                href="../assets/videos/SavoirVivre/TECHAV25_1_teaser10sec.mp4"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-primary"
+                data-i18n="sv.pdf-btn"
+              >
+                Consulter le teaser de 10 secondes ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next Project -->
+      <section class="case-section" style="border-top: 1px solid var(--border)">
+        <div class="container">
+          <a href="naturaquest.html" class="next-project reveal">
+            <span class="next-project__label" data-i18n="case.next"
+              >Projet suivant</span
+            >
+            <h3 class="next-project__title">NaturaQuest ↗</h3>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <div class="logo-mark">NA</div>
+            <p style="margin-top: 1rem" data-i18n="footer.brand">
+              Conception et développement d'expériences numériques avec
+              curiosité.
+            </p>
+          </div>
+          <div class="footer__nav">
+            <div class="footer__nav-group">
+              <div class="footer__nav-label" data-i18n="footer.nav-label">
+                Navigation
+              </div>
+              <ul class="footer__nav-links">
+                <li>
+                  <a href="../index.html" class="footer__nav-link">Accueil</a>
+                </li>
+                <li>
+                  <a
+                    href="../index.html#work"
+                    class="footer__nav-link"
+                    data-i18n="nav.work"
+                    >Projets</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../about.html"
+                    class="footer__nav-link"
+                    data-i18n="nav.about"
+                    >À propos</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../contact.html"
+                    class="footer__nav-link"
+                    data-i18n="nav.contact"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="footer__nav-group">
+              <div class="footer__nav-label" data-i18n="footer.soc-label">
+                Réseaux
+              </div>
+              <ul class="footer__nav-links">
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/amaro-nuno/"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener"
+                    >LinkedIn ↗</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/Pantufas17"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub ↗</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span class="footer__copyright" data-i18n="footer.copy"
+            >© 2026 Nuno Amaro. Tous droits réservés.</span
+          >
+          <span class="footer__tagline" data-i18n-html="footer.tagline"
+            >Conçu et développé avec passion.</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/cursor.js" defer></script>
+    <script src="../js/animations.js" defer></script>
+  </body>
 </html>

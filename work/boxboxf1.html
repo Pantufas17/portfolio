@@ -1,253 +1,507 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BoxBoxF1 — Nuno Amaro</title>
-  <meta name="description" content="BoxBoxF1 — Plateforme E-Commerce et blog d'actualités Formule 1 développée sous WordPress & WooCommerce pour les passionnés suisses." />
-  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="../css/components.css" />
-  <link rel="stylesheet" href="../css/animations.css" />
-  <style>
-    .case-accent { --accent: #e10600; --accent-light: rgba(225,6,0,0.10); }
-    .live-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      background: rgba(34, 197, 94, 0.12);
-      border: 1px solid rgba(34, 197, 94, 0.3);
-      color: #16a34a;
-      border-radius: var(--radius-full);
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-    .live-badge:hover {
-      background: #16a34a;
-      color: #fff;
-      transform: translateY(-2px);
-    }
-    .live-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
-      animation: pulseGreen 2s infinite;
-    }
-    @keyframes pulseGreen {
-      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-      70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-    }
-    .project-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-  </style>
-</head>
-<body>
-
-<div class="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" aria-hidden="true"><span class="cursor-label"></span></div>
-
-<header class="navbar">
-  <div class="navbar__inner">
-    <a href="../index.html" class="navbar__logo">
-      <div class="logo-mark">NA</div>
-      <span class="logo-text">Nuno Amaro</span>
-    </a>
-    <nav class="navbar__links">
-      <a href="../index.html#work"   class="navbar__link active" data-i18n="nav.work">Projets</a>
-      <a href="../about.html"        class="navbar__link"        data-i18n="nav.about">À propos</a>
-      <a href="../index.html#skills" class="navbar__link"        data-i18n="nav.skills">Compétences</a>
-      <a href="../contact.html"      class="navbar__link"        data-i18n="nav.contact">Contact</a>
-    </nav>
-    <div class="navbar__actions">
-      <div class="lang-switcher" aria-label="Language switcher">
-        <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="Switch to English">EN</button>
-        <div class="lang-divider" aria-hidden="true"></div>
-        <button class="lang-btn lang-active" data-lang="fr" aria-pressed="true" aria-label="Passer en français">FR</button>
-      </div>
-      <button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">☾</span></button>
-      <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta">Me contacter ↗</a>
-      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-
-<nav class="mobile-nav">
-  <ul class="mobile-nav__links">
-    <li><a href="../index.html#work" class="mobile-nav__link" data-i18n="nav.work">Projets</a></li>
-    <li><a href="../about.html"      class="mobile-nav__link" data-i18n="nav.about">À propos</a></li>
-    <li><a href="../contact.html"    class="mobile-nav__link" data-i18n="nav.contact">Contact</a></li>
-  </ul>
-  <div class="mobile-nav__footer">
-    <a href="https://www.linkedin.com/in/amaro-nuno/" class="mobile-nav__social" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/Pantufas17"           class="mobile-nav__social" target="_blank" rel="noopener">GitHub</a>
-  </div>
-</nav>
-
-<main>
-
-<section class="case-hero">
-  <div class="container">
-    <a href="../index.html#work" class="back-link">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M3 8l5-5M3 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span data-i18n="case.all-projects">Tous les projets</span>
-    </a>
-
-    <div class="section-header__meta" style="margin-bottom:1.5rem;">
-      <span class="section-header__number" style="color:var(--accent);">E-Commerce · WordPress · WooCommerce</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BoxBoxF1 — Nuno Amaro</title>
+    <meta
+      name="description"
+      content="BoxBoxF1 — Plateforme E-Commerce et blog d'actualités Formule 1 développée sous WordPress & WooCommerce pour les passionnés suisses."
+    />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <style>
+      .case-accent {
+        --accent: #e10600;
+        --accent-light: rgba(225, 6, 0, 0.1);
+      }
+      .live-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        background: rgba(34, 197, 94, 0.12);
+        border: 1px solid rgba(34, 197, 94, 0.3);
+        color: #16a34a;
+        border-radius: var(--radius-full);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+      .live-badge:hover {
+        background: #16a34a;
+        color: #fff;
+        transform: translateY(-2px);
+      }
+      .live-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #22c55e;
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+        animation: pulseGreen 2s infinite;
+      }
+      @keyframes pulseGreen {
+        0% {
+          box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+        }
+      }
+      .project-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true">
+      <span class="cursor-label"></span>
     </div>
 
-    <h1 class="hero-enter hero-enter-1" style="margin-bottom:1.5rem;">BoxBoxF1<br /><span style="color:var(--accent);">E-Commerce Suisse</span></h1>
-    <p class="text-lead hero-enter hero-enter-2" style="max-width:54ch; margin-bottom:2rem;" data-i18n="boxboxf1.lead">
-      Plateforme e-commerce conçue sous WordPress &amp; WooCommerce pour les passionnés suisses de Formule 1, combinant boutique spécialisée et espace blog d'actualités.
-    </p>
-
-    <div class="project-actions hero-enter hero-enter-2">
-      <a href="https://boxboxf1.ch/" target="_blank" rel="noopener" class="live-badge">
-        <span class="live-dot"></span>
-        <span data-i18n="boxboxf1.live-btn">Visiter boxboxf1.ch ↗</span>
-      </a>
-    </div>
-
-    <div class="case-meta-grid hero-enter hero-enter-3" style="margin-top:2.5rem;">
-      <div class="case-meta-item">
-        <div class="case-meta-item__label" data-i18n="case.context-label">Contexte</div>
-        <div class="case-meta-item__value">Cours E-Commerce (HEIG-VD)</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label" data-i18n="case.date-label">Période</div>
-        <div class="case-meta-item__value">2025 – 2026</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label" data-i18n="case.role-label">Rôle</div>
-        <div class="case-meta-item__value">Développement, E-Commerce, UX/UI</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label" data-i18n="case.tech-label">Technologies</div>
-        <div class="case-meta-item__value">WordPress · WooCommerce · PHP · CSS · SEO</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Cover Image -->
-<div class="container" style="margin-block:2rem;">
-  <div class="reveal" style="border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow-lg);">
-    <img src="../assets/img/projets/BoxBoxF1/BoxBoxF1_HeroSection.png" alt="Aperçu du site BoxBoxF1" style="width:100%; height:auto; display:block;" />
-  </div>
-</div>
-
-<!-- 01 Contexte & Problématique -->
-<section class="case-section">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">01 — Contexte &amp; Défi</div>
-    <h2 class="case-section__title reveal" data-i18n="boxboxf1.s1-title">Un shop F1 dédié au public suisse.</h2>
-    <div class="reveal">
-      <p style="margin-bottom:1.5rem;" data-i18n="boxboxf1.s1-p1">
-        Dans le cadre du cours d'E-Commerce à la HEIG-VD, le projet consistait à créer de bout en bout une boutique en ligne fonctionnelle et optimisée. Passionné de sport automobile, j'ai identifié une opportunité claire : le manque d'offre e-commerce F1 dédiée au marché suisse, où les fans se heurtent souvent à des frais de douane imprévus et des délais de livraison longs depuis l'étranger.
-      </p>
-      <p style="margin-bottom:1.5rem;" data-i18n="boxboxf1.s1-p2">
-        Le défi était double : proposer une expérience d'achat fluide (catalogue clair, tunnel de commande optimisé, modes de paiement adaptés) tout en intégrant un volet éditorial (blog d'actualités F1) pour générer du trafic organique et fédérer une communauté locale.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- 02 Fonctionnalités -->
-<section class="case-section" style="background:var(--surface-alt);">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">02 — Architecture &amp; Fonctionnalités</div>
-    <h2 class="case-section__title reveal" data-i18n="boxboxf1.s2-title">Une solution complète sous WordPress &amp; WooCommerce.</h2>
-    <div class="reveal">
-      <ul style="list-style:disc; padding-left:1.5rem; line-height:1.8; margin-bottom:2rem;">
-        <li><strong>Boutique en ligne complète :</strong> Gestion du catalogue de produits (vêtements, accessoires, miniatures et goodies), gestion des stocks et variations (tailles, écuries).</li>
-        <li><strong>Tunnel de commande &amp; Paiements :</strong> Processus de checkout épuré en quelques étapes, intégration des passerelles de paiement sécurisées et calcul automatique des frais de livraison suisses.</li>
-        <li><strong>Espace Blog &amp; Actualités F1 :</strong> Articles réguliers sur les Grands Prix, analyses de transferts et récaps de courses, favorisant l'engagement et le référencement naturel (SEO).</li>
-        <li><strong>Design responsive &amp; Branding F1 :</strong> Interface dynamique aux teintes rouge et sombre inspirée de l'univers de la course, parfaitement adaptée sur smartphone, tablette et desktop.</li>
-        <li><strong>Optimisation SEO &amp; Performance :</strong> Balisage sémantique, métadonnées structurées et optimisation du chargement des images.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- 03 Résultats -->
-<section class="case-section">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">03 — Bilan &amp; Compétences</div>
-    <h2 class="case-section__title reveal" data-i18n="boxboxf1.s3-title">Apprentissages &amp; Impact.</h2>
-    <div class="reveal">
-      <p style="margin-bottom:1.5rem;" data-i18n="boxboxf1.s3-p1">
-        Le déploiement de BoxBoxF1 a permis de maîtriser l'ensemble du cycle de vie d'un projet e-commerce : du choix des plugins à la configuration des taxes, en passant par la personnalisation CSS poussée de thèmes WordPress et l'élaboration d'une stratégie de contenu ciblée.
-      </p>
-      <div style="display:flex; gap:1rem; margin-top:2rem;">
-        <a href="https://boxboxf1.ch/" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="boxboxf1.cta-link">
-          Explorer la boutique en ligne ↗
+    <header class="navbar">
+      <div class="navbar__inner">
+        <a href="../index.html" class="navbar__logo">
+          <div class="logo-mark">NA</div>
+          <span class="logo-text">Nuno Amaro</span>
         </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Next Project -->
-<section class="case-section" style="border-top:1px solid var(--border);">
-  <div class="container">
-    <a href="savoir-vivre.html" class="next-project reveal">
-      <span class="next-project__label" data-i18n="case.next">Projet suivant</span>
-      <h3 class="next-project__title">Savoir-Vivre ↗</h3>
-    </a>
-  </div>
-</section>
-
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <div class="logo-mark">NA</div>
-        <p style="margin-top:1rem;" data-i18n="footer.brand">Conception et développement d'expériences numériques avec curiosité.</p>
-      </div>
-      <div class="footer__nav">
-        <div class="footer__nav-group">
-          <div class="footer__nav-label" data-i18n="footer.nav-label">Navigation</div>
-          <ul class="footer__nav-links">
-            <li><a href="../index.html"      class="footer__nav-link">Accueil</a></li>
-            <li><a href="../index.html#work" class="footer__nav-link" data-i18n="nav.work">Projets</a></li>
-            <li><a href="../about.html"      class="footer__nav-link" data-i18n="nav.about">À propos</a></li>
-            <li><a href="../contact.html"    class="footer__nav-link" data-i18n="nav.contact">Contact</a></li>
-          </ul>
+        <nav class="navbar__links">
+          <a
+            href="../index.html#work"
+            class="navbar__link active"
+            data-i18n="nav.work"
+            >Projets</a
+          >
+          <a href="../about.html" class="navbar__link" data-i18n="nav.about"
+            >À propos</a
+          >
+          <a
+            href="../index.html#skills"
+            class="navbar__link"
+            data-i18n="nav.skills"
+            >Compétences</a
+          >
+          <a href="../contact.html" class="navbar__link" data-i18n="nav.contact"
+            >Contact</a
+          >
+        </nav>
+        <div class="navbar__actions">
+          <div class="lang-switcher" aria-label="Language switcher">
+            <button
+              class="lang-btn"
+              data-lang="en"
+              aria-pressed="false"
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+            <div class="lang-divider" aria-hidden="true"></div>
+            <button
+              class="lang-btn lang-active"
+              data-lang="fr"
+              aria-pressed="true"
+              aria-label="Passer en français"
+            >
+              FR
+            </button>
+          </div>
+          <button class="theme-toggle" aria-label="Toggle theme">
+            <span class="theme-toggle-icon">☾</span>
+          </button>
+          <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta"
+            >Me contacter ↗</a
+          >
+          <button class="menu-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
         </div>
-        <div class="footer__nav-group">
-          <div class="footer__nav-label" data-i18n="footer.soc-label">Réseaux</div>
-          <ul class="footer__nav-links">
-            <li><a href="https://www.linkedin.com/in/amaro-nuno/" class="footer__nav-link" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-            <li><a href="https://github.com/Pantufas17"           class="footer__nav-link" target="_blank" rel="noopener">GitHub ↗</a></li>
-          </ul>
+      </div>
+    </header>
+
+    <nav class="mobile-nav">
+      <ul class="mobile-nav__links">
+        <li>
+          <a
+            href="../index.html#work"
+            class="mobile-nav__link"
+            data-i18n="nav.work"
+            >Projets</a
+          >
+        </li>
+        <li>
+          <a href="../about.html" class="mobile-nav__link" data-i18n="nav.about"
+            >À propos</a
+          >
+        </li>
+        <li>
+          <a
+            href="../contact.html"
+            class="mobile-nav__link"
+            data-i18n="nav.contact"
+            >Contact</a
+          >
+        </li>
+      </ul>
+      <div class="mobile-nav__footer">
+        <a
+          href="https://www.linkedin.com/in/amaro-nuno/"
+          class="mobile-nav__social"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        <a
+          href="https://github.com/Pantufas17"
+          class="mobile-nav__social"
+          target="_blank"
+          rel="noopener"
+          >GitHub</a
+        >
+      </div>
+    </nav>
+
+    <main>
+      <section class="case-hero">
+        <div class="container">
+          <a href="../index.html#work" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M13 8H3M3 8l5-5M3 8l5 5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span data-i18n="case.all-projects">Tous les projets</span>
+          </a>
+
+          <div class="section-header__meta" style="margin-bottom: 1.5rem">
+            <span class="section-header__number" style="color: var(--accent)"
+              >E-Commerce · WordPress · WooCommerce</span
+            >
+          </div>
+
+          <h1 class="hero-enter hero-enter-1" style="margin-bottom: 1.5rem">
+            BoxBoxF1<br /><span style="color: var(--accent)"
+              >E-Commerce Suisse</span
+            >
+          </h1>
+          <p
+            class="text-lead hero-enter hero-enter-2"
+            style="max-width: 54ch; margin-bottom: 2rem"
+            data-i18n="boxboxf1.lead"
+          >
+            Plateforme e-commerce conçue sous WordPress &amp; WooCommerce pour
+            les passionnés suisses de Formule 1, combinant boutique spécialisée
+            et espace blog d'actualités.
+          </p>
+
+          <div class="project-actions hero-enter hero-enter-2">
+            <a
+              href="https://boxboxf1.ch/"
+              target="_blank"
+              rel="noopener"
+              class="live-badge"
+            >
+              <span class="live-dot"></span>
+              <span data-i18n="boxboxf1.live-btn">Visiter boxboxf1.ch ↗</span>
+            </a>
+          </div>
+
+          <div
+            class="case-meta-grid hero-enter hero-enter-3"
+            style="margin-top: 2.5rem"
+          >
+            <div class="case-meta-item">
+              <div class="case-meta-item__label" data-i18n="case.context-label">
+                Contexte
+              </div>
+              <div class="case-meta-item__value">
+                Cours E-Commerce (HEIG-VD)
+              </div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label" data-i18n="case.date-label">
+                Période
+              </div>
+              <div class="case-meta-item__value">2025 – 2026</div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label" data-i18n="case.role-label">
+                Rôle
+              </div>
+              <div class="case-meta-item__value">
+                Développement, E-Commerce, UX/UI
+              </div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label" data-i18n="case.tech-label">
+                Technologies
+              </div>
+              <div class="case-meta-item__value">
+                WordPress · WooCommerce · PHP · CSS · SEO
+              </div>
+            </div>
+          </div>
+          <div class="hero-enter hero-enter-4" style="margin-top: 2.5rem">
+            <a
+              href="https://boxboxf1.ch/"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Visiter le projet en ligne ↗
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cover Image -->
+      <div class="container" style="margin-block: 2rem">
+        <div
+          class="reveal"
+          style="
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+          "
+        >
+          <img
+            src="../assets/img/projets/BoxBoxF1/BoxBoxF1_HeroSection.png"
+            alt="Aperçu du site BoxBoxF1"
+            style="width: 100%; height: auto; display: block"
+          />
         </div>
       </div>
-    </div>
-    <div class="footer__bottom">
-      <span class="footer__copyright" data-i18n="footer.copy">© 2026 Nuno Amaro. Tous droits réservés.</span>
-      <span class="footer__tagline" data-i18n-html="footer.tagline">Conçu et développé avec passion.</span>
-    </div>
-  </div>
-</footer>
 
-<script src="../js/i18n.js"       defer></script>
-<script src="../js/main.js"       defer></script>
-<script src="../js/cursor.js"     defer></script>
-<script src="../js/animations.js" defer></script>
-</body>
+      <!-- 01 Contexte & Problématique -->
+      <section class="case-section">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">01 — Contexte &amp; Défi</div>
+          <h2 class="case-section__title reveal" data-i18n="boxboxf1.s1-title">
+            Un shop F1 dédié au public suisse.
+          </h2>
+          <div class="reveal">
+            <p style="margin-bottom: 1.5rem" data-i18n="boxboxf1.s1-p1">
+              Dans le cadre du cours d'E-Commerce à la HEIG-VD, le projet
+              consistait à créer de bout en bout une boutique en ligne
+              fonctionnelle et optimisée. Passionné de sport automobile, j'ai
+              identifié une opportunité claire : le manque d'offre e-commerce F1
+              dédiée au marché suisse, où les fans se heurtent souvent à des
+              frais de douane imprévus et des délais de livraison longs depuis
+              l'étranger.
+            </p>
+            <p style="margin-bottom: 1.5rem" data-i18n="boxboxf1.s1-p2">
+              Le défi était double : proposer une expérience d'achat fluide
+              (catalogue clair, tunnel de commande optimisé, modes de paiement
+              adaptés) tout en intégrant un volet éditorial (blog d'actualités
+              F1) pour générer du trafic organique et fédérer une communauté
+              locale.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 Fonctionnalités -->
+      <section class="case-section" style="background: var(--surface-alt)">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">
+            02 — Architecture &amp; Fonctionnalités
+          </div>
+          <h2 class="case-section__title reveal" data-i18n="boxboxf1.s2-title">
+            Une solution complète sous WordPress &amp; WooCommerce.
+          </h2>
+          <div class="reveal">
+            <ul
+              style="
+                list-style: disc;
+                padding-left: 1.5rem;
+                line-height: 1.8;
+                margin-bottom: 2rem;
+              "
+            >
+              <li>
+                <strong>Boutique en ligne complète :</strong> Gestion du
+                catalogue de produits (vêtements, accessoires, miniatures et
+                goodies), gestion des stocks et variations (tailles, écuries).
+              </li>
+              <li>
+                <strong>Tunnel de commande &amp; Paiements :</strong> Processus
+                de checkout épuré en quelques étapes, intégration des
+                passerelles de paiement sécurisées et calcul automatique des
+                frais de livraison suisses.
+              </li>
+              <li>
+                <strong>Espace Blog &amp; Actualités F1 :</strong> Articles
+                réguliers sur les Grands Prix, analyses de transferts et récaps
+                de courses, favorisant l'engagement et le référencement naturel
+                (SEO).
+              </li>
+              <li>
+                <strong>Design responsive &amp; Branding F1 :</strong> Interface
+                dynamique aux teintes rouge et sombre inspirée de l'univers de
+                la course, parfaitement adaptée sur smartphone, tablette et
+                desktop.
+              </li>
+              <li>
+                <strong>Optimisation SEO &amp; Performance :</strong> Balisage
+                sémantique, métadonnées structurées et optimisation du
+                chargement des images.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 Résultats -->
+      <section class="case-section">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">
+            03 — Bilan &amp; Compétences
+          </div>
+          <h2 class="case-section__title reveal" data-i18n="boxboxf1.s3-title">
+            Apprentissages &amp; Impact.
+          </h2>
+          <div class="reveal">
+            <p style="margin-bottom: 1.5rem" data-i18n="boxboxf1.s3-p1">
+              Le déploiement de BoxBoxF1 a permis de maîtriser l'ensemble du
+              cycle de vie d'un projet e-commerce : du choix des plugins à la
+              configuration des taxes, en passant par la personnalisation CSS
+              poussée de thèmes WordPress et l'élaboration d'une stratégie de
+              contenu ciblée.
+            </p>
+            <div style="display: flex; gap: 1rem; margin-top: 2rem">
+              <a
+                href="https://boxboxf1.ch/shop/"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-primary"
+                data-i18n="boxboxf1.cta-link"
+              >
+                Explorer la boutique en ligne ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next Project -->
+      <section class="case-section" style="border-top: 1px solid var(--border)">
+        <div class="container">
+          <a href="savoir-vivre.html" class="next-project reveal">
+            <span class="next-project__label" data-i18n="case.next"
+              >Projet suivant</span
+            >
+            <h3 class="next-project__title">Savoir-Vivre ↗</h3>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <div class="logo-mark">NA</div>
+            <p style="margin-top: 1rem" data-i18n="footer.brand">
+              Conception et développement d'expériences numériques avec
+              curiosité.
+            </p>
+          </div>
+          <div class="footer__nav">
+            <div class="footer__nav-group">
+              <div class="footer__nav-label" data-i18n="footer.nav-label">
+                Navigation
+              </div>
+              <ul class="footer__nav-links">
+                <li>
+                  <a href="../index.html" class="footer__nav-link">Accueil</a>
+                </li>
+                <li>
+                  <a
+                    href="../index.html#work"
+                    class="footer__nav-link"
+                    data-i18n="nav.work"
+                    >Projets</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../about.html"
+                    class="footer__nav-link"
+                    data-i18n="nav.about"
+                    >À propos</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../contact.html"
+                    class="footer__nav-link"
+                    data-i18n="nav.contact"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="footer__nav-group">
+              <div class="footer__nav-label" data-i18n="footer.soc-label">
+                Réseaux
+              </div>
+              <ul class="footer__nav-links">
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/amaro-nuno/"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener"
+                    >LinkedIn ↗</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/Pantufas17"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub ↗</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span class="footer__copyright" data-i18n="footer.copy"
+            >© 2026 Nuno Amaro. Tous droits réservés.</span
+          >
+          <span class="footer__tagline" data-i18n-html="footer.tagline"
+            >Conçu et développé avec passion.</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/cursor.js" defer></script>
+    <script src="../js/animations.js" defer></script>
+  </body>
 </html>

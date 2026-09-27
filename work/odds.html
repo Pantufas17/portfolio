@@ -1,260 +1,477 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ODDS — Nuno Amaro</title>
-  <meta name="description" content="ODDS — Plateforme digitale pour améliorer le don d'organes en Suisse. De la recherche UX au prototype interactif. Étude de cas par Nuno Amaro." />
-  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="../css/components.css" />
-  <link rel="stylesheet" href="../css/animations.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ODDS — Nuno Amaro</title>
+    <meta
+      name="description"
+      content="ODDS — Plateforme digitale pour améliorer le don d'organes en Suisse. De la recherche UX au prototype interactif. Étude de cas par Nuno Amaro."
+    />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+  </head>
+  <body>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true">
+      <span class="cursor-label"></span>
+    </div>
 
-<div class="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" aria-hidden="true"><span class="cursor-label"></span></div>
+    <header class="navbar">
+      <div class="navbar__inner">
+        <a href="../index.html" class="navbar__logo">
+          <div class="logo-mark">NA</div>
+          <span class="logo-text">Nuno Amaro</span>
+        </a>
+        <nav class="navbar__links">
+          <a
+            href="../index.html#work"
+            class="navbar__link active"
+            data-i18n="nav.work"
+            >Projets</a
+          >
+          <a href="../about.html" class="navbar__link" data-i18n="nav.about"
+            >À propos</a
+          >
+          <a
+            href="../index.html#skills"
+            class="navbar__link"
+            data-i18n="nav.skills"
+            >Compétences</a
+          >
+          <a href="../contact.html" class="navbar__link" data-i18n="nav.contact"
+            >Contact</a
+          >
+        </nav>
+        <div class="navbar__actions">
+          <div class="lang-switcher" aria-label="Language switcher">
+            <button
+              class="lang-btn"
+              data-lang="en"
+              aria-pressed="false"
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+            <div class="lang-divider" aria-hidden="true"></div>
+            <button
+              class="lang-btn lang-active"
+              data-lang="fr"
+              aria-pressed="true"
+              aria-label="Passer en français"
+            >
+              FR
+            </button>
+          </div>
+          <button class="theme-toggle" aria-label="Toggle theme">
+            <span class="theme-toggle-icon">☾</span>
+          </button>
+          <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta"
+            >Me contacter ↗</a
+          >
+          <button class="menu-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
 
-<header class="navbar">
-  <div class="navbar__inner">
-    <a href="../index.html" class="navbar__logo">
-      <div class="logo-mark">NA</div>
-      <span class="logo-text">Nuno Amaro</span>
-    </a>
-    <nav class="navbar__links">
-      <a href="../index.html#work"   class="navbar__link active" data-i18n="nav.work">Projets</a>
-      <a href="../about.html"        class="navbar__link"        data-i18n="nav.about">À propos</a>
-      <a href="../index.html#skills" class="navbar__link"        data-i18n="nav.skills">Compétences</a>
-      <a href="../contact.html"      class="navbar__link"        data-i18n="nav.contact">Contact</a>
+    <nav class="mobile-nav">
+      <ul class="mobile-nav__links">
+        <li>
+          <a
+            href="../index.html#work"
+            class="mobile-nav__link"
+            data-i18n="nav.work"
+            >Projets</a
+          >
+        </li>
+        <li>
+          <a href="../about.html" class="mobile-nav__link" data-i18n="nav.about"
+            >À propos</a
+          >
+        </li>
+        <li>
+          <a
+            href="../contact.html"
+            class="mobile-nav__link"
+            data-i18n="nav.contact"
+            >Contact</a
+          >
+        </li>
+      </ul>
+      <div class="mobile-nav__footer">
+        <a
+          href="https://www.linkedin.com/in/amaro-nuno/"
+          class="mobile-nav__social"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        <a
+          href="https://github.com/Pantufas17"
+          class="mobile-nav__social"
+          target="_blank"
+          rel="noopener"
+          >GitHub</a
+        >
+      </div>
     </nav>
-    <div class="navbar__actions">
-      <div class="lang-switcher" aria-label="Language switcher">
-        <button class="lang-btn"             data-lang="en" aria-pressed="false" aria-label="Switch to English">EN</button>
-        <div class="lang-divider" aria-hidden="true"></div>
-        <button class="lang-btn lang-active" data-lang="fr" aria-pressed="true"  aria-label="Passer en français">FR</button>
-      </div>
-      <button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">☾</span></button>
-      <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta">Me contacter ↗</a>
-      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
 
-<nav class="mobile-nav">
-  <ul class="mobile-nav__links">
-    <li><a href="../index.html#work" class="mobile-nav__link" data-i18n="nav.work">Projets</a></li>
-    <li><a href="../about.html"      class="mobile-nav__link" data-i18n="nav.about">À propos</a></li>
-    <li><a href="../contact.html"    class="mobile-nav__link" data-i18n="nav.contact">Contact</a></li>
-  </ul>
-  <div class="mobile-nav__footer">
-    <a href="https://www.linkedin.com/in/amaro-nuno/" class="mobile-nav__social" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/Pantufas17"           class="mobile-nav__social" target="_blank" rel="noopener">GitHub</a>
-  </div>
-</nav>
+    <main>
+      <section class="case-hero">
+        <div class="container">
+          <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M13 8H3M3 8l5-5M3 8l5 5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Tous les projets
+          </a>
 
-<main>
+          <div class="section-header__meta" style="margin-bottom: 1.5rem">
+            <span class="section-header__number" style="color: var(--accent)"
+              >Recherche UX · Produit Digital · Projet inter-cours</span
+            >
+          </div>
 
-<section class="case-hero">
-  <div class="container">
-    <a href="index.html" class="back-link">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M3 8l5-5M3 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Tous les projets
-    </a>
+          <h1 class="hero-enter hero-enter-1" style="margin-bottom: 1.5rem">
+            <span style="color: var(--accent)">ODDS</span>
+          </h1>
+          <p
+            class="text-lead hero-enter hero-enter-2"
+            style="max-width: 54ch; margin-bottom: 2.5rem"
+          >
+            Un projet inter-cours visant à moderniser et simplifier la démarche
+            du don d'organes en Suisse — d'une recherche UX approfondie jusqu'à
+            une plateforme interactive accessible et humaine.
+          </p>
 
-    <div class="section-header__meta" style="margin-bottom:1.5rem;">
-      <span class="section-header__number" style="color:var(--accent);">Recherche UX · Produit Digital · Projet inter-cours</span>
-    </div>
-
-    <h1 class="hero-enter hero-enter-1" style="margin-bottom:1.5rem;"><span style="color:var(--accent);">ODDS</span></h1>
-    <p class="text-lead hero-enter hero-enter-2" style="max-width:54ch; margin-bottom:2.5rem;">
-      Un projet inter-cours visant à moderniser et simplifier la démarche du don d'organes en Suisse — d'une recherche UX approfondie jusqu'à une plateforme interactive accessible et humaine.
-    </p>
-
-    <div class="case-meta-grid hero-enter hero-enter-3">
-      <div class="case-meta-item">
-        <div class="case-meta-item__label">Type de projet</div>
-        <div class="case-meta-item__value">Projet inter-cours HEIG-VD</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label">Focus</div>
-        <div class="case-meta-item__value">Recherche UX · UI Design · Prototype Figma</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label">Rôle</div>
-        <div class="case-meta-item__value">UX Researcher &amp; Designer UI</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label">Outils</div>
-        <div class="case-meta-item__value">Figma · Miro · Notion</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="container" style="margin-block:2rem;">
-  <div class="case-img-placeholder reveal" style="aspect-ratio:21/9; min-height:300px;">
-    <img src="../assets/img/projets/ODDS/ODDS_HeroSection.png" alt="ODDS Cover" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-lg);" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-    <p style="display:none;">[AJOUTER IMAGE DU PROJET ODDS]</p>
-  </div>
-</div>
-
-<!-- 01 Problem -->
-<section class="case-section">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">01 — La Problématique</div>
-    <h2 class="case-section__title reveal">Faciliter un choix essentiel.</h2>
-    <div class="reveal">
-      <p style="margin-bottom:1.5rem;">
-        La Suisse affiche un taux de don d'organes relativement bas en comparaison européenne. Les barrières administratives, le manque de sensibilisation claire et la sensibilité émotionnelle entourant le sujet freinent souvent les décisions éclairées.
-      </p>
-      <p>
-        L'objectif d'ODDS était de repenser cette expérience : la rendre plus rassurante, transparente et empathique grâce à une interface épurée guidant pas à pas l'utilisateur dans l'expression de sa volonté.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- 02 Research -->
-<section class="case-section" style="background:var(--surface-alt);">
-  <div class="container">
-    <div class="case-section__num reveal">02 — Recherche UX</div>
-    <h2 class="case-section__title reveal">Comprendre les usagers.</h2>
-
-    <div class="grid-2 reveal" style="margin-bottom:2rem;">
-      <div>
-        <h4 style="margin-bottom:0.75rem; font-family:var(--font-display);">Entretiens &amp; Analyse</h4>
-        <p>Mise en place de questionnaires et d'entretiens qualitatifs pour cartographier les freins émotionnels et la méconnaissance du cadre légal suisse.</p>
-      </div>
-      <div>
-        <h4 style="margin-bottom:0.75rem; font-family:var(--font-display);">Enseignements clés</h4>
-        <p>Nécessité de rassurer avec des explications simples, sans jargon médical, et de proposer un partage facilité du choix avec les proches.</p>
-      </div>
-    </div>
-
-    <div class="case-img-placeholder reveal">
-      <p>[AJOUTER LIVRABLES DE RECHERCHE — PERSONAS, USER JOURNEYS]</p>
-    </div>
-  </div>
-</section>
-
-<!-- 03 UX & Architecture -->
-<section class="case-section">
-  <div class="container">
-    <div class="case-section__num reveal">03 — Architecture de l'Information</div>
-    <h2 class="case-section__title reveal">Parcours &amp; Wireframes.</h2>
-
-    <div class="process-row reveal" style="margin-bottom:2.5rem;">
-      <span class="process-pill active">Recherche</span>
-      <span class="process-arrow">→</span>
-      <span class="process-pill">Personas</span>
-      <span class="process-arrow">→</span>
-      <span class="process-pill">Arborescence</span>
-      <span class="process-arrow">→</span>
-      <span class="process-pill">Wireframes</span>
-      <span class="process-arrow">→</span>
-      <span class="process-pill">UI Design</span>
-      <span class="process-arrow">→</span>
-      <span class="process-pill">Prototype</span>
-    </div>
-
-    <div class="case-img-placeholder reveal" style="margin-bottom:1.5rem;">
-      <p>[AJOUTER WIREFRAMES / SCHÉMA DE FLUX UTILISATEUR]</p>
-    </div>
-  </div>
-</section>
-
-<!-- 04 UI Design -->
-<section class="case-section" style="background:var(--surface-alt);">
-  <div class="container">
-    <div class="case-section__num reveal">04 — Design UI</div>
-    <h2 class="case-section__title reveal">Sobriété &amp; Clarté.</h2>
-
-    <div class="grid-2 reveal" style="gap:1.5rem;">
-      <div class="case-img-placeholder" style="aspect-ratio:9/16; max-height:600px;"><p>[CAPTURE ÉCRAN MOBILE 1]</p></div>
-      <div class="case-img-placeholder" style="aspect-ratio:9/16; max-height:600px;"><p>[CAPTURE ÉCRAN MOBILE 2]</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 05 Prototype -->
-<section class="case-section">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">05 — Prototype</div>
-    <h2 class="case-section__title reveal">Prototype interactif Figma.</h2>
-    <div class="case-img-placeholder reveal" style="aspect-ratio:16/9; margin-bottom:1.5rem;">
-      <p>[AJOUTER APERÇU DU PROTOTYPE FIGMA]</p>
-    </div>
-  </div>
-</section>
-
-<!-- 06 Reflections -->
-<section class="case-section" style="background:var(--surface-alt);">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">06 — Bilan</div>
-    <h2 class="case-section__title reveal">Ce que j'ai appris.</h2>
-    <div class="reveal">
-      <p>
-        Ce projet m'a appris à aborder des sujets à forte charge émotionnelle avec tact et rigueur, en plaçant la recherche utilisateur et l'empathie au cœur de chaque choix de design d'interaction.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- Next Project -->
-<section style="padding-block:3rem 5rem;">
-  <div class="container" style="max-width:800px;">
-    <p class="text-label" style="margin-bottom:1.5rem;">Projet suivant</p>
-    <a href="la-chaux-de-fonds.html" class="next-project reveal">
-      <div>
-        <div class="next-project__label">Suivant</div>
-        <div class="next-project__title">La Chaux-de-Fonds — Site Web</div>
-      </div>
-      <div class="next-project__arrow">→</div>
-    </a>
-  </div>
-</section>
-
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <div class="logo-mark">NA</div>
-        <p style="margin-top:1rem;" data-i18n="footer.brand">Conception et développement d'expériences digitales avec curiosité.</p>
-      </div>
-      <div class="footer__nav">
-        <div class="footer__nav-group">
-          <div class="footer__nav-label" data-i18n="footer.nav-label">Navigation</div>
-          <ul class="footer__nav-links">
-            <li><a href="../index.html"         class="footer__nav-link">Accueil</a></li>
-            <li><a href="../index.html#work"    class="footer__nav-link" data-i18n="nav.work">Projets</a></li>
-            <li><a href="../about.html"         class="footer__nav-link" data-i18n="nav.about">À propos</a></li>
-            <li><a href="../contact.html"       class="footer__nav-link" data-i18n="nav.contact">Contact</a></li>
-          </ul>
+          <div class="case-meta-grid hero-enter hero-enter-3">
+            <div class="case-meta-item">
+              <div class="case-meta-item__label">Type de projet</div>
+              <div class="case-meta-item__value">
+                Projet inter-cours HEIG-VD
+              </div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label">Focus</div>
+              <div class="case-meta-item__value">
+                Recherche UX · UI Design · Prototype Figma
+              </div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label">Rôle</div>
+              <div class="case-meta-item__value">
+                UX Researcher &amp; Designer UI
+              </div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label">Outils</div>
+              <div class="case-meta-item__value">Figma · Miro · Notion</div>
+            </div>
+          </div>
+          <div class="hero-enter hero-enter-4" style="margin-top: 2.5rem">
+            <a
+              href="https://www.figma.com/proto/gG4lkVpPChD1C3aTYChdCP/BasesUI--NunoAmaro_GabrielCappi_TanguyVaucher---M53_2--Wireframes?node-id=310-965&p=f&viewport=914%2C-292%2C0.08&t=ScXIUTJIZRPmcwDt-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=310%3A965&show-proto-sidebar=1&page-id=268%3A208"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Visiter le projet en ligne ↗
+            </a>
+          </div>
         </div>
-        <div class="footer__nav-group">
-          <div class="footer__nav-label" data-i18n="footer.soc-label">Réseaux</div>
-          <ul class="footer__nav-links">
-            <li><a href="https://www.linkedin.com/in/amaro-nuno/" class="footer__nav-link" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-            <li><a href="https://github.com/Pantufas17"           class="footer__nav-link" target="_blank" rel="noopener">GitHub ↗</a></li>
-          </ul>
+      </section>
+
+      <div class="container" style="margin-block: 2rem">
+        <div
+          class="case-img-placeholder reveal"
+          style="aspect-ratio: 21/9; min-height: 300px"
+        >
+          <img
+            src="../assets/img/projets/ODDS/ODDS_HeroSection.png"
+            alt="ODDS Cover"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: var(--radius-lg);
+            "
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'block';
+            "
+          />
+          <p style="display: none">[AJOUTER IMAGE DU PROJET ODDS]</p>
         </div>
       </div>
-    </div>
-    <div class="footer__bottom">
-      <span class="footer__copyright" data-i18n="footer.copy">© 2026 Nuno Amaro. Tous droits réservés.</span>
-      <span class="footer__tagline" data-i18n-html="footer.tagline">Conçu et développé avec curiosité.</span>
-    </div>
-  </div>
-</footer>
 
-<script src="../js/i18n.js"       defer></script>
-<script src="../js/main.js"       defer></script>
-<script src="../js/cursor.js"     defer></script>
-<script src="../js/animations.js" defer></script>
-</body>
+      <!-- 01 Problem -->
+      <section class="case-section">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">01 — La Problématique</div>
+          <h2 class="case-section__title reveal">
+            Faciliter un choix essentiel.
+          </h2>
+          <div class="reveal">
+            <p style="margin-bottom: 1.5rem">
+              La Suisse affiche un taux de don d'organes relativement bas en
+              comparaison européenne. Les barrières administratives, le manque
+              de sensibilisation claire et la sensibilité émotionnelle entourant
+              le sujet freinent souvent les décisions éclairées.
+            </p>
+            <p>
+              L'objectif d'ODDS était de repenser cette expérience : la rendre
+              plus rassurante, transparente et empathique grâce à une interface
+              épurée guidant pas à pas l'utilisateur dans l'expression de sa
+              volonté.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 Research -->
+      <section class="case-section" style="background: var(--surface-alt)">
+        <div class="container">
+          <div class="case-section__num reveal">02 — Recherche UX</div>
+          <h2 class="case-section__title reveal">Comprendre les usagers.</h2>
+
+          <div class="grid-2 reveal" style="margin-bottom: 2rem">
+            <div>
+              <h4
+                style="margin-bottom: 0.75rem; font-family: var(--font-display)"
+              >
+                Entretiens &amp; Analyse
+              </h4>
+              <p>
+                Mise en place de questionnaires et d'entretiens qualitatifs pour
+                cartographier les freins émotionnels et la méconnaissance du
+                cadre légal suisse.
+              </p>
+            </div>
+            <div>
+              <h4
+                style="margin-bottom: 0.75rem; font-family: var(--font-display)"
+              >
+                Enseignements clés
+              </h4>
+              <p>
+                Nécessité de rassurer avec des explications simples, sans jargon
+                médical, et de proposer un partage facilité du choix avec les
+                proches.
+              </p>
+            </div>
+          </div>
+
+          <div class="case-img-placeholder reveal">
+            <p>[AJOUTER LIVRABLES DE RECHERCHE — PERSONAS, USER JOURNEYS]</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 UX & Architecture -->
+      <section class="case-section">
+        <div class="container">
+          <div class="case-section__num reveal">
+            03 — Architecture de l'Information
+          </div>
+          <h2 class="case-section__title reveal">Parcours &amp; Wireframes.</h2>
+
+          <div class="process-row reveal" style="margin-bottom: 2.5rem">
+            <span class="process-pill active">Recherche</span>
+            <span class="process-arrow">→</span>
+            <span class="process-pill">Personas</span>
+            <span class="process-arrow">→</span>
+            <span class="process-pill">Arborescence</span>
+            <span class="process-arrow">→</span>
+            <span class="process-pill">Wireframes</span>
+            <span class="process-arrow">→</span>
+            <span class="process-pill">UI Design</span>
+            <span class="process-arrow">→</span>
+            <span class="process-pill">Prototype</span>
+          </div>
+
+          <div
+            class="case-img-placeholder reveal"
+            style="margin-bottom: 1.5rem"
+          >
+            <p>[AJOUTER WIREFRAMES / SCHÉMA DE FLUX UTILISATEUR]</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 UI Design -->
+      <section class="case-section" style="background: var(--surface-alt)">
+        <div class="container">
+          <div class="case-section__num reveal">04 — Design UI</div>
+          <h2 class="case-section__title reveal">Sobriété &amp; Clarté.</h2>
+
+          <div class="grid-2 reveal" style="gap: 1.5rem">
+            <div
+              class="case-img-placeholder"
+              style="aspect-ratio: 9/16; max-height: 600px"
+            >
+              <p>[CAPTURE ÉCRAN MOBILE 1]</p>
+            </div>
+            <div
+              class="case-img-placeholder"
+              style="aspect-ratio: 9/16; max-height: 600px"
+            >
+              <p>[CAPTURE ÉCRAN MOBILE 2]</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 Prototype -->
+      <section class="case-section">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">05 — Prototype</div>
+          <h2 class="case-section__title reveal">
+            Prototype interactif Figma.
+          </h2>
+          <div
+            class="case-img-placeholder reveal"
+            style="aspect-ratio: 16/9; margin-bottom: 1.5rem"
+          >
+            <p>[AJOUTER APERÇU DU PROTOTYPE FIGMA]</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 Reflections -->
+      <section class="case-section" style="background: var(--surface-alt)">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">06 — Bilan</div>
+          <h2 class="case-section__title reveal">Ce que j'ai appris.</h2>
+          <div class="reveal">
+            <p>
+              Ce projet m'a appris à aborder des sujets à forte charge
+              émotionnelle avec tact et rigueur, en plaçant la recherche
+              utilisateur et l'empathie au cœur de chaque choix de design
+              d'interaction.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next Project -->
+      <section style="padding-block: 3rem 5rem">
+        <div class="container" style="max-width: 800px">
+          <p class="text-label" style="margin-bottom: 1.5rem">Projet suivant</p>
+          <a href="la-chaux-de-fonds.html" class="next-project reveal">
+            <div>
+              <div class="next-project__label">Suivant</div>
+              <div class="next-project__title">
+                La Chaux-de-Fonds — Site Web
+              </div>
+            </div>
+            <div class="next-project__arrow">→</div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <div class="logo-mark">NA</div>
+            <p style="margin-top: 1rem" data-i18n="footer.brand">
+              Conception et développement d'expériences digitales avec
+              curiosité.
+            </p>
+          </div>
+          <div class="footer__nav">
+            <div class="footer__nav-group">
+              <div class="footer__nav-label" data-i18n="footer.nav-label">
+                Navigation
+              </div>
+              <ul class="footer__nav-links">
+                <li>
+                  <a href="../index.html" class="footer__nav-link">Accueil</a>
+                </li>
+                <li>
+                  <a
+                    href="../index.html#work"
+                    class="footer__nav-link"
+                    data-i18n="nav.work"
+                    >Projets</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../about.html"
+                    class="footer__nav-link"
+                    data-i18n="nav.about"
+                    >À propos</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../contact.html"
+                    class="footer__nav-link"
+                    data-i18n="nav.contact"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="footer__nav-group">
+              <div class="footer__nav-label" data-i18n="footer.soc-label">
+                Réseaux
+              </div>
+              <ul class="footer__nav-links">
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/amaro-nuno/"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener"
+                    >LinkedIn ↗</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/Pantufas17"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub ↗</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span class="footer__copyright" data-i18n="footer.copy"
+            >© 2026 Nuno Amaro. Tous droits réservés.</span
+          >
+          <span class="footer__tagline" data-i18n-html="footer.tagline"
+            >Conçu et développé avec curiosité.</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/cursor.js" defer></script>
+    <script src="../js/animations.js" defer></script>
+  </body>
 </html>

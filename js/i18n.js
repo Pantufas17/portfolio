@@ -150,7 +150,10 @@ const TRANSLATIONS = {
     'sv.s2-p1':    'As cinematographer and director, my role involved shot-by-shot storyboarding, lighting, directing actors on set, and coordinating with the sound engineer under a strict 2-week deadline.',
     'sv.s3-title': 'Production & Deliverables.',
     'sv.s3-p1':    'The project resulted in a full production package complying with industry standards: 2-minute Full HD short film with live sound, 30s web teaser, 10s social teaser, A4 300dpi poster, and a 9-page production dossier.',
-    'sv.pdf-btn':  'View Production Dossier (PDF) ↗',
+    'sv.video-btn':   'Watch Short Film ↗',
+    'sv.teaser30-btn':'Watch 30s Teaser ↗',
+    'sv.teaser10-btn':'Watch 10s Teaser ↗',
+    'sv.pdf-btn':     'View Production Dossier (PDF) ↗',
 
     /* NaturaQuest Case Study */
     'nq.lead':     'UX/UI design of an educational mobile game encouraging exploration of local biodiversity through geolocation quests, AI species recognition, and collectible cards.',
@@ -429,7 +432,10 @@ const TRANSLATIONS = {
     'sv.s2-p1':    "En tant que cadreur et réalisateur, ma mission comprenait la scénarisation visuelle (découpage technique, choix des focales, gestion de la lumière), la direction des acteurs sur le plateau et la coordination avec le preneur de son live sous un délai strict de 2 semaines.",
     'sv.s3-title': 'Production & Livrables.',
     'sv.s3-p1':    "Le projet s'est conclu par la livraison d'un écosystème de diffusion complet respectant les normes professionnelles : film principal de 2 minutes Full HD avec son live, teaser web (30s), teaser réseaux sociaux (10s), affiche A4 300 dpi et dossier technique complet de 9 pages.",
-    'sv.pdf-btn':  'Consulter le dossier de production (PDF) ↗',
+    'sv.video-btn':   'Consulter la vidéo de court-métrage ↗',
+    'sv.teaser30-btn':'Consulter le teaser de 30 secondes ↗',
+    'sv.teaser10-btn':'Consulter le teaser de 10 secondes ↗',
+    'sv.pdf-btn':     'Consulter le dossier de production (PDF) ↗',
 
     /* NaturaQuest Case Study */
     'nq.lead':     "Conception d'une application mobile ludo-éducative encourageant l'exploration de la biodiversité locale grâce à des quêtes géolocalisées, la reconnaissance d'espèces par IA et une collection de cartes.",

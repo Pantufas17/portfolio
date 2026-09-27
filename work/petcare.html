@@ -1,289 +1,538 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PetCare — Nuno Amaro</title>
-  <meta name="description" content="PetCare — Application mobile de santé animale connectée avec croisement de données IoT, météo et passerelle vétérinaire par QR code. Projet UX/UI par Nuno Amaro." />
-  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="../css/components.css" />
-  <link rel="stylesheet" href="../css/animations.css" />
-  <style>
-    .case-accent { --accent: #2e7d32; --accent-light: rgba(46, 125, 50, 0.10); }
-    .data-source-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.25rem;
-      margin-top: 1.5rem;
-    }
-    .data-source-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
-    }
-    .data-source-card__tag {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 0.5rem;
-    }
-    .data-source-card__title {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-    }
-    .data-source-card__desc {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-    .pdf-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
-      justify-content: center;
-    }
-    .code-box {
-      background: var(--surface-alt);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.25rem;
-      font-family: monospace;
-      font-size: 0.82rem;
-      color: var(--text);
-      overflow-x: auto;
-      line-height: 1.5;
-      margin-top: 1.5rem;
-    }
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PetCare — Nuno Amaro</title>
+    <meta
+      name="description"
+      content="PetCare — Application mobile de santé animale connectée avec croisement de données IoT, météo et passerelle vétérinaire par QR code. Projet UX/UI par Nuno Amaro."
+    />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <style>
+      .case-accent {
+        --accent: #2e7d32;
+        --accent-light: rgba(46, 125, 50, 0.1);
+      }
+      .data-source-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.25rem;
+        margin-top: 1.5rem;
+      }
+      .data-source-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 1.5rem;
+      }
+      .data-source-card__tag {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.5rem;
+      }
+      .data-source-card__title {
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 0.5rem;
+      }
+      .data-source-card__desc {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+      .pdf-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+        justify-content: center;
+      }
+      .code-box {
+        background: var(--surface-alt);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 1.25rem;
+        font-family: monospace;
+        font-size: 0.82rem;
+        color: var(--text);
+        overflow-x: auto;
+        line-height: 1.5;
+        margin-top: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true">
+      <span class="cursor-label"></span>
+    </div>
 
-<div class="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" aria-hidden="true"><span class="cursor-label"></span></div>
+    <header class="navbar">
+      <div class="navbar__inner">
+        <a href="../index.html" class="navbar__logo">
+          <div class="logo-mark">NA</div>
+          <span class="logo-text">Nuno Amaro</span>
+        </a>
+        <nav class="navbar__links">
+          <a
+            href="../index.html#work"
+            class="navbar__link active"
+            data-i18n="nav.work"
+            >Projets</a
+          >
+          <a href="../about.html" class="navbar__link" data-i18n="nav.about"
+            >À propos</a
+          >
+          <a
+            href="../index.html#skills"
+            class="navbar__link"
+            data-i18n="nav.skills"
+            >Compétences</a
+          >
+          <a href="../contact.html" class="navbar__link" data-i18n="nav.contact"
+            >Contact</a
+          >
+        </nav>
+        <div class="navbar__actions">
+          <div class="lang-switcher" aria-label="Language switcher">
+            <button
+              class="lang-btn"
+              data-lang="en"
+              aria-pressed="false"
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+            <div class="lang-divider" aria-hidden="true"></div>
+            <button
+              class="lang-btn lang-active"
+              data-lang="fr"
+              aria-pressed="true"
+              aria-label="Passer en français"
+            >
+              FR
+            </button>
+          </div>
+          <button class="theme-toggle" aria-label="Toggle theme">
+            <span class="theme-toggle-icon">☾</span>
+          </button>
+          <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta"
+            >Me contacter ↗</a
+          >
+          <button class="menu-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
 
-<header class="navbar">
-  <div class="navbar__inner">
-    <a href="../index.html" class="navbar__logo">
-      <div class="logo-mark">NA</div>
-      <span class="logo-text">Nuno Amaro</span>
-    </a>
-    <nav class="navbar__links">
-      <a href="../index.html#work"   class="navbar__link active" data-i18n="nav.work">Projets</a>
-      <a href="../about.html"        class="navbar__link"        data-i18n="nav.about">À propos</a>
-      <a href="../index.html#skills" class="navbar__link"        data-i18n="nav.skills">Compétences</a>
-      <a href="../contact.html"      class="navbar__link"        data-i18n="nav.contact">Contact</a>
+    <nav class="mobile-nav">
+      <ul class="mobile-nav__links">
+        <li>
+          <a
+            href="../index.html#work"
+            class="mobile-nav__link"
+            data-i18n="nav.work"
+            >Projets</a
+          >
+        </li>
+        <li>
+          <a href="../about.html" class="mobile-nav__link" data-i18n="nav.about"
+            >À propos</a
+          >
+        </li>
+        <li>
+          <a
+            href="../contact.html"
+            class="mobile-nav__link"
+            data-i18n="nav.contact"
+            >Contact</a
+          >
+        </li>
+      </ul>
+      <div class="mobile-nav__footer">
+        <a
+          href="https://www.linkedin.com/in/amaro-nuno/"
+          class="mobile-nav__social"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        <a
+          href="https://github.com/Pantufas17"
+          class="mobile-nav__social"
+          target="_blank"
+          rel="noopener"
+          >GitHub</a
+        >
+      </div>
     </nav>
-    <div class="navbar__actions">
-      <div class="lang-switcher" aria-label="Language switcher">
-        <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="Switch to English">EN</button>
-        <div class="lang-divider" aria-hidden="true"></div>
-        <button class="lang-btn lang-active" data-lang="fr" aria-pressed="true" aria-label="Passer en français">FR</button>
-      </div>
-      <button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">☾</span></button>
-      <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta">Me contacter ↗</a>
-      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
 
-<nav class="mobile-nav">
-  <ul class="mobile-nav__links">
-    <li><a href="../index.html#work" class="mobile-nav__link" data-i18n="nav.work">Projets</a></li>
-    <li><a href="../about.html"      class="mobile-nav__link" data-i18n="nav.about">À propos</a></li>
-    <li><a href="../contact.html"    class="mobile-nav__link" data-i18n="nav.contact">Contact</a></li>
-  </ul>
-  <div class="mobile-nav__footer">
-    <a href="https://www.linkedin.com/in/amaro-nuno/" class="mobile-nav__social" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/Pantufas17"           class="mobile-nav__social" target="_blank" rel="noopener">GitHub</a>
-  </div>
-</nav>
+    <main>
+      <section class="case-hero">
+        <div class="container">
+          <a href="../index.html#work" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M13 8H3M3 8l5-5M3 8l5 5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span data-i18n="case.all-projects">Tous les projets</span>
+          </a>
 
-<main>
+          <div class="section-header__meta" style="margin-bottom: 1.5rem">
+            <span class="section-header__number" style="color: var(--accent)"
+              >UX/UI Design · Health Tech · Data &amp; IoT</span
+            >
+          </div>
 
-<section class="case-hero">
-  <div class="container">
-    <a href="../index.html#work" class="back-link">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M3 8l5-5M3 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span data-i18n="case.all-projects">Tous les projets</span>
-    </a>
+          <h1 class="hero-enter hero-enter-1" style="margin-bottom: 1.5rem">
+            PetCare<br /><span style="color: var(--accent)"
+              >Santé Animale Connectée</span
+            >
+          </h1>
+          <p
+            class="text-lead hero-enter hero-enter-2"
+            style="max-width: 54ch; margin-bottom: 2rem"
+            data-i18n="petcare.lead"
+          >
+            Application mobile de santé préventive pour animaux de compagnie,
+            centralisant données IoT, météo et profil médical avec transmission
+            instantanée au vétérinaire par QR code.
+          </p>
 
-    <div class="section-header__meta" style="margin-bottom:1.5rem;">
-      <span class="section-header__number" style="color:var(--accent);">UX/UI Design · Health Tech · Data &amp; IoT</span>
-    </div>
-
-    <h1 class="hero-enter hero-enter-1" style="margin-bottom:1.5rem;">PetCare<br /><span style="color:var(--accent);">Santé Animale Connectée</span></h1>
-    <p class="text-lead hero-enter hero-enter-2" style="max-width:54ch; margin-bottom:2rem;" data-i18n="petcare.lead">
-      Application mobile de santé préventive pour animaux de compagnie, centralisant données IoT, météo et profil médical avec transmission instantanée au vétérinaire par QR code.
-    </p>
-
-    <div class="case-meta-grid hero-enter hero-enter-3">
-      <div class="case-meta-item">
-        <div class="case-meta-item__label" data-i18n="case.context-label">Cadre</div>
-        <div class="case-meta-item__value">Labo Matchup (HEIG-VD)</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label" data-i18n="case.date-label">Date</div>
-        <div class="case-meta-item__value">Novembre 2025</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label" data-i18n="case.role-label">Type &amp; Rôle</div>
-        <div class="case-meta-item__value">Projet individuel (UX/UI, Data, Modélisation)</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label" data-i18n="case.tools-label">Outils &amp; API</div>
-        <div class="case-meta-item__value">Figma · OpenWeatherMap API · JSON · UI</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Cover Image -->
-<div class="container" style="margin-block:2rem;">
-  <div class="reveal" style="border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow-lg);">
-    <img src="../assets/img/projets/PetCare/PetCare.png" alt="Aperçu des écrans de l'application PetCare" style="width:100%; height:auto; display:block;" onerror="this.src='../assets/img/animals.jpg'; this.style.maxHeight='450px'; this.style.objectFit='cover';" />
-  </div>
-</div>
-
-<!-- 01 Problématique & Vision -->
-<section class="case-section">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">01 — Problématique &amp; Vision</div>
-    <h2 class="case-section__title reveal" data-i18n="petcare.s1-title">Mieux suivre pour mieux soigner, ensemble.</h2>
-    <div class="reveal">
-      <p style="margin-bottom:1.5rem;" data-i18n="petcare.s1-p1">
-        Lors d'une consultation vétérinaire, les propriétaires peinent souvent à fournir des données fiables et précises sur les symptômes, l'évolution du poids ou les niveaux d'activité de leur animal. Cette asymétrie d'information retarde les diagnostics précoces et allonge inutilement l'anamnèse clinique.
-      </p>
-      <p style="margin-bottom:1.5rem;" data-i18n="petcare.s1-p2">
-        <strong>La proposition de PetCare :</strong> Une application 100% gratuite qui agrège les données de vie de l'animal pour détecter proactivement les anomalies de santé et génère un QR code unique pour transmettre un bilan médical structuré au vétérinaire en 1 seconde, sans changer ses outils existants.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- 02 Les 4 Sources de Données -->
-<section class="case-section" style="background:var(--surface-alt);">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">02 — Modélisation Technique</div>
-    <h2 class="case-section__title reveal" data-i18n="petcare.s2-title">Agrégation et croisement de 4 sources de données.</h2>
-    <div class="reveal">
-      <p style="margin-bottom:1.5rem;">
-        Pour calculer le Score de Tendance Santé (STS), l'algorithme ne regarde pas la donnée brute de manière isolée, mais effectue une comparaison normative et contextuelle :
-      </p>
-      <div class="data-source-grid">
-        <div class="data-source-card">
-          <div class="data-source-card__tag">Source 01</div>
-          <div class="data-source-card__title">📡 Capteurs IoT (Simulés)</div>
-          <div class="data-source-card__desc">Données quantitatives du collier connecté : minutes d'activité quotidienne, qualité du sommeil, fréquence d'hydratation.</div>
+          <div class="case-meta-grid hero-enter hero-enter-3">
+            <div class="case-meta-item">
+              <div class="case-meta-item__label" data-i18n="case.context-label">
+                Cadre
+              </div>
+              <div class="case-meta-item__value">Labo Matchup (HEIG-VD)</div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label" data-i18n="case.date-label">
+                Date
+              </div>
+              <div class="case-meta-item__value">Novembre 2025</div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label" data-i18n="case.role-label">
+                Type &amp; Rôle
+              </div>
+              <div class="case-meta-item__value">
+                Projet individuel (UX/UI, Data, Modélisation)
+              </div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label" data-i18n="case.tools-label">
+                Outils &amp; API
+              </div>
+              <div class="case-meta-item__value">
+                Figma · OpenWeatherMap API · JSON · UI
+              </div>
+            </div>
+          </div>
+          <div class="hero-enter hero-enter-4" style="margin-top: 2.5rem">
+            <a
+              href="https://www.figma.com/design/HRg117IspbFqd6IRDHw5Em/webdon-labo2-nuno-amaro-M53-2--maquettesFigma?node-id=0-1&t=l6nkuVlUvS4NcqTh-1"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Visiter le projet en ligne ↗
+            </a>
+          </div>
         </div>
-        <div class="data-source-card">
-          <div class="data-source-card__tag">Source 02</div>
-          <div class="data-source-card__title">📝 Déclaratif Propriétaire</div>
-          <div class="data-source-card__desc">Profil médical initial (maladies chroniques, allergies, stérilisation) et saisie quotidienne des symptômes et repas.</div>
-        </div>
-        <div class="data-source-card">
-          <div class="data-source-card__tag">Source 03</div>
-          <div class="data-source-card__title">🌤️ API Météo (OpenWeather)</div>
-          <div class="data-source-card__desc">Données réelles de température locale et humidité pour corréler un symptôme avec un facteur externe (ex. canicule).</div>
-        </div>
-        <div class="data-source-card">
-          <div class="data-source-card__tag">Source 04</div>
-          <div class="data-source-card__title">📚 Base de Référence</div>
-          <div class="data-source-card__desc">Normes physiologiques internes par race, âge et poids (ex: seuils d'effort pour un Berger Allemand vs un Yorkshire).</div>
+      </section>
+
+      <!-- Cover Image -->
+      <div class="container" style="margin-block: 2rem">
+        <div
+          class="reveal"
+          style="
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+          "
+        >
+          <img
+            src="../assets/img/projets/PetCare/PetCare.png"
+            alt="Aperçu des écrans de l'application PetCare"
+            style="width: 100%; height: auto; display: block"
+            onerror="
+              this.src = '../assets/img/animals.jpg';
+              this.style.maxHeight = '450px';
+              this.style.objectFit = 'cover';
+            "
+          />
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- 03 Passerelle Vétérinaire & UX -->
-<section class="case-section">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">03 — Passerelle Vétérinaire &amp; Prototypage</div>
-    <h2 class="case-section__title reveal" data-i18n="petcare.s3-title">Du propriétaire au vétérinaire en un scan.</h2>
-    <div class="reveal">
-      <p style="margin-bottom:1.5rem;" data-i18n="petcare.s3-p1">
-        L'innovation clé réside dans la fluidité de transmission : le vétérinaire scanne le QR code affiché dans l'application du client pour ouvrir un tableau de bord épuré sur sa tablette ou son poste de travail. L'historique des 7 derniers jours, les alertes prioritaires et les courbes de poids s'affichent instantanément sans création de compte complexe.
-      </p>
-
-      <div class="code-box">
-        <strong>Exemple de détection croisée (JSON STS) :</strong><br />
-        { "sts_score": 35, "trend": "DECLINING", "anomaly": "LOW_ACTIVITY (-58%)", "correlation": "HEATWAVE_WEATHER", "vet_message": "Alerte : baisse d'activité liée à un épisode caniculaire (29.5°C). Vérifier hydratation." }
-      </div>
-
-      <div class="pdf-actions">
-        <a href="../assets/pdf/PetCare_Synthese.pdf" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="petcare.btn-synth">
-          Document de Synthèse (PDF) ↗
-        </a>
-        <a href="../assets/pdf/PetCare_PitchOral.pdf" target="_blank" rel="noopener" class="btn btn-secondary" data-i18n="petcare.btn-pitch">
-          Support de Présentation (PDF) ↗
-        </a>
-        <a href="../assets/pdf/PetCare_Maquettes.pdf" target="_blank" rel="noopener" class="btn btn-secondary" data-i18n="petcare.btn-figma">
-          Maquettes Complètes (PDF) ↗
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Next Project -->
-<section class="case-section" style="border-top:1px solid var(--border);">
-  <div class="container">
-    <a href="f1-data-visualization.html" class="next-project reveal">
-      <span class="next-project__label" data-i18n="case.next">Projet suivant</span>
-      <h3 class="next-project__title">The Evolution of F1 Safety ↗</h3>
-    </a>
-  </div>
-</section>
-
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <div class="logo-mark">NA</div>
-        <p style="margin-top:1rem;" data-i18n="footer.brand">Conception et développement d'expériences numériques avec curiosité.</p>
-      </div>
-      <div class="footer__nav">
-        <div class="footer__nav-group">
-          <div class="footer__nav-label" data-i18n="footer.nav-label">Navigation</div>
-          <ul class="footer__nav-links">
-            <li><a href="../index.html"      class="footer__nav-link">Accueil</a></li>
-            <li><a href="../index.html#work" class="footer__nav-link" data-i18n="nav.work">Projets</a></li>
-            <li><a href="../about.html"      class="footer__nav-link" data-i18n="nav.about">À propos</a></li>
-            <li><a href="../contact.html"    class="footer__nav-link" data-i18n="nav.contact">Contact</a></li>
-          </ul>
+      <!-- 01 Problématique & Vision -->
+      <section class="case-section">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">
+            01 — Problématique &amp; Vision
+          </div>
+          <h2 class="case-section__title reveal" data-i18n="petcare.s1-title">
+            Mieux suivre pour mieux soigner, ensemble.
+          </h2>
+          <div class="reveal">
+            <p style="margin-bottom: 1.5rem" data-i18n="petcare.s1-p1">
+              Lors d'une consultation vétérinaire, les propriétaires peinent
+              souvent à fournir des données fiables et précises sur les
+              symptômes, l'évolution du poids ou les niveaux d'activité de leur
+              animal. Cette asymétrie d'information retarde les diagnostics
+              précoces et allonge inutilement l'anamnèse clinique.
+            </p>
+            <p style="margin-bottom: 1.5rem" data-i18n="petcare.s1-p2">
+              <strong>La proposition de PetCare :</strong> Une application 100%
+              gratuite qui agrège les données de vie de l'animal pour détecter
+              proactivement les anomalies de santé et génère un QR code unique
+              pour transmettre un bilan médical structuré au vétérinaire en 1
+              seconde, sans changer ses outils existants.
+            </p>
+          </div>
         </div>
-        <div class="footer__nav-group">
-          <div class="footer__nav-label" data-i18n="footer.soc-label">Réseaux</div>
-          <ul class="footer__nav-links">
-            <li><a href="https://www.linkedin.com/in/amaro-nuno/" class="footer__nav-link" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-            <li><a href="https://github.com/Pantufas17"           class="footer__nav-link" target="_blank" rel="noopener">GitHub ↗</a></li>
-          </ul>
+      </section>
+
+      <!-- 02 Les 4 Sources de Données -->
+      <section class="case-section" style="background: var(--surface-alt)">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">
+            02 — Modélisation Technique
+          </div>
+          <h2 class="case-section__title reveal" data-i18n="petcare.s2-title">
+            Agrégation et croisement de 4 sources de données.
+          </h2>
+          <div class="reveal">
+            <p style="margin-bottom: 1.5rem">
+              Pour calculer le Score de Tendance Santé (STS), l'algorithme ne
+              regarde pas la donnée brute de manière isolée, mais effectue une
+              comparaison normative et contextuelle :
+            </p>
+            <div class="data-source-grid">
+              <div class="data-source-card">
+                <div class="data-source-card__tag">Source 01</div>
+                <div class="data-source-card__title">
+                  Capteurs IoT (Simulés)
+                </div>
+                <div class="data-source-card__desc">
+                  Données quantitatives du collier connecté : minutes d'activité
+                  quotidienne, qualité du sommeil, fréquence d'hydratation.
+                </div>
+              </div>
+              <div class="data-source-card">
+                <div class="data-source-card__tag">Source 02</div>
+                <div class="data-source-card__title">
+                  Déclaratif Propriétaire
+                </div>
+                <div class="data-source-card__desc">
+                  Profil médical initial (maladies chroniques, allergies,
+                  stérilisation) et saisie quotidienne des symptômes et repas.
+                </div>
+              </div>
+              <div class="data-source-card">
+                <div class="data-source-card__tag">Source 03</div>
+                <div class="data-source-card__title">
+                  API Météo (OpenWeather)
+                </div>
+                <div class="data-source-card__desc">
+                  Données réelles de température locale et humidité pour
+                  corréler un symptôme avec un facteur externe (ex. canicule).
+                </div>
+              </div>
+              <div class="data-source-card">
+                <div class="data-source-card__tag">Source 04</div>
+                <div class="data-source-card__title">Base de Référence</div>
+                <div class="data-source-card__desc">
+                  Normes physiologiques internes par race, âge et poids (ex:
+                  seuils d'effort pour un Berger Allemand vs un Yorkshire).
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 Passerelle Vétérinaire & UX -->
+      <section class="case-section">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">
+            03 — Passerelle Vétérinaire &amp; Prototypage
+          </div>
+          <h2 class="case-section__title reveal" data-i18n="petcare.s3-title">
+            Du propriétaire au vétérinaire en un scan.
+          </h2>
+          <div class="reveal">
+            <p style="margin-bottom: 1.5rem" data-i18n="petcare.s3-p1">
+              L'innovation clé réside dans la fluidité de transmission : le
+              vétérinaire scanne le QR code affiché dans l'application du client
+              pour ouvrir un tableau de bord épuré sur sa tablette ou son poste
+              de travail. L'historique des 7 derniers jours, les alertes
+              prioritaires et les courbes de poids s'affichent instantanément
+              sans création de compte complexe.
+            </p>
+
+            <div class="code-box">
+              <strong>Exemple de détection croisée (JSON STS) :</strong><br />
+              { "sts_score": 35, "trend": "DECLINING", "anomaly": "LOW_ACTIVITY
+              (-58%)", "correlation": "HEATWAVE_WEATHER", "vet_message": "Alerte
+              : baisse d'activité liée à un épisode caniculaire (29.5°C).
+              Vérifier hydratation." }
+            </div>
+
+            <div class="pdf-actions">
+              <a
+                href="../assets/pdf/PetCare_Synthese.pdf"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-primary"
+                data-i18n="petcare.btn-synth"
+              >
+                Document de Synthèse (PDF) ↗
+              </a>
+              <a
+                href="../assets/pdf/PetCare_PitchOral.pdf"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-secondary"
+                data-i18n="petcare.btn-pitch"
+              >
+                Support de Présentation (PDF) ↗
+              </a>
+              <a
+                href="../assets/pdf/PetCare_Maquettes.pdf"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-secondary"
+                data-i18n="petcare.btn-figma"
+              >
+                Maquettes Complètes (PDF) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next Project -->
+      <section class="case-section" style="border-top: 1px solid var(--border)">
+        <div class="container">
+          <a href="f1-data-visualization.html" class="next-project reveal">
+            <span class="next-project__label" data-i18n="case.next"
+              >Projet suivant</span
+            >
+            <h3 class="next-project__title">The Evolution of F1 Safety ↗</h3>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <div class="logo-mark">NA</div>
+            <p style="margin-top: 1rem" data-i18n="footer.brand">
+              Conception et développement d'expériences numériques avec
+              curiosité.
+            </p>
+          </div>
+          <div class="footer__nav">
+            <div class="footer__nav-group">
+              <div class="footer__nav-label" data-i18n="footer.nav-label">
+                Navigation
+              </div>
+              <ul class="footer__nav-links">
+                <li>
+                  <a href="../index.html" class="footer__nav-link">Accueil</a>
+                </li>
+                <li>
+                  <a
+                    href="../index.html#work"
+                    class="footer__nav-link"
+                    data-i18n="nav.work"
+                    >Projets</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../about.html"
+                    class="footer__nav-link"
+                    data-i18n="nav.about"
+                    >À propos</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../contact.html"
+                    class="footer__nav-link"
+                    data-i18n="nav.contact"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="footer__nav-group">
+              <div class="footer__nav-label" data-i18n="footer.soc-label">
+                Réseaux
+              </div>
+              <ul class="footer__nav-links">
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/amaro-nuno/"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener"
+                    >LinkedIn ↗</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/Pantufas17"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub ↗</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span class="footer__copyright" data-i18n="footer.copy"
+            >© 2026 Nuno Amaro. Tous droits réservés.</span
+          >
+          <span class="footer__tagline" data-i18n-html="footer.tagline"
+            >Conçu et développé avec passion.</span
+          >
         </div>
       </div>
-    </div>
-    <div class="footer__bottom">
-      <span class="footer__copyright" data-i18n="footer.copy">© 2026 Nuno Amaro. Tous droits réservés.</span>
-      <span class="footer__tagline" data-i18n-html="footer.tagline">Conçu et développé avec passion.</span>
-    </div>
-  </div>
-</footer>
+    </footer>
 
-<script src="../js/i18n.js"       defer></script>
-<script src="../js/main.js"       defer></script>
-<script src="../js/cursor.js"     defer></script>
-<script src="../js/animations.js" defer></script>
-</body>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/cursor.js" defer></script>
+    <script src="../js/animations.js" defer></script>
+  </body>
 </html>

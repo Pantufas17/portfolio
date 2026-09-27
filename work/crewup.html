@@ -1,276 +1,485 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CrewUp — Nuno Amaro</title>
-  <meta name="description" content="CrewUp — Application web pour l'organisation et la gestion d'événements sportifs. Étude de cas par Nuno Amaro." />
-  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="../css/components.css" />
-  <link rel="stylesheet" href="../css/animations.css" />
-  <style>
-    .case-accent { --accent: #4F9EFF; --accent-light: rgba(79,158,255,0.12); }
-  </style>
-</head>
-<body class="case-accent">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CrewUp — Nuno Amaro</title>
+    <meta
+      name="description"
+      content="CrewUp — Application web pour l'organisation et la gestion d'événements sportifs. Étude de cas par Nuno Amaro."
+    />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <style>
+      .case-accent {
+        --accent: #4f9eff;
+        --accent-light: rgba(79, 158, 255, 0.12);
+      }
+    </style>
+  </head>
+  <body class="case-accent">
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true">
+      <span class="cursor-label"></span>
+    </div>
 
-<div class="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" aria-hidden="true"><span class="cursor-label"></span></div>
+    <header class="navbar">
+      <div class="navbar__inner">
+        <a href="../index.html" class="navbar__logo">
+          <div class="logo-mark">NA</div>
+          <span class="logo-text">Nuno Amaro</span>
+        </a>
+        <nav class="navbar__links">
+          <a
+            href="../index.html#work"
+            class="navbar__link active"
+            data-i18n="nav.work"
+            >Projets</a
+          >
+          <a href="../about.html" class="navbar__link" data-i18n="nav.about"
+            >À propos</a
+          >
+          <a
+            href="../index.html#skills"
+            class="navbar__link"
+            data-i18n="nav.skills"
+            >Compétences</a
+          >
+          <a href="../contact.html" class="navbar__link" data-i18n="nav.contact"
+            >Contact</a
+          >
+        </nav>
+        <div class="navbar__actions">
+          <div class="lang-switcher" aria-label="Language switcher">
+            <button
+              class="lang-btn"
+              data-lang="en"
+              aria-pressed="false"
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+            <div class="lang-divider" aria-hidden="true"></div>
+            <button
+              class="lang-btn lang-active"
+              data-lang="fr"
+              aria-pressed="true"
+              aria-label="Passer en français"
+            >
+              FR
+            </button>
+          </div>
+          <button class="theme-toggle" aria-label="Toggle theme">
+            <span class="theme-toggle-icon">☾</span>
+          </button>
+          <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta"
+            >Me contacter ↗</a
+          >
+          <button class="menu-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
 
-<header class="navbar">
-  <div class="navbar__inner">
-    <a href="../index.html" class="navbar__logo">
-      <div class="logo-mark">NA</div>
-      <span class="logo-text">Nuno Amaro</span>
-    </a>
-    <nav class="navbar__links">
-      <a href="../index.html#work"   class="navbar__link active" data-i18n="nav.work">Projets</a>
-      <a href="../about.html"        class="navbar__link"        data-i18n="nav.about">À propos</a>
-      <a href="../index.html#skills" class="navbar__link"        data-i18n="nav.skills">Compétences</a>
-      <a href="../contact.html"      class="navbar__link"        data-i18n="nav.contact">Contact</a>
+    <nav class="mobile-nav">
+      <ul class="mobile-nav__links">
+        <li>
+          <a
+            href="../index.html#work"
+            class="mobile-nav__link"
+            data-i18n="nav.work"
+            >Projets</a
+          >
+        </li>
+        <li>
+          <a href="../about.html" class="mobile-nav__link" data-i18n="nav.about"
+            >À propos</a
+          >
+        </li>
+        <li>
+          <a
+            href="../contact.html"
+            class="mobile-nav__link"
+            data-i18n="nav.contact"
+            >Contact</a
+          >
+        </li>
+      </ul>
+      <div class="mobile-nav__footer">
+        <a
+          href="https://www.linkedin.com/in/amaro-nuno/"
+          class="mobile-nav__social"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        <a
+          href="https://github.com/Pantufas17"
+          class="mobile-nav__social"
+          target="_blank"
+          rel="noopener"
+          >GitHub</a
+        >
+      </div>
     </nav>
-    <div class="navbar__actions">
-      <div class="lang-switcher" aria-label="Language switcher">
-        <button class="lang-btn"             data-lang="en" aria-pressed="false" aria-label="Switch to English">EN</button>
-        <div class="lang-divider" aria-hidden="true"></div>
-        <button class="lang-btn lang-active" data-lang="fr" aria-pressed="true"  aria-label="Passer en français">FR</button>
-      </div>
-      <button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">☾</span></button>
-      <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta">Me contacter ↗</a>
-      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
 
-<nav class="mobile-nav">
-  <ul class="mobile-nav__links">
-    <li><a href="../index.html#work" class="mobile-nav__link" data-i18n="nav.work">Projets</a></li>
-    <li><a href="../about.html"      class="mobile-nav__link" data-i18n="nav.about">À propos</a></li>
-    <li><a href="../contact.html"    class="mobile-nav__link" data-i18n="nav.contact">Contact</a></li>
-  </ul>
-  <div class="mobile-nav__footer">
-    <a href="https://www.linkedin.com/in/amaro-nuno/" class="mobile-nav__social" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/Pantufas17"           class="mobile-nav__social" target="_blank" rel="noopener">GitHub</a>
-  </div>
-</nav>
+    <main>
+      <!-- Case Hero -->
+      <section class="case-hero">
+        <div class="container">
+          <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M13 8H3M3 8l5-5M3 8l5 5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Tous les projets
+          </a>
 
-<main>
+          <div class="section-header__meta" style="margin-bottom: 1.5rem">
+            <span class="section-header__number" style="color: #4f9eff"
+              >Application Web · UX/UI · Front-end</span
+            >
+          </div>
 
-<!-- Case Hero -->
-<section class="case-hero">
-  <div class="container">
-    <a href="index.html" class="back-link">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M3 8l5-5M3 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Tous les projets
-    </a>
+          <h1 class="hero-enter hero-enter-1" style="margin-bottom: 1.5rem">
+            CrewUp
+          </h1>
+          <p
+            class="text-lead hero-enter hero-enter-2"
+            style="max-width: 52ch; margin-bottom: 2.5rem"
+          >
+            Une application web conçue pour organiser et gérer des événements
+            sportifs — de l'inscription des équipes à la coordination des
+            tournois, pensée avec une UX intuitive et une interface épurée.
+          </p>
 
-    <div class="section-header__meta" style="margin-bottom:1.5rem;">
-      <span class="section-header__number" style="color:#4F9EFF;">Application Web · UX/UI · Front-end</span>
-    </div>
-
-    <h1 class="hero-enter hero-enter-1" style="margin-bottom:1.5rem;">CrewUp</h1>
-    <p class="text-lead hero-enter hero-enter-2" style="max-width:52ch; margin-bottom:2.5rem;">
-      Une application web conçue pour organiser et gérer des événements sportifs — de l'inscription des équipes à la coordination des tournois, pensée avec une UX intuitive et une interface épurée.
-    </p>
-
-    <!-- Meta grid -->
-    <div class="case-meta-grid hero-enter hero-enter-3">
-      <div class="case-meta-item">
-        <div class="case-meta-item__label">Rôle</div>
-        <div class="case-meta-item__value">Développement Front-end · UX/UI Design</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label">Période</div>
-        <div class="case-meta-item__value">2025 — 2026</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label">Équipe</div>
-        <div class="case-meta-item__value">Projet HEIG-VD</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label">Outils</div>
-        <div class="case-meta-item__value">Vue.js · HTML · CSS · JavaScript</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Cover image -->
-<div class="container" style="margin-block:2rem;">
-  <div class="case-img-placeholder reveal" style="aspect-ratio:21/9; min-height:300px;">
-    <img src="../assets/img/projets/CrewUp/CrewUp_HeroSection.png" alt="CrewUp Cover" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-lg);" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-    <p style="display:none;">[IMAGE DE COUVERTURE DU PROJET CREWUP]</p>
-  </div>
-</div>
-
-<!-- 01 — Le Problème -->
-<section class="case-section">
-  <div class="container" style="max-width: 800px;">
-    <div class="case-section__num reveal">01 — Le Problème</div>
-    <h2 class="case-section__title reveal">Quel problème<br />résout l'application ?</h2>
-    <div class="reveal">
-      <p style="margin-bottom:1.5rem;">
-        L'organisation d'événements et de tournois sportifs souffre souvent d'une dispersion des informations : tableaux Excel manuels, messageries instantanées désordonnées et difficultés pour les capitaines à inscrire leurs équipes de manière centralisée.
-      </p>
-      <p>
-        CrewUp a été pensé pour simplifier ce processus : offrir aux organisateurs un tableau de bord clair pour piloter les inscriptions, et aux participants une interface fluide et responsive pour suivre leur équipe.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- 02 — Mon Rôle -->
-<section class="case-section" style="background: var(--surface-alt);">
-  <div class="container" style="max-width: 800px;">
-    <div class="case-section__num reveal">02 — Mon Rôle</div>
-    <h2 class="case-section__title reveal">Ce que j'ai réalisé.</h2>
-    <div class="reveal">
-      <p>
-        J'ai pris en charge la conception de l'expérience utilisateur, le maquettage des interfaces et le développement des composants interactifs front-end sous Vue.js, garantissant une ergonomie intuitive sur mobile et desktop.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- 03 — Processus -->
-<section class="case-section">
-  <div class="container">
-    <div class="case-section__num reveal">03 — Processus</div>
-    <h2 class="case-section__title reveal">Méthodologie adoptée.</h2>
-
-    <div class="process-row reveal" style="margin-bottom:3rem;">
-      <span class="process-pill active">Recherche</span>
-      <span class="process-arrow">→</span>
-      <span class="process-pill">Idéation</span>
-      <span class="process-arrow">→</span>
-      <span class="process-pill">Wireframes</span>
-      <span class="process-arrow">→</span>
-      <span class="process-pill">Design UI</span>
-      <span class="process-arrow">→</span>
-      <span class="process-pill">Développement</span>
-      <span class="process-arrow">→</span>
-      <span class="process-pill">Tests</span>
-    </div>
-
-    <div class="grid-2 reveal">
-      <div>
-        <h4 style="margin-bottom:0.75rem; font-family: var(--font-display);">Recherche &amp; Analyse</h4>
-        <p>Analyse des besoins des organisateurs d'événements associatifs et universitaires pour identifier les points de friction majeurs lors des inscriptions.</p>
-      </div>
-      <div>
-        <h4 style="margin-bottom:0.75rem; font-family: var(--font-display);">Idéation &amp; Wireframing</h4>
-        <p>Prototypage rapide des flux clés : création d'événement, inscription d'un joueur, gestion des plannings de matchs.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 04 — Design -->
-<section class="case-section" style="background: var(--surface-alt);">
-  <div class="container">
-    <div class="case-section__num reveal">04 — Design &amp; Interface</div>
-    <h2 class="case-section__title reveal">Interface &amp; expérience.</h2>
-
-    <div class="case-img-placeholder reveal" style="margin-bottom:2rem;">
-      <p>[AJOUTER CAPTURE D'ÉCRAN DU PROTOTYPE OU WIREFRAMES]</p>
-    </div>
-
-    <div class="grid-2 reveal" style="gap:2rem; margin-top:2rem;">
-      <div class="case-img-placeholder" style="aspect-ratio:1/1;">
-        <p>[CAPTURE ÉCRAN UI 1]</p>
-      </div>
-      <div class="case-img-placeholder" style="aspect-ratio:1/1;">
-        <p>[CAPTURE ÉCRAN UI 2]</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 05 — Développement -->
-<section class="case-section">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">05 — Développement</div>
-    <h2 class="case-section__title reveal">Stack technique.</h2>
-    <div class="reveal" style="display:flex; flex-wrap:wrap; gap:0.75rem; margin-bottom:2rem;">
-      <span class="skill-badge">Vue.js</span>
-      <span class="skill-badge">HTML5</span>
-      <span class="skill-badge">CSS3</span>
-      <span class="skill-badge">JavaScript</span>
-      <span class="skill-badge">Git</span>
-      <span class="skill-badge">Figma</span>
-    </div>
-  </div>
-</section>
-
-<!-- 06 — Bilan -->
-<section class="case-section" style="background: var(--surface-alt);">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">06 — Bilan</div>
-    <h2 class="case-section__title reveal">Ce que j'ai appris.</h2>
-    <div class="reveal">
-      <p>
-        Ce projet m'a permis de consolider mes compétences dans la gestion de composants dynamiques avec Vue.js et de concevoir des interfaces d'administration adaptées aux contraintes du terrain.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- Next Project -->
-<section style="padding-block: 3rem 5rem;">
-  <div class="container" style="max-width:800px;">
-    <p class="text-label" style="margin-bottom:1.5rem;">Projet suivant</p>
-    <a href="hug.html" class="next-project reveal">
-      <div>
-        <div class="next-project__label">Suivant</div>
-        <div class="next-project__title">Blood Donation — HUG</div>
-      </div>
-      <div class="next-project__arrow">→</div>
-    </a>
-  </div>
-</section>
-
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <div class="logo-mark">NA</div>
-        <p style="margin-top:1rem;" data-i18n="footer.brand">Conception et développement d'expériences digitales avec curiosité.</p>
-      </div>
-      <div class="footer__nav">
-        <div class="footer__nav-group">
-          <div class="footer__nav-label" data-i18n="footer.nav-label">Navigation</div>
-          <ul class="footer__nav-links">
-            <li><a href="../index.html"         class="footer__nav-link">Accueil</a></li>
-            <li><a href="../index.html#work"    class="footer__nav-link" data-i18n="nav.work">Projets</a></li>
-            <li><a href="../about.html"         class="footer__nav-link" data-i18n="nav.about">À propos</a></li>
-            <li><a href="../contact.html"       class="footer__nav-link" data-i18n="nav.contact">Contact</a></li>
-          </ul>
+          <!-- Meta grid -->
+          <div class="case-meta-grid hero-enter hero-enter-3">
+            <div class="case-meta-item">
+              <div class="case-meta-item__label">Rôle</div>
+              <div class="case-meta-item__value">
+                Développement Front-end · UX/UI Design
+              </div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label">Période</div>
+              <div class="case-meta-item__value">2025 — 2026</div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label">Équipe</div>
+              <div class="case-meta-item__value">Projet HEIG-VD</div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label">Outils</div>
+              <div class="case-meta-item__value">
+                Vue.js · HTML · CSS · JavaScript
+              </div>
+            </div>
+          </div>
+          <div class="hero-enter hero-enter-4" style="margin-top: 2.5rem">
+            <a
+              href="https://crewup.ch/"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Visiter le projet en ligne ↗
+            </a>
+          </div>
         </div>
-        <div class="footer__nav-group">
-          <div class="footer__nav-label" data-i18n="footer.soc-label">Réseaux</div>
-          <ul class="footer__nav-links">
-            <li><a href="https://www.linkedin.com/in/amaro-nuno/" class="footer__nav-link" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-            <li><a href="https://github.com/Pantufas17"           class="footer__nav-link" target="_blank" rel="noopener">GitHub ↗</a></li>
-          </ul>
+      </section>
+
+      <!-- Cover image -->
+      <div class="container" style="margin-block: 2rem">
+        <div
+          class="case-img-placeholder reveal"
+          style="aspect-ratio: 21/9; min-height: 300px"
+        >
+          <img
+            src="../assets/img/projets/CrewUp/CrewUp_HeroSection.png"
+            alt="CrewUp Cover"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: var(--radius-lg);
+            "
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'block';
+            "
+          />
+          <p style="display: none">[IMAGE DE COUVERTURE DU PROJET CREWUP]</p>
         </div>
       </div>
-    </div>
-    <div class="footer__bottom">
-      <span class="footer__copyright" data-i18n="footer.copy">© 2026 Nuno Amaro. Tous droits réservés.</span>
-      <span class="footer__tagline" data-i18n-html="footer.tagline">Conçu et développé avec curiosité.</span>
-    </div>
-  </div>
-</footer>
 
-<script src="../js/i18n.js"       defer></script>
-<script src="../js/main.js"       defer></script>
-<script src="../js/cursor.js"     defer></script>
-<script src="../js/animations.js" defer></script>
-</body>
+      <!-- 01 — Le Problème -->
+      <section class="case-section">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">01 — Le Problème</div>
+          <h2 class="case-section__title reveal">
+            Quel problème<br />résout l'application ?
+          </h2>
+          <div class="reveal">
+            <p style="margin-bottom: 1.5rem">
+              L'organisation d'événements et de tournois sportifs souffre
+              souvent d'une dispersion des informations : tableaux Excel
+              manuels, messageries instantanées désordonnées et difficultés pour
+              les capitaines à inscrire leurs équipes de manière centralisée.
+            </p>
+            <p>
+              CrewUp a été pensé pour simplifier ce processus : offrir aux
+              organisateurs un tableau de bord clair pour piloter les
+              inscriptions, et aux participants une interface fluide et
+              responsive pour suivre leur équipe.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 — Mon Rôle -->
+      <section class="case-section" style="background: var(--surface-alt)">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">02 — Mon Rôle</div>
+          <h2 class="case-section__title reveal">Ce que j'ai réalisé.</h2>
+          <div class="reveal">
+            <p>
+              J'ai pris en charge la conception de l'expérience utilisateur, le
+              maquettage des interfaces et le développement des composants
+              interactifs front-end sous Vue.js, garantissant une ergonomie
+              intuitive sur mobile et desktop.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 — Processus -->
+      <section class="case-section">
+        <div class="container">
+          <div class="case-section__num reveal">03 — Processus</div>
+          <h2 class="case-section__title reveal">Méthodologie adoptée.</h2>
+
+          <div class="process-row reveal" style="margin-bottom: 3rem">
+            <span class="process-pill active">Recherche</span>
+            <span class="process-arrow">→</span>
+            <span class="process-pill">Idéation</span>
+            <span class="process-arrow">→</span>
+            <span class="process-pill">Wireframes</span>
+            <span class="process-arrow">→</span>
+            <span class="process-pill">Design UI</span>
+            <span class="process-arrow">→</span>
+            <span class="process-pill">Développement</span>
+            <span class="process-arrow">→</span>
+            <span class="process-pill">Tests</span>
+          </div>
+
+          <div class="grid-2 reveal">
+            <div>
+              <h4
+                style="margin-bottom: 0.75rem; font-family: var(--font-display)"
+              >
+                Recherche &amp; Analyse
+              </h4>
+              <p>
+                Analyse des besoins des organisateurs d'événements associatifs
+                et universitaires pour identifier les points de friction majeurs
+                lors des inscriptions.
+              </p>
+            </div>
+            <div>
+              <h4
+                style="margin-bottom: 0.75rem; font-family: var(--font-display)"
+              >
+                Idéation &amp; Wireframing
+              </h4>
+              <p>
+                Prototypage rapide des flux clés : création d'événement,
+                inscription d'un joueur, gestion des plannings de matchs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 — Design -->
+      <section class="case-section" style="background: var(--surface-alt)">
+        <div class="container">
+          <div class="case-section__num reveal">
+            04 — Design &amp; Interface
+          </div>
+          <h2 class="case-section__title reveal">
+            Interface &amp; expérience.
+          </h2>
+
+          <div class="case-img-placeholder reveal" style="margin-bottom: 2rem">
+            <p>[AJOUTER CAPTURE D'ÉCRAN DU PROTOTYPE OU WIREFRAMES]</p>
+          </div>
+
+          <div class="grid-2 reveal" style="gap: 2rem; margin-top: 2rem">
+            <div class="case-img-placeholder" style="aspect-ratio: 1/1">
+              <p>[CAPTURE ÉCRAN UI 1]</p>
+            </div>
+            <div class="case-img-placeholder" style="aspect-ratio: 1/1">
+              <p>[CAPTURE ÉCRAN UI 2]</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 — Développement -->
+      <section class="case-section">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">05 — Développement</div>
+          <h2 class="case-section__title reveal">Stack technique.</h2>
+          <div
+            class="reveal"
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              gap: 0.75rem;
+              margin-bottom: 2rem;
+            "
+          >
+            <span class="skill-badge">Vue.js</span>
+            <span class="skill-badge">HTML5</span>
+            <span class="skill-badge">CSS3</span>
+            <span class="skill-badge">JavaScript</span>
+            <span class="skill-badge">Git</span>
+            <span class="skill-badge">Figma</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 — Bilan -->
+      <section class="case-section" style="background: var(--surface-alt)">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">06 — Bilan</div>
+          <h2 class="case-section__title reveal">Ce que j'ai appris.</h2>
+          <div class="reveal">
+            <p>
+              Ce projet m'a permis de consolider mes compétences dans la gestion
+              de composants dynamiques avec Vue.js et de concevoir des
+              interfaces d'administration adaptées aux contraintes du terrain.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next Project -->
+      <section style="padding-block: 3rem 5rem">
+        <div class="container" style="max-width: 800px">
+          <p class="text-label" style="margin-bottom: 1.5rem">Projet suivant</p>
+          <a href="hug.html" class="next-project reveal">
+            <div>
+              <div class="next-project__label">Suivant</div>
+              <div class="next-project__title">Blood Donation — HUG</div>
+            </div>
+            <div class="next-project__arrow">→</div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <div class="logo-mark">NA</div>
+            <p style="margin-top: 1rem" data-i18n="footer.brand">
+              Conception et développement d'expériences digitales avec
+              curiosité.
+            </p>
+          </div>
+          <div class="footer__nav">
+            <div class="footer__nav-group">
+              <div class="footer__nav-label" data-i18n="footer.nav-label">
+                Navigation
+              </div>
+              <ul class="footer__nav-links">
+                <li>
+                  <a href="../index.html" class="footer__nav-link">Accueil</a>
+                </li>
+                <li>
+                  <a
+                    href="../index.html#work"
+                    class="footer__nav-link"
+                    data-i18n="nav.work"
+                    >Projets</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../about.html"
+                    class="footer__nav-link"
+                    data-i18n="nav.about"
+                    >À propos</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../contact.html"
+                    class="footer__nav-link"
+                    data-i18n="nav.contact"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="footer__nav-group">
+              <div class="footer__nav-label" data-i18n="footer.soc-label">
+                Réseaux
+              </div>
+              <ul class="footer__nav-links">
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/amaro-nuno/"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener"
+                    >LinkedIn ↗</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/Pantufas17"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub ↗</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span class="footer__copyright" data-i18n="footer.copy"
+            >© 2026 Nuno Amaro. Tous droits réservés.</span
+          >
+          <span class="footer__tagline" data-i18n-html="footer.tagline"
+            >Conçu et développé avec curiosité.</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/cursor.js" defer></script>
+    <script src="../js/animations.js" defer></script>
+  </body>
 </html>
