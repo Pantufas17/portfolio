@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="fr" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Work — Nuno Amaro</title>
-  <meta name="description" content="All projects by Nuno Amaro — front-end developer and UX/UI designer based in Switzerland." />
+  <title>Projets — Nuno Amaro</title>
+  <meta name="description" content="Tous les projets de Nuno Amaro — développeur front-end et designer UX/UI basé en Suisse." />
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,56 +20,129 @@
     .all-projects {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 1rem;
     }
     .project-row-item {
+      position: relative;
       display: grid;
-      grid-template-columns: 80px 1fr auto;
+      grid-template-columns: 70px 1fr auto;
       align-items: center;
       gap: 2rem;
-      padding: 1.75rem 0;
-      border-top: 1px solid var(--border);
+      padding: 2.25rem 2rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
       text-decoration: none;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .project-row-item:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Background image with slide animation from right to left */
+    .project-row-item__bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center right;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: transform 0.55s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.4s ease;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Gradient overlay for readability and contrast */
+    .project-row-item__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(10, 10, 15, 0.95) 0%, rgba(10, 10, 15, 0.85) 45%, rgba(10, 10, 15, 0.35) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Hover effect: image slides in from the right to fill the row */
+    .project-row-item:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .project-row-item:hover .project-row-item__bg {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .project-row-item:hover .project-row-item__overlay {
+      opacity: 1;
+    }
+
+    .project-row-item__num,
+    .project-row-item__info,
+    .project-row-item__arrow {
+      position: relative;
+      z-index: 3;
       transition: all 0.3s var(--ease-out);
     }
-    .project-row-item:last-child { border-bottom: 1px solid var(--border); }
-    .project-row-item:hover { padding-left: 1rem; }
-    .project-row-item:hover .project-row-item__title { color: var(--accent); }
 
     .project-row-item__num {
-      font-size: 0.68rem;
-      font-weight: 600;
+      font-size: 0.75rem;
+      font-weight: 700;
       color: var(--text-subtle);
       letter-spacing: 0.08em;
     }
+
     .project-row-item__title {
       font-family: var(--font-display);
-      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-size: clamp(1.3rem, 2.5vw, 1.85rem);
       font-weight: 700;
       color: var(--text);
       letter-spacing: -0.02em;
-      transition: color 0.3s var(--ease-out);
+      transition: all 0.3s var(--ease-out);
     }
+
     .project-row-item__cat {
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: 500;
       color: var(--text-subtle);
       letter-spacing: 0.05em;
-      margin-top: 0.25rem;
+      margin-top: 0.35rem;
+      transition: all 0.3s var(--ease-out);
     }
+
     .project-row-item__arrow {
-      font-size: 1.25rem;
+      font-size: 1.4rem;
       color: var(--border);
       transition: all 0.3s var(--ease-out);
     }
-    .project-row-item:hover .project-row-item__arrow {
+
+    .project-row-item:hover .project-row-item__num {
       color: var(--accent);
-      transform: translate(4px, -4px);
     }
+
+    .project-row-item:hover .project-row-item__title {
+      color: #ffffff;
+      transform: translateX(8px);
+    }
+
+    .project-row-item:hover .project-row-item__cat {
+      color: rgba(255, 255, 255, 0.85);
+      transform: translateX(8px);
+    }
+
+    .project-row-item:hover .project-row-item__arrow {
+      color: #ffffff;
+      transform: translate(6px, -6px) scale(1.15);
+    }
+
     @media (max-width: 600px) {
       .project-row-item {
-        grid-template-columns: 50px 1fr auto;
+        grid-template-columns: 40px 1fr auto;
         gap: 1rem;
+        padding: 1.5rem 1.25rem;
       }
     }
   </style>
@@ -86,19 +159,19 @@
       <span class="logo-text">Nuno Amaro</span>
     </a>
     <nav class="navbar__links">
-      <a href="../index.html#work"   class="navbar__link active" data-i18n="nav.work">Work</a>
-      <a href="../about.html"        class="navbar__link"        data-i18n="nav.about">About</a>
-      <a href="../index.html#skills" class="navbar__link"        data-i18n="nav.skills">Skills</a>
+      <a href="../index.html#work"   class="navbar__link active" data-i18n="nav.work">Projets</a>
+      <a href="../about.html"        class="navbar__link"        data-i18n="nav.about">À propos</a>
+      <a href="../index.html#skills" class="navbar__link"        data-i18n="nav.skills">Compétences</a>
       <a href="../contact.html"      class="navbar__link"        data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="navbar__actions">
       <div class="lang-switcher" aria-label="Language switcher">
-        <button class="lang-btn lang-active" data-lang="en" aria-pressed="true"  aria-label="Switch to English">EN</button>
+        <button class="lang-btn"             data-lang="en" aria-pressed="false" aria-label="Switch to English">EN</button>
         <div class="lang-divider" aria-hidden="true"></div>
-        <button class="lang-btn"             data-lang="fr" aria-pressed="false" aria-label="Passer en français">FR</button>
+        <button class="lang-btn lang-active" data-lang="fr" aria-pressed="true"  aria-label="Passer en français">FR</button>
       </div>
       <button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">☾</span></button>
-      <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta">Let's talk ↗</a>
+      <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta">Me contacter ↗</a>
       <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -106,8 +179,8 @@
 
 <nav class="mobile-nav">
   <ul class="mobile-nav__links">
-    <li><a href="../index.html#work" class="mobile-nav__link" data-i18n="nav.work">Work</a></li>
-    <li><a href="../about.html"      class="mobile-nav__link" data-i18n="nav.about">About</a></li>
+    <li><a href="../index.html#work" class="mobile-nav__link" data-i18n="nav.work">Projets</a></li>
+    <li><a href="../about.html"      class="mobile-nav__link" data-i18n="nav.about">À propos</a></li>
     <li><a href="../contact.html"    class="mobile-nav__link" data-i18n="nav.contact">Contact</a></li>
   </ul>
   <div class="mobile-nav__footer">
@@ -121,13 +194,13 @@
 <section class="work-hero">
   <div class="container">
     <div class="section-header__meta" style="margin-bottom:1.5rem;">
-      <span class="section-header__number" data-i18n="nav.work">Work</span>
+      <span class="section-header__number" data-i18n="nav.work">Projets</span>
       <div class="section-header__line"></div>
-      <span class="section-header__label" data-i18n="wi.sublabel">Selected projects</span>
+      <span class="section-header__label" data-i18n="wi.sublabel">Projets sélectionnés</span>
     </div>
-    <h1 class="hero-enter hero-enter-1" style="margin-bottom:1.5rem;" data-i18n-html="wi.title">Things I've<br />built.</h1>
+    <h1 class="hero-enter hero-enter-1" style="margin-bottom:1.5rem;" data-i18n-html="wi.title">Ce que j'ai<br />construit.</h1>
     <p class="text-lead hero-enter hero-enter-2" style="max-width:44ch;" data-i18n="wi.desc">
-      A selection of projects across web development, UX/UI design, and digital experience — from student projects to real-world collaborations.
+      Une sélection de projets couvrant le développement web, le design UX/UI et l'expérience digitale — de projets étudiants à des collaborations réelles.
     </p>
   </div>
 </section>
@@ -136,61 +209,127 @@
   <div class="container">
 
     <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:3rem;" class="reveal">
-      <p class="text-label" data-i18n="wi.count">6 projects</p>
+      <p class="text-label" data-i18n="wi.count">10 projets</p>
     </div>
 
     <div class="all-projects reveal">
 
+      <!-- 01 — F1 Safety -->
       <a href="f1-data-visualization.html" class="project-row-item">
+        <div class="project-row-item__bg" style="background-image: url('../assets/img/projets/f1/f1HeroSection.png');"></div>
+        <div class="project-row-item__overlay"></div>
         <span class="project-row-item__num">01</span>
-        <div>
+        <div class="project-row-item__info">
           <div class="project-row-item__title">The Evolution of F1 Safety</div>
-          <div class="project-row-item__cat" data-i18n="wi.f1-cat">Data Visualization · Scrollytelling · 3D · Front-end</div>
+          <div class="project-row-item__cat" data-i18n="wi.f1-cat">Visualisation de données · Scrollytelling · 3D · Front-end</div>
         </div>
         <span class="project-row-item__arrow">↗</span>
       </a>
 
+      <!-- 02 — CrewUp -->
       <a href="crewup.html" class="project-row-item">
+        <div class="project-row-item__bg" style="background-image: url('../assets/img/projets/CrewUp/CrewUp_HeroSection.png');"></div>
+        <div class="project-row-item__overlay"></div>
         <span class="project-row-item__num">02</span>
-        <div>
+        <div class="project-row-item__info">
           <div class="project-row-item__title">CrewUp</div>
-          <div class="project-row-item__cat" data-i18n="wi.crewup-cat">Web App · UX/UI · Front-end</div>
+          <div class="project-row-item__cat" data-i18n="wi.crewup-cat">Application Web · UX/UI · Front-end</div>
         </div>
         <span class="project-row-item__arrow">↗</span>
       </a>
 
+      <!-- 03 — HUG -->
       <a href="hug.html" class="project-row-item">
+        <div class="project-row-item__bg" style="background-image: url('../assets/img/projets/HUG/HUG_HeroSection.png');"></div>
+        <div class="project-row-item__overlay"></div>
         <span class="project-row-item__num">03</span>
-        <div>
+        <div class="project-row-item__info">
           <div class="project-row-item__title">Blood Donation — HUG</div>
-          <div class="project-row-item__cat" data-i18n="wi.hug-cat">UX/UI · Web · Real-world collaboration</div>
+          <div class="project-row-item__cat" data-i18n="wi.hug-cat">UX/UI · Web · Collaboration réelle</div>
         </div>
         <span class="project-row-item__arrow">↗</span>
       </a>
 
+      <!-- 04 — ODDS -->
       <a href="odds.html" class="project-row-item">
+        <div class="project-row-item__bg" style="background-image: url('../assets/img/projets/ODDS/ODDS_HeroSection.png');"></div>
+        <div class="project-row-item__overlay"></div>
         <span class="project-row-item__num">04</span>
-        <div>
+        <div class="project-row-item__info">
           <div class="project-row-item__title">ODDS</div>
-          <div class="project-row-item__cat" data-i18n="wi.odds-cat">UX Research · Digital Product · Inter-course</div>
+          <div class="project-row-item__cat" data-i18n="wi.odds-cat">Recherche UX · Produit Digital · Inter-cours</div>
         </div>
         <span class="project-row-item__arrow">↗</span>
       </a>
 
+      <!-- 05 — La Chaux-de-Fonds -->
       <a href="la-chaux-de-fonds.html" class="project-row-item">
+        <div class="project-row-item__bg" style="background-image: url('../assets/img/projets/ChauxFonds/ChauxFonds.png');"></div>
+        <div class="project-row-item__overlay"></div>
         <span class="project-row-item__num">05</span>
-        <div>
+        <div class="project-row-item__info">
           <div class="project-row-item__title">La Chaux-de-Fonds</div>
-          <div class="project-row-item__cat" data-i18n="wi.cdf-cat">Client Project · Web Design &amp; Development</div>
+          <div class="project-row-item__cat" data-i18n="wi.cdf-cat">Projet client · Design &amp; Développement Web</div>
         </div>
         <span class="project-row-item__arrow">↗</span>
       </a>
 
+      <!-- 06 — Etoile Blanche -->
       <a href="etoile-blanche.html" class="project-row-item">
+        <div class="project-row-item__bg" style="background-image: url('../assets/img/projets/EtoileBlanche/etoileBlanche.jpg');"></div>
+        <div class="project-row-item__overlay"></div>
         <span class="project-row-item__num">06</span>
-        <div>
+        <div class="project-row-item__info">
           <div class="project-row-item__title">Etoile Blanche</div>
-          <div class="project-row-item__cat" data-i18n="wi.eb-cat">Digital Presence · UX/UI · Redesign</div>
+          <div class="project-row-item__cat" data-i18n="wi.eb-cat">Présence digitale · UX/UI · Refonte</div>
+        </div>
+        <span class="project-row-item__arrow">↗</span>
+      </a>
+
+      <!-- 07 — BoxBoxF1 -->
+      <a href="boxboxf1.html" class="project-row-item">
+        <div class="project-row-item__bg" style="background-image: url('../assets/img/projets/BoxBoxF1/BoxBoxF1_HeroSection.png');"></div>
+        <div class="project-row-item__overlay"></div>
+        <span class="project-row-item__num">07</span>
+        <div class="project-row-item__info">
+          <div class="project-row-item__title">BoxBoxF1</div>
+          <div class="project-row-item__cat" data-i18n="wi.boxboxf1-cat">E-Commerce · WordPress · WooCommerce</div>
+        </div>
+        <span class="project-row-item__arrow">↗</span>
+      </a>
+
+      <!-- 08 — Savoir-Vivre -->
+      <a href="savoir-vivre.html" class="project-row-item">
+        <div class="project-row-item__bg" style="background-image: url('../assets/img/projets/SavoirVivre/Savoir_Vivre.png');"></div>
+        <div class="project-row-item__overlay"></div>
+        <span class="project-row-item__num">08</span>
+        <div class="project-row-item__info">
+          <div class="project-row-item__title">Savoir-Vivre</div>
+          <div class="project-row-item__cat" data-i18n="wi.sv-cat">Audiovisuel · Réalisation &amp; Cadrage · Court-Métrage</div>
+        </div>
+        <span class="project-row-item__arrow">↗</span>
+      </a>
+
+      <!-- 09 — NaturaQuest -->
+      <a href="naturaquest.html" class="project-row-item">
+        <div class="project-row-item__bg" style="background-image: url('../assets/img/projets/NaturaQuest/NaturaQuest.png');"></div>
+        <div class="project-row-item__overlay"></div>
+        <span class="project-row-item__num">09</span>
+        <div class="project-row-item__info">
+          <div class="project-row-item__title">NaturaQuest</div>
+          <div class="project-row-item__cat" data-i18n="wi.nq-cat">UX/UI Design · Application Mobile · Gamification</div>
+        </div>
+        <span class="project-row-item__arrow">↗</span>
+      </a>
+
+      <!-- 10 — PetCare -->
+      <a href="petcare.html" class="project-row-item">
+        <div class="project-row-item__bg" style="background-image: url('../assets/img/projets/PetCare/PetCare.png');"></div>
+        <div class="project-row-item__overlay"></div>
+        <span class="project-row-item__num">10</span>
+        <div class="project-row-item__info">
+          <div class="project-row-item__title">PetCare</div>
+          <div class="project-row-item__cat" data-i18n="wi.petcare-cat">UX/UI Design · Health Tech · IoT &amp; Données</div>
         </div>
         <span class="project-row-item__arrow">↗</span>
       </a>
@@ -205,9 +344,9 @@
   <div class="container">
     <div class="cta-section reveal" style="background:var(--surface-alt); padding:clamp(3rem,6vw,5rem) clamp(2rem,5vw,4rem); border-radius:24px; text-align:center; position:relative; overflow:hidden;">
       <div style="position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(ellipse at center,var(--accent-light) 0%,transparent 70%);pointer-events:none;"></div>
-      <h2 style="margin-bottom:1rem;" data-i18n="cta.title-short">Have a project in mind?</h2>
-      <p class="text-lead" style="max-width:40ch; margin-inline:auto; margin-bottom:2rem;" data-i18n="wi.cta-desc">Let's build something great together.</p>
-      <a href="../contact.html" class="btn btn-primary" data-i18n="cta.btn">Get in touch →</a>
+      <h2 style="margin-bottom:1rem;" data-i18n="cta.title-short">Un projet en tête ?</h2>
+      <p class="text-lead" style="max-width:40ch; margin-inline:auto; margin-bottom:2rem;" data-i18n="wi.cta-desc">Construisons quelque chose ensemble.</p>
+      <a href="../contact.html" class="btn btn-primary" data-i18n="cta.btn">Me contacter →</a>
     </div>
   </div>
 </section>
@@ -219,20 +358,20 @@
     <div class="footer__top">
       <div class="footer__brand">
         <div class="logo-mark">NA</div>
-        <p style="margin-top:1rem;" data-i18n="footer.brand">Designing and building digital experiences with curiosity.</p>
+        <p style="margin-top:1rem;" data-i18n="footer.brand">Conception et développement d'expériences digitales avec curiosité.</p>
       </div>
       <div class="footer__nav">
         <div class="footer__nav-group">
           <div class="footer__nav-label" data-i18n="footer.nav-label">Navigation</div>
           <ul class="footer__nav-links">
-            <li><a href="../index.html"      class="footer__nav-link">Home</a></li>
-            <li><a href="../index.html#work" class="footer__nav-link" data-i18n="nav.work">Work</a></li>
-            <li><a href="../about.html"      class="footer__nav-link" data-i18n="nav.about">About</a></li>
+            <li><a href="../index.html"      class="footer__nav-link">Accueil</a></li>
+            <li><a href="../index.html#work" class="footer__nav-link" data-i18n="nav.work">Projets</a></li>
+            <li><a href="../about.html"      class="footer__nav-link" data-i18n="nav.about">À propos</a></li>
             <li><a href="../contact.html"    class="footer__nav-link" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer__nav-group">
-          <div class="footer__nav-label" data-i18n="footer.soc-label">Social</div>
+          <div class="footer__nav-label" data-i18n="footer.soc-label">Réseaux</div>
           <ul class="footer__nav-links">
             <li><a href="https://www.linkedin.com/in/amaro-nuno/" class="footer__nav-link" target="_blank" rel="noopener">LinkedIn ↗</a></li>
             <li><a href="https://github.com/Pantufas17"           class="footer__nav-link" target="_blank" rel="noopener">GitHub ↗</a></li>
@@ -241,8 +380,8 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <span class="footer__copyright" data-i18n="footer.copy">© 2026 Nuno Amaro. All rights reserved.</span>
-      <span class="footer__tagline" data-i18n-html="footer.tagline">Designed &amp; built with curiosity.</span>
+      <span class="footer__copyright" data-i18n="footer.copy">© 2026 Nuno Amaro. Tous droits réservés.</span>
+      <span class="footer__tagline" data-i18n-html="footer.tagline">Conçu et développé avec curiosité.</span>
     </div>
   </div>
 </footer>

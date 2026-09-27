@@ -212,7 +212,7 @@ function initContactForm() {
   });
 }
 
-/* ─── Projects Carousel ─────────────────────────────────────── */
+/* ─── Projects Carousel (Infinite Auto-Scroll) ───────────────── */
 function initProjectsCarousel() {
   const carousel = document.getElementById('projectsCarousel');
   if (!carousel) return;
@@ -220,85 +220,147 @@ function initProjectsCarousel() {
   const prevBtn = document.getElementById('carouselPrev');
   const nextBtn = document.getElementById('carouselNext');
   const dotsContainer = document.getElementById('carouselDots');
-  const cards = Array.from(carousel.querySelectorAll('.project-card'));
+  const originalCards = Array.from(carousel.querySelectorAll('.project-card'));
 
-  if (!cards.length) return;
+  if (!originalCards.length) return;
 
-  // Create dots
+  // Clone cards once for a seamless infinite loop
+  originalCards.forEach(card => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    carousel.appendChild(clone);
+  });
+
+  const allCards = Array.from(carousel.querySelectorAll('.project-card'));
+
+  // Create dots for original items
   if (dotsContainer) {
     dotsContainer.innerHTML = '';
-    cards.forEach((card, index) => {
+    originalCards.forEach((card, index) => {
       const dot = document.createElement('button');
       dot.className = 'carousel-dot' + (index === 0 ? ' active' : '');
       dot.setAttribute('aria-label', `Go to project ${index + 1}`);
       dot.addEventListener('click', () => {
-        card.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        pauseAutoScroll(3000);
+        originalCards[index].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
       });
       dotsContainer.appendChild(dot);
     });
   }
 
-  // Update active state of dots and buttons
-  const updateState = () => {
-    const scrollLeft = carousel.scrollLeft;
-    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+  // Auto-scroll loop variables
+  let isPaused = false;
+  let resumeTimer = null;
+  let isDown = false;
+  let startX = 0;
+  let scrollLeftStart = 0;
+  let hasMoved = false;
+  const speed = 0.5; // pixels per frame (gentle, smooth and elegant)
 
-    if (prevBtn) prevBtn.disabled = scrollLeft <= 10;
-    if (nextBtn) nextBtn.disabled = scrollLeft >= maxScroll - 10;
-
-    if (dotsContainer) {
-      const dots = dotsContainer.querySelectorAll('.carousel-dot');
-      let activeIndex = 0;
-      let minDistance = Infinity;
-
-      cards.forEach((card, index) => {
-        const distance = Math.abs(card.offsetLeft - carousel.offsetLeft - scrollLeft);
-        if (distance < minDistance) {
-          minDistance = distance;
-          activeIndex = index;
-        }
-      });
-
-      dots.forEach((dot, idx) => {
-        dot.classList.toggle('active', idx === activeIndex);
-      });
+  const pauseAutoScroll = (duration = 2000) => {
+    isPaused = true;
+    if (resumeTimer) clearTimeout(resumeTimer);
+    if (duration > 0) {
+      resumeTimer = setTimeout(() => {
+        if (!isDown) isPaused = false;
+      }, duration);
     }
   };
 
-  carousel.addEventListener('scroll', updateState, { passive: true });
-  window.addEventListener('resize', updateState, { passive: true });
-  updateState();
+  // Continuous auto-scroll loop
+  function autoScrollLoop() {
+    if (!isPaused && !isDown) {
+      const halfWidth = carousel.scrollWidth / 2;
+      carousel.scrollLeft += speed;
+
+      // When reaching the cloned half, loop back seamlessly
+      if (carousel.scrollLeft >= halfWidth) {
+        carousel.scrollLeft -= halfWidth;
+      }
+    }
+    requestAnimationFrame(autoScrollLoop);
+  }
+  requestAnimationFrame(autoScrollLoop);
+
+  // Pause on hover
+  carousel.addEventListener('mouseenter', () => {
+    isPaused = true;
+  });
+
+  carousel.addEventListener('mouseleave', () => {
+    if (!isDown) {
+      isPaused = false;
+    }
+  });
+
+  // Touch support
+  carousel.addEventListener('touchstart', () => {
+    isPaused = true;
+  }, { passive: true });
+
+  carousel.addEventListener('touchend', () => {
+    pauseAutoScroll(2000);
+  }, { passive: true });
+
+  // Update active dots state
+  const updateDots = () => {
+    if (!dotsContainer) return;
+    const dots = dotsContainer.querySelectorAll('.carousel-dot');
+    if (!dots.length) return;
+
+    const halfWidth = carousel.scrollWidth / 2;
+    const currentScroll = carousel.scrollLeft % halfWidth;
+    let activeIndex = 0;
+    let minDistance = Infinity;
+
+    originalCards.forEach((card, index) => {
+      const distance = Math.abs(card.offsetLeft - carousel.offsetLeft - currentScroll);
+      if (distance < minDistance) {
+        minDistance = distance;
+        activeIndex = index;
+      }
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === activeIndex);
+    });
+  };
+
+  carousel.addEventListener('scroll', updateDots, { passive: true });
 
   // Prev / Next button click
   const getScrollStep = () => {
-    const card = cards[0];
+    const card = originalCards[0];
     const style = window.getComputedStyle(carousel);
     const gap = parseFloat(style.gap) || 20;
     return card ? card.offsetWidth + gap : 360;
   };
 
   if (prevBtn) {
+    prevBtn.disabled = false;
     prevBtn.addEventListener('click', () => {
+      pauseAutoScroll(3000);
+      const halfWidth = carousel.scrollWidth / 2;
+      if (carousel.scrollLeft <= 10) {
+        carousel.scrollLeft += halfWidth;
+      }
       carousel.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
     });
   }
 
   if (nextBtn) {
+    nextBtn.disabled = false;
     nextBtn.addEventListener('click', () => {
+      pauseAutoScroll(3000);
       carousel.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
     });
   }
 
   // Mouse Drag to Scroll
-  let isDown = false;
-  let startX = 0;
-  let scrollLeftStart = 0;
-  let hasMoved = false;
-
   carousel.addEventListener('mousedown', (e) => {
     isDown = true;
     hasMoved = false;
-    carousel.classList.add('is-dragging');
+    isPaused = true;
     startX = e.pageX - carousel.offsetLeft;
     scrollLeftStart = carousel.scrollLeft;
   });
@@ -307,27 +369,29 @@ function initProjectsCarousel() {
     if (!isDown) return;
     isDown = false;
     carousel.classList.remove('is-dragging');
-  });
-
-  carousel.addEventListener('mouseleave', () => {
-    if (!isDown) return;
-    isDown = false;
-    carousel.classList.remove('is-dragging');
+    pauseAutoScroll(1500);
+    setTimeout(() => {
+      hasMoved = false;
+    }, 50);
   });
 
   carousel.addEventListener('mousemove', (e) => {
     if (!isDown) return;
-    e.preventDefault();
     const x = e.pageX - carousel.offsetLeft;
     const walk = (x - startX) * 1.5;
-    if (Math.abs(walk) > 5) {
+    if (Math.abs(walk) > 8) {
       hasMoved = true;
+      carousel.classList.add('is-dragging');
+      const halfWidth = carousel.scrollWidth / 2;
+      let targetScroll = scrollLeftStart - walk;
+      if (targetScroll < 0) targetScroll += halfWidth;
+      if (targetScroll >= halfWidth * 2) targetScroll -= halfWidth;
+      carousel.scrollLeft = targetScroll;
     }
-    carousel.scrollLeft = scrollLeftStart - walk;
   });
 
-  // Prevent opening project link when dragging
-  cards.forEach(card => {
+  // Prevent opening project link when dragging, allow on normal click
+  allCards.forEach(card => {
     card.addEventListener('click', (e) => {
       if (hasMoved) {
         e.preventDefault();

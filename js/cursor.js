@@ -51,28 +51,23 @@ const CustomCursor = {
       this.isVisible = false;
     });
 
-    // Hover states on project cards → "VIEW"
-    document.querySelectorAll('.project-card, .next-project').forEach(el => {
-      el.addEventListener('mouseenter', () => {
+    // Hover states with delegation
+    document.addEventListener('mouseover', e => {
+      const card = e.target.closest('.project-card, .next-project, .project-row-item');
+      if (card) {
         this.ring.classList.add('is-hover');
         if (this.label) this.label.textContent = 'VIEW';
-      });
-      el.addEventListener('mouseleave', () => {
-        this.ring.classList.remove('is-hover', 'is-link');
+        return;
+      }
+      const link = e.target.closest('a, button, .btn, .skill-badge');
+      if (link) {
+        this.ring.classList.remove('is-hover');
         if (this.label) this.label.textContent = '';
-      });
-    });
-
-    // Hover on links → expand ring
-    document.querySelectorAll('a, button, .btn').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        if (!this.ring.classList.contains('is-hover')) {
-          this.ring.classList.add('is-link');
-        }
-      });
-      el.addEventListener('mouseleave', () => {
-        this.ring.classList.remove('is-link');
-      });
+        this.ring.classList.add('is-link');
+        return;
+      }
+      this.ring.classList.remove('is-hover', 'is-link');
+      if (this.label) this.label.textContent = '';
     });
 
     // Click effect

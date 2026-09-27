@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NaturaQuest — Nuno Amaro</title>
+  <meta name="description" content="NaturaQuest — Conception UX/UI d'une application mobile de jeu et d'exploration de la nature avec géolocalisation et IA. Par Nuno Amaro et Gabriel Cappai." />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <style>
+    .case-accent { --accent: #15803d; --accent-light: rgba(21, 128, 61, 0.10); }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      transition: transform var(--duration-base) var(--ease-out);
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+    }
+    .feature-card__icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .feature-card__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .feature-card__desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .flow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .flow-step-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      background: var(--surface);
+      padding: 1.25rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+    }
+    .flow-step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"><span class="cursor-label"></span></div>
+
+<header class="navbar">
+  <div class="navbar__inner">
+    <a href="../index.html" class="navbar__logo">
+      <div class="logo-mark">NA</div>
+      <span class="logo-text">Nuno Amaro</span>
+    </a>
+    <nav class="navbar__links">
+      <a href="../index.html#work"   class="navbar__link active" data-i18n="nav.work">Projets</a>
+      <a href="../about.html"        class="navbar__link"        data-i18n="nav.about">À propos</a>
+      <a href="../index.html#skills" class="navbar__link"        data-i18n="nav.skills">Compétences</a>
+      <a href="../contact.html"      class="navbar__link"        data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="navbar__actions">
+      <div class="lang-switcher" aria-label="Language switcher">
+        <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="Switch to English">EN</button>
+        <div class="lang-divider" aria-hidden="true"></div>
+        <button class="lang-btn lang-active" data-lang="fr" aria-pressed="true" aria-label="Passer en français">FR</button>
+      </div>
+      <button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">☾</span></button>
+      <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta">Me contacter ↗</a>
+      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav">
+  <ul class="mobile-nav__links">
+    <li><a href="../index.html#work" class="mobile-nav__link" data-i18n="nav.work">Projets</a></li>
+    <li><a href="../about.html"      class="mobile-nav__link" data-i18n="nav.about">À propos</a></li>
+    <li><a href="../contact.html"    class="mobile-nav__link" data-i18n="nav.contact">Contact</a></li>
+  </ul>
+  <div class="mobile-nav__footer">
+    <a href="https://www.linkedin.com/in/amaro-nuno/" class="mobile-nav__social" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/Pantufas17"           class="mobile-nav__social" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="case-hero">
+  <div class="container">
+    <a href="../index.html#work" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M3 8l5-5M3 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-i18n="case.all-projects">Tous les projets</span>
+    </a>
+
+    <div class="section-header__meta" style="margin-bottom:1.5rem;">
+      <span class="section-header__number" style="color:var(--accent);">UX/UI Design · Mobile App · Gamification</span>
+    </div>
+
+    <h1 class="hero-enter hero-enter-1" style="margin-bottom:1.5rem;">NaturaQuest<br /><span style="color:var(--accent);">Exploration &amp; Nature</span></h1>
+    <p class="text-lead hero-enter hero-enter-2" style="max-width:54ch; margin-bottom:2rem;" data-i18n="nq.lead">
+      Conception d'une application mobile ludo-éducative encourageant l'exploration de la biodiversité locale grâce à des quêtes géolocalisées, la reconnaissance d'espèces par IA et une collection de cartes.
+    </p>
+
+    <div class="case-meta-grid hero-enter hero-enter-3">
+      <div class="case-meta-item">
+        <div class="case-meta-item__label" data-i18n="case.context-label">Cadre</div>
+        <div class="case-meta-item__value">Mandat Labo WebDon (HEIG-VD)</div>
+      </div>
+      <div class="case-meta-item">
+        <div class="case-meta-item__label" data-i18n="case.date-label">Période</div>
+        <div class="case-meta-item__value">2025 – 2026</div>
+      </div>
+      <div class="case-meta-item">
+        <div class="case-meta-item__label" data-i18n="case.team-label">Équipe &amp; Rôle</div>
+        <div class="case-meta-item__value">Gabriel Cappai &amp; Nuno Amaro</div>
+      </div>
+      <div class="case-meta-item">
+        <div class="case-meta-item__label" data-i18n="case.tools-label">Outils</div>
+        <div class="case-meta-item__value">Figma · Design System · UX Research</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cover Image -->
+<div class="container" style="margin-block:2rem;">
+  <div class="reveal" style="border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow-lg);">
+    <img src="../assets/img/projets/NaturaQuest/NaturaQuest.png" alt="Maquettes de l'application NaturaQuest" style="width:100%; height:auto; display:block;" />
+  </div>
+</div>
+
+<!-- 01 Concept & Enjeux -->
+<section class="case-section">
+  <div class="container" style="max-width:800px;">
+    <div class="case-section__num reveal">01 — Concept &amp; Problématique</div>
+    <h2 class="case-section__title reveal" data-i18n="nq.s1-title">Reconnecter la jeunesse à la biodiversité locale.</h2>
+    <div class="reveal">
+      <p style="margin-bottom:1.5rem;" data-i18n="nq.s1-p1">
+        Face à la sédentarité croissante et à la méconnaissance des écosystèmes régionaux, le mandat consistait à imaginer une application mobile captivante capable d'inciter les utilisateurs à sortir dehors et observer la faune et la flore de Suisse.
+      </p>
+      <p style="margin-bottom:1.5rem;" data-i18n="nq.s1-p2">
+        Avec mon binôme Gabriel Cappai, nous avons conçu <strong>NaturaQuest</strong> : une expérience hybride entre le jeu d'exploration, le Pokédex naturaliste et le carnet de terrain scientifique.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 Mécaniques de jeu & Fonctionnalités -->
+<section class="case-section" style="background:var(--surface-alt);">
+  <div class="container" style="max-width:800px;">
+    <div class="case-section__num reveal">02 — Fonctionnalités &amp; Gamification</div>
+    <h2 class="case-section__title reveal" data-i18n="nq.s2-title">Une mécanique d'exploration engageante.</h2>
+    <div class="reveal">
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card__icon">📍</div>
+          <div class="feature-card__title">Missions Géolocalisées</div>
+          <div class="feature-card__desc">Quêtes recommandées en fonction de la position GPS de l'explorateur (parc, forêt, bord de lac) et météo du jour.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🤖</div>
+          <div class="feature-card__title">Validation par IA</div>
+          <div class="feature-card__desc">Reconnaissance d'espèces par analyse visuelle avec alertes intelligentes de recadrage si la photo est floue.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🃏</div>
+          <div class="feature-card__title">Collection de Cartes</div>
+          <div class="feature-card__desc">Plus de 1000 cartes à collectionner classées par niveau de rareté, biome et numéro, avec fiche botanique complète.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🏆</div>
+          <div class="feature-card__title">Classement &amp; Badges</div>
+          <div class="feature-card__desc">Points d'expérience (XP), saisons thématiques, kilomètres parcourus et badges d'explorateur à débloquer.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 Parcours d'une Quête -->
+<section class="case-section">
+  <div class="container" style="max-width:800px;">
+    <div class="case-section__num reveal">03 — Parcours Utilisateur</div>
+    <h2 class="case-section__title reveal" data-i18n="nq.s3-title">Déroulement type d'une mission.</h2>
+    <div class="reveal">
+      <div class="flow-steps">
+        <div class="flow-step-item">
+          <div class="flow-step-num">1</div>
+          <div>
+            <h4 style="font-family:var(--font-display); margin-bottom:0.25rem;">Validation de position GPS</h4>
+            <p style="font-size:0.88rem; color:var(--text-muted);">L'utilisateur se rend physiquement dans la zone indiquée (ex: Parc de Beaulieu) pour déverrouiller l'étape.</p>
+          </div>
+        </div>
+        <div class="flow-step-item">
+          <div class="flow-step-num">2</div>
+          <div>
+            <h4 style="font-family:var(--font-display); margin-bottom:0.25rem;">Questionnaire d'observation</h4>
+            <p style="font-size:0.88rem; color:var(--text-muted);">Questions interactives pour aiguiser le regard (estimation du nombre de spécimens, état de l'environnement).</p>
+          </div>
+        </div>
+        <div class="flow-step-item">
+          <div class="flow-step-num">3</div>
+          <div>
+            <h4 style="font-family:var(--font-display); margin-bottom:0.25rem;">Capture photo &amp; Détection IA</h4>
+            <p style="font-size:0.88rem; color:var(--text-muted);">Prise de vue avec guide de cadrage. L'IA valide l'espèce ou affiche des conseils pour améliorer la prise de vue.</p>
+          </div>
+        </div>
+        <div class="flow-step-item">
+          <div class="flow-step-num">4</div>
+          <div>
+            <h4 style="font-family:var(--font-display); margin-bottom:0.25rem;">Récompenses &amp; Ajout au carnet</h4>
+            <p style="font-size:0.88rem; color:var(--text-muted);">Gain d'XP, obtention de la carte personnalisée avec la photo prise par le joueur, et mise à jour du profil.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:2.5rem; text-align:center;">
+        <a href="../assets/pdf/NaturaQuest.pdf" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="nq.pdf-btn">
+          Consulter le dossier de présentation complet (PDF) ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Next Project -->
+<section class="case-section" style="border-top:1px solid var(--border);">
+  <div class="container">
+    <a href="petcare.html" class="next-project reveal">
+      <span class="next-project__label" data-i18n="case.next">Projet suivant</span>
+      <h3 class="next-project__title">PetCare ↗</h3>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="logo-mark">NA</div>
+        <p style="margin-top:1rem;" data-i18n="footer.brand">Conception et développement d'expériences numériques avec curiosité.</p>
+      </div>
+      <div class="footer__nav">
+        <div class="footer__nav-group">
+          <div class="footer__nav-label" data-i18n="footer.nav-label">Navigation</div>
+          <ul class="footer__nav-links">
+            <li><a href="../index.html"      class="footer__nav-link">Accueil</a></li>
+            <li><a href="../index.html#work" class="footer__nav-link" data-i18n="nav.work">Projets</a></li>
+            <li><a href="../about.html"      class="footer__nav-link" data-i18n="nav.about">À propos</a></li>
+            <li><a href="../contact.html"    class="footer__nav-link" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-group">
+          <div class="footer__nav-label" data-i18n="footer.soc-label">Réseaux</div>
+          <ul class="footer__nav-links">
+            <li><a href="https://www.linkedin.com/in/amaro-nuno/" class="footer__nav-link" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+            <li><a href="https://github.com/Pantufas17"           class="footer__nav-link" target="_blank" rel="noopener">GitHub ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copyright" data-i18n="footer.copy">© 2026 Nuno Amaro. Tous droits réservés.</span>
+      <span class="footer__tagline" data-i18n-html="footer.tagline">Conçu et développé avec passion.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/i18n.js"       defer></script>
+<script src="../js/main.js"       defer></script>
+<script src="../js/cursor.js"     defer></script>
+<script src="../js/animations.js" defer></script>
+</body>
+</html>

@@ -1,512 +1,849 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Evolution of F1 Safety — Nuno Amaro</title>
-  <meta name="description" content="Interactive data visualization exploring the evolution of Formula 1 safety and performance from 1950 to today. Case study by Nuno Amaro." />
-  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="../css/components.css" />
-  <link rel="stylesheet" href="../css/animations.css" />
-  <style>
-    .case-accent { --accent: #E8003D; --accent-light: rgba(232,0,61,0.10); }
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L'histoire de la sécurité de la F1 — Nuno Amaro</title>
+    <meta
+      name="description"
+      content="Visualisation de données interactive explorant l'évolution de la sécurité et des performances en Formule 1 de 1950 à aujourd'hui. Étude de cas par Nuno Amaro."
+    />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <style>
+      .case-accent {
+        --accent: #e8003d;
+        --accent-light: rgba(232, 0, 61, 0.1);
+      }
 
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-    .tech-item {
-      padding: 1.5rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      background: var(--surface);
-      transition: border-color 0.3s var(--ease-out);
-    }
-    .tech-item:hover { border-color: var(--accent); }
-    .tech-item__name {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--text);
-      margin-bottom: 0.4rem;
-    }
-    .tech-item__role {
-      font-size: 0.78rem;
-      color: var(--text-subtle);
-      line-height: 1.5;
-    }
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.25rem;
+        margin-top: 2rem;
+      }
+      .tech-item {
+        padding: 1.5rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        background: var(--surface);
+        transition: border-color 0.3s var(--ease-out);
+      }
+      .tech-item:hover {
+        border-color: var(--accent);
+      }
+      .tech-item__name {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--text);
+        margin-bottom: 0.4rem;
+      }
+      .tech-item__role {
+        font-size: 0.78rem;
+        color: var(--text-subtle);
+        line-height: 1.5;
+      }
 
-    .data-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    .data-list__item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      padding: 1.25rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      background: var(--surface);
-    }
-    .data-list__icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 2px; }
-    .data-list__label { font-size: 0.82rem; font-weight: 500; color: var(--text-muted); line-height: 1.5; }
+      .data-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      .data-list__item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 1.25rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        background: var(--surface);
+      }
+      .data-list__icon {
+        font-size: 1.25rem;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .data-list__label {
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
 
-    .contrib-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
-    .contrib-item { display: flex; gap: 1rem; align-items: flex-start; }
-    .contrib-item__badge {
-      flex-shrink: 0;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 99px;
-      background: var(--accent-light);
-      color: var(--accent);
-      margin-top: 2px;
-    }
-    .contrib-item__badge--team {
-      background: var(--surface-alt);
-      color: var(--text-subtle);
-    }
-    .contrib-item__text { font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; }
-  </style>
-</head>
-<body class="case-accent">
+      .contrib-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      .contrib-item {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+      .contrib-item__badge {
+        flex-shrink: 0;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 99px;
+        background: var(--accent-light);
+        color: var(--accent);
+        margin-top: 2px;
+      }
+      .contrib-item__badge--team {
+        background: var(--surface-alt);
+        color: var(--text-subtle);
+      }
+      .contrib-item__text {
+        font-size: 0.92rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+    </style>
+  </head>
+  <body class="case-accent">
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true">
+      <span class="cursor-label"></span>
+    </div>
 
-<div class="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" aria-hidden="true"><span class="cursor-label"></span></div>
+    <header class="navbar">
+      <div class="navbar__inner">
+        <a href="../index.html" class="navbar__logo">
+          <div class="logo-mark">NA</div>
+          <span class="logo-text">Nuno Amaro</span>
+        </a>
+        <nav class="navbar__links">
+          <a
+            href="../index.html#work"
+            class="navbar__link active"
+            data-i18n="nav.work"
+            >Projets</a
+          >
+          <a href="../about.html" class="navbar__link" data-i18n="nav.about"
+            >À propos</a
+          >
+          <a
+            href="../index.html#skills"
+            class="navbar__link"
+            data-i18n="nav.skills"
+            >Compétences</a
+          >
+          <a href="../contact.html" class="navbar__link" data-i18n="nav.contact"
+            >Contact</a
+          >
+        </nav>
+        <div class="navbar__actions">
+          <div class="lang-switcher" aria-label="Language switcher">
+            <button
+              class="lang-btn"
+              data-lang="en"
+              aria-pressed="false"
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+            <div class="lang-divider" aria-hidden="true"></div>
+            <button
+              class="lang-btn lang-active"
+              data-lang="fr"
+              aria-pressed="true"
+              aria-label="Passer en français"
+            >
+              FR
+            </button>
+          </div>
+          <button class="theme-toggle" aria-label="Toggle theme">
+            <span class="theme-toggle-icon">☾</span>
+          </button>
+          <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta"
+            >Me contacter ↗</a
+          >
+          <button class="menu-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
 
-<header class="navbar">
-  <div class="navbar__inner">
-    <a href="../index.html" class="navbar__logo">
-      <div class="logo-mark">NA</div>
-      <span class="logo-text">Nuno Amaro</span>
-    </a>
-    <nav class="navbar__links">
-      <a href="../index.html#work"   class="navbar__link active" data-i18n="nav.work">Work</a>
-      <a href="../about.html"        class="navbar__link"        data-i18n="nav.about">About</a>
-      <a href="../index.html#skills" class="navbar__link"        data-i18n="nav.skills">Skills</a>
-      <a href="../contact.html"      class="navbar__link"        data-i18n="nav.contact">Contact</a>
+    <nav class="mobile-nav">
+      <ul class="mobile-nav__links">
+        <li>
+          <a
+            href="../index.html#work"
+            class="mobile-nav__link"
+            data-i18n="nav.work"
+            >Projets</a
+          >
+        </li>
+        <li>
+          <a href="../about.html" class="mobile-nav__link" data-i18n="nav.about"
+            >À propos</a
+          >
+        </li>
+        <li>
+          <a
+            href="../contact.html"
+            class="mobile-nav__link"
+            data-i18n="nav.contact"
+            >Contact</a
+          >
+        </li>
+      </ul>
+      <div class="mobile-nav__footer">
+        <a
+          href="https://www.linkedin.com/in/amaro-nuno/"
+          class="mobile-nav__social"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        <a
+          href="https://github.com/Pantufas17"
+          class="mobile-nav__social"
+          target="_blank"
+          rel="noopener"
+          >GitHub</a
+        >
+      </div>
     </nav>
-    <div class="navbar__actions">
-      <div class="lang-switcher" aria-label="Language switcher">
-        <button class="lang-btn lang-active" data-lang="en" aria-pressed="true"  aria-label="Switch to English">EN</button>
-        <div class="lang-divider" aria-hidden="true"></div>
-        <button class="lang-btn"             data-lang="fr" aria-pressed="false" aria-label="Passer en francais">FR</button>
-      </div>
-      <button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">&#9790;</span></button>
-      <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta">Let's talk &#8599;</a>
-      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
 
-<nav class="mobile-nav">
-  <ul class="mobile-nav__links">
-    <li><a href="../index.html#work" class="mobile-nav__link" data-i18n="nav.work">Work</a></li>
-    <li><a href="../about.html"      class="mobile-nav__link" data-i18n="nav.about">About</a></li>
-    <li><a href="../contact.html"    class="mobile-nav__link" data-i18n="nav.contact">Contact</a></li>
-  </ul>
-  <div class="mobile-nav__footer">
-    <a href="https://www.linkedin.com/in/amaro-nuno/" class="mobile-nav__social" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/Pantufas17"           class="mobile-nav__social" target="_blank" rel="noopener">GitHub</a>
-  </div>
-</nav>
+    <main>
+      <!-- Case Hero -->
+      <section class="case-hero">
+        <div class="container">
+          <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M13 8H3M3 8l5-5M3 8l5 5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Tous les projets
+          </a>
 
-<main>
+          <div class="section-header__meta" style="margin-bottom: 1.5rem">
+            <span class="section-header__number" style="color: #e8003d"
+              >Visualisation de données · Scrollytelling · 3D · Front-end</span
+            >
+          </div>
 
-<!-- Case Hero -->
-<section class="case-hero">
-  <div class="container">
-    <a href="index.html" class="back-link">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M3 8l5-5M3 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      All projects
-    </a>
+          <h1 class="hero-enter hero-enter-1" style="margin-bottom: 1.5rem">
+            L'histoire de la<br />sécurité en F1
+          </h1>
+          <p
+            class="text-lead hero-enter hero-enter-2"
+            style="max-width: 52ch; margin-bottom: 2.5rem"
+          >
+            Une narration interactive et visuelle explorant plus de 70 ans
+            d'évolution de la sécurité et des performances en Formule 1 (1950 à
+            aujourd'hui) — là où la donnée rencontre le storytelling.
+          </p>
 
-    <div class="section-header__meta" style="margin-bottom:1.5rem;">
-      <span class="section-header__number" style="color:#E8003D;">Data Visualization &middot; Scrollytelling &middot; 3D &middot; Front-end</span>
-    </div>
+          <div class="case-meta-grid hero-enter hero-enter-3">
+            <div class="case-meta-item">
+              <div class="case-meta-item__label">Rôle</div>
+              <div class="case-meta-item__value">
+                Design UX/UI · Front-end · Visualisation de données · Dév
+                interactif
+              </div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label">Période</div>
+              <div class="case-meta-item__value">Fév 2026 — Juin 2026</div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label">Contexte</div>
+              <div class="case-meta-item__value">HEIG-VD — VisualDon</div>
+            </div>
+            <div class="case-meta-item">
+              <div class="case-meta-item__label">Équipe</div>
+              <div class="case-meta-item__value">Projet de groupe</div>
+            </div>
+          </div>
 
-    <h1 class="hero-enter hero-enter-1" style="margin-bottom:1.5rem;">The Evolution<br />of F1 Safety</h1>
-    <p class="text-lead hero-enter hero-enter-2" style="max-width:52ch; margin-bottom:2.5rem;">
-      An interactive data-driven story exploring the evolution of Formula 1 safety and performance from 1950 to today &mdash; where data meets storytelling.
-    </p>
-
-    <div class="case-meta-grid hero-enter hero-enter-3">
-      <div class="case-meta-item">
-        <div class="case-meta-item__label">Role</div>
-        <div class="case-meta-item__value">UX/UI Design &middot; Front-end &middot; Data Visualization &middot; Interactive Dev</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label">Timeline</div>
-        <div class="case-meta-item__value">Feb 2026 &mdash; Jun 2026</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label">Context</div>
-        <div class="case-meta-item__value">HEIG-VD &mdash; VisualDon</div>
-      </div>
-      <div class="case-meta-item">
-        <div class="case-meta-item__label">Team</div>
-        <div class="case-meta-item__value">Team project</div>
-      </div>
-    </div>
-
-    <div class="hero-enter hero-enter-4" style="margin-top:2.5rem;">
-      <a href="https://f1-project.fleak-media.com/" class="btn btn-primary" target="_blank" rel="noopener">
-        Visit the live project &#8599;
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Cover image -->
-<div class="container" style="margin-block:2rem;">
-  <div class="case-img-placeholder reveal" style="aspect-ratio:21/9; min-height:300px;">
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="8" fill="currentColor" opacity=".1"/><path d="M10 34L18 22l8 10 6-7 6 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="34" cy="16" r="4" stroke="currentColor" stroke-width="2"/></svg>
-    <p>[ADD F1 PROJECT HERO SCREENSHOT]</p>
-  </div>
-</div>
-
-<!-- 01 - Overview -->
-<section class="case-section">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">01 &mdash; Overview</div>
-    <h2 class="case-section__title reveal">The challenge.</h2>
-    <div class="reveal">
-      <p style="margin-bottom:1.5rem;">
-        How do you tell the story of 70+ years of Formula 1 &mdash; combining performance data, safety regulations, and accident history &mdash; while keeping the experience both comprehensible and engaging for any audience?
-      </p>
-      <p>
-        This was the core challenge of the VisualDon course project at HEIG-VD. The goal was to transform complex, multi-dimensional historical data into a coherent visual narrative &mdash; one that guides the user through time, reveals patterns, and creates emotion without overwhelming them.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- 02 - Data -->
-<section class="case-section" style="background: var(--surface-alt);">
-  <div class="container">
-    <div class="case-section__num reveal">02 &mdash; Data</div>
-    <h2 class="case-section__title reveal">The data behind the story.</h2>
-    <div class="reveal">
-      <p style="max-width:60ch;">
-        The project required sourcing, cleaning, and correlating several independent datasets to build a coherent timeline of F1 history. The complexity of the data work was a key part of the challenge.
-      </p>
-    </div>
-    <div class="data-list reveal">
-      <div class="data-list__item">
-        <span class="data-list__icon">&#9203;</span>
-        <div class="data-list__label">Lap time evolution per season and circuit</div>
-      </div>
-      <div class="data-list__item">
-        <span class="data-list__icon">&#127950;</span>
-        <div class="data-list__label">Car performance metrics across decades</div>
-      </div>
-      <div class="data-list__item">
-        <span class="data-list__icon">&#128203;</span>
-        <div class="data-list__label">Regulatory changes and rule introductions</div>
-      </div>
-      <div class="data-list__item">
-        <span class="data-list__icon">&#128163;</span>
-        <div class="data-list__label">Accident and fatality records (1950&ndash;2024)</div>
-      </div>
-      <div class="data-list__item">
-        <span class="data-list__icon">&#128737;</span>
-        <div class="data-list__label">Safety innovations: HANS, HALO, barriers, suits</div>
-      </div>
-      <div class="data-list__item">
-        <span class="data-list__icon">&#9881;&#65039;</span>
-        <div class="data-list__label">Technical milestones: aerodynamics, engines, tyres</div>
-      </div>
-    </div>
-    <div class="reveal" style="margin-top:2rem;">
-      <div class="case-img-placeholder">
-        <p>[ADD DATA VISUALIZATION SCREENSHOT &mdash; charts / graphs]</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 03 - UX & Storytelling -->
-<section class="case-section">
-  <div class="container">
-    <div class="case-section__num reveal">03 &mdash; UX &amp; Storytelling</div>
-    <h2 class="case-section__title reveal">Designing the narrative.</h2>
-
-    <div class="process-row reveal" style="margin-bottom:3rem;">
-      <span class="process-pill active">Data Analysis</span>
-      <span class="process-arrow">&rarr;</span>
-      <span class="process-pill">Information Architecture</span>
-      <span class="process-arrow">&rarr;</span>
-      <span class="process-pill">Wireframes</span>
-      <span class="process-arrow">&rarr;</span>
-      <span class="process-pill">Scrollytelling Structure</span>
-      <span class="process-arrow">&rarr;</span>
-      <span class="process-pill">UI Design</span>
-      <span class="process-arrow">&rarr;</span>
-      <span class="process-pill">Development</span>
-    </div>
-
-    <div class="grid-2 reveal">
-      <div>
-        <h4 style="margin-bottom:0.75rem; font-family: var(--font-display);">Information architecture</h4>
-        <p>We structured the experience as a chronological journey &mdash; each decade of F1 history becomes a chapter. The user is guided progressively through time without needing to navigate: the scroll is the story.</p>
-      </div>
-      <div>
-        <h4 style="margin-bottom:0.75rem; font-family: var(--font-display);">Scrollytelling</h4>
-        <p>Scrollytelling was chosen to give the user full control of the pace of discovery. Each scroll triggers a new data reveal, transition, or 3D animation &mdash; creating a sense of forward motion through history.</p>
-      </div>
-    </div>
-
-    <div class="reveal" style="margin-top:2.5rem;">
-      <div class="case-img-placeholder" style="aspect-ratio:16/7;">
-        <p>[ADD WIREFRAMES / FIGMA PROTOTYPE SCREENSHOT]</p>
-      </div>
-    </div>
-    <div class="grid-2 reveal" style="margin-top:1.5rem; gap:1.5rem;">
-      <div class="case-img-placeholder" style="aspect-ratio:4/3;"><p>[ADD USER FLOW / IA DIAGRAM]</p></div>
-      <div class="case-img-placeholder" style="aspect-ratio:4/3;"><p>[ADD WIREFRAME &mdash; MOBILE]</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 04 - Visual Design -->
-<section class="case-section" style="background: var(--surface-alt);">
-  <div class="container">
-    <div class="case-section__num reveal">04 &mdash; Visual Design</div>
-    <h2 class="case-section__title reveal">Interface &amp; aesthetics.</h2>
-    <div class="reveal" style="max-width:60ch; margin-bottom:2rem;">
-      <p>The visual direction was built around precision, speed, and drama &mdash; reflecting the spirit of Formula 1. Dark backgrounds, high-contrast data elements, and bold typography create an immersive, editorial feel.</p>
-    </div>
-    <div class="case-img-placeholder reveal" style="aspect-ratio:16/8;">
-      <p>[ADD FULL UI SCREENSHOT &mdash; DESKTOP]</p>
-    </div>
-    <div class="grid-2 reveal" style="gap:1.5rem; margin-top:1.5rem;">
-      <div class="case-img-placeholder" style="aspect-ratio:1/1;"><p>[ADD COLOUR PALETTE / TYPOGRAPHY SHEET]</p></div>
-      <div class="case-img-placeholder" style="aspect-ratio:1/1;"><p>[ADD UI COMPONENTS SCREENSHOT]</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 05 - Development -->
-<section class="case-section">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">05 &mdash; Development</div>
-    <h2 class="case-section__title reveal">Built with.</h2>
-    <div class="tech-grid reveal">
-      <div class="tech-item">
-        <div class="tech-item__name">React</div>
-        <div class="tech-item__role">Application structure and component architecture</div>
-      </div>
-      <div class="tech-item">
-        <div class="tech-item__name">Vite</div>
-        <div class="tech-item__role">Development tooling and production build</div>
-      </div>
-      <div class="tech-item">
-        <div class="tech-item__name">Tailwind CSS</div>
-        <div class="tech-item__role">Interface styling and responsive layout</div>
-      </div>
-      <div class="tech-item">
-        <div class="tech-item__name">D3.js</div>
-        <div class="tech-item__role">Data-driven visualizations &mdash; charts, timelines, graphs</div>
-      </div>
-      <div class="tech-item">
-        <div class="tech-item__name">Three.js</div>
-        <div class="tech-item__role">3D car model and WebGL rendering</div>
-      </div>
-      <div class="tech-item">
-        <div class="tech-item__name">GSAP</div>
-        <div class="tech-item__role">Scroll-based animations and transitions</div>
-      </div>
-      <div class="tech-item">
-        <div class="tech-item__name">Figma</div>
-        <div class="tech-item__role">UX/UI design, wireframes, and prototyping</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 06 - 3D Experience -->
-<section class="case-section" style="background: var(--surface-alt);">
-  <div class="container">
-    <div class="case-section__num reveal">06 &mdash; 3D &amp; Interactive Experience</div>
-    <h2 class="case-section__title reveal">The car that evolves.</h2>
-    <div class="reveal" style="max-width:62ch; margin-bottom:2.5rem;">
-      <p style="margin-bottom:1.25rem;">
-        A central element of the experience is a 3D Formula 1 car &mdash; rendered in WebGL via Three.js &mdash; that visually transforms as the user scrolls through the decades. As regulations changed and safety innovations were introduced, the car's geometry, aeroparts, and cockpit evolve in real-time.
-      </p>
-      <p>This 3D object serves as both a navigation anchor and a storytelling device &mdash; making abstract regulatory data tangible and visual.</p>
-    </div>
-    <div class="case-img-placeholder reveal" style="aspect-ratio:16/8; min-height:280px;">
-      <p>[ADD 3D CAR SCREENSHOT &mdash; Three.js render]</p>
-    </div>
-    <div class="grid-2 reveal" style="margin-top:1.5rem; gap:1.5rem;">
-      <div class="case-img-placeholder" style="aspect-ratio:4/3;"><p>[ADD 3D MODEL &mdash; 1970s era]</p></div>
-      <div class="case-img-placeholder" style="aspect-ratio:4/3;"><p>[ADD 3D MODEL &mdash; Modern era]</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 07 - My Contribution -->
-<section class="case-section">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">07 &mdash; My Contribution</div>
-    <h2 class="case-section__title reveal">What I did in the team.</h2>
-    <div class="reveal" style="margin-bottom:1rem;">
-      <p>This project was a team effort. Here is a distinction between my personal contributions and the collective work.</p>
-    </div>
-    <div class="contrib-list reveal">
-      <div class="contrib-item">
-        <span class="contrib-item__badge">Me</span>
-        <p class="contrib-item__text">Analysis and processing of complex datasets &mdash; correlating lap time evolution, regulatory changes, and accident history across 70+ years.</p>
-      </div>
-      <div class="contrib-item">
-        <span class="contrib-item__badge">Me</span>
-        <p class="contrib-item__text">UX/UI design and wireframing on Figma &mdash; defining the visual direction, interface components, and overall layout.</p>
-      </div>
-      <div class="contrib-item">
-        <span class="contrib-item__badge">Me</span>
-        <p class="contrib-item__text">Structuring the scrollytelling narrative &mdash; defining the chapter sequence, transitions, and how information is revealed progressively.</p>
-      </div>
-      <div class="contrib-item">
-        <span class="contrib-item__badge">Me</span>
-        <p class="contrib-item__text">Front-end development with React, Vite, and Tailwind CSS.</p>
-      </div>
-      <div class="contrib-item">
-        <span class="contrib-item__badge">Me</span>
-        <p class="contrib-item__text">Creation of dynamic data visualizations with D3.js.</p>
-      </div>
-      <div class="contrib-item">
-        <span class="contrib-item__badge contrib-item__badge--team">Team</span>
-        <p class="contrib-item__text">3D integration with Three.js &mdash; the car model and WebGL rendering were developed collaboratively with the team.</p>
-      </div>
-      <div class="contrib-item">
-        <span class="contrib-item__badge contrib-item__badge--team">Team</span>
-        <p class="contrib-item__text">Scroll-based animations with GSAP were implemented as a shared effort across the team.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 08 - Final Experience -->
-<section class="case-section" style="background: var(--surface-alt);">
-  <div class="container">
-    <div class="case-section__num reveal">08 &mdash; Final Experience</div>
-    <h2 class="case-section__title reveal">The outcome.</h2>
-    <div class="case-img-placeholder reveal" style="aspect-ratio:16/8;">
-      <p>[ADD F1 PROJECT SCREENSHOT &mdash; LARGE &mdash; Full page view]</p>
-    </div>
-    <div class="grid-2 reveal" style="gap:1.5rem; margin-top:1.5rem;">
-      <div class="case-img-placeholder" style="aspect-ratio:4/3;"><p>[ADD SCREENSHOT &mdash; Data timeline section]</p></div>
-      <div class="case-img-placeholder" style="aspect-ratio:4/3;"><p>[ADD SCREENSHOT &mdash; 3D car interaction section]</p></div>
-    </div>
-    <div class="case-img-placeholder reveal" style="aspect-ratio:16/5; margin-top:1.5rem;">
-      <p>[ADD F1 PROJECT VIDEO / GIF &mdash; scrollytelling animation]</p>
-    </div>
-    <div class="reveal" style="text-align:center; margin-top:3rem;">
-      <a href="https://f1-project.fleak-media.com/" class="btn btn-primary" target="_blank" rel="noopener" style="font-size:1rem; padding: 1rem 2.5rem;">
-        Visit the live project &#8599;
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- 09 - Reflections -->
-<section class="case-section">
-  <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">09 &mdash; Reflections</div>
-    <h2 class="case-section__title reveal">What I learned.</h2>
-    <div class="reveal">
-      <p style="margin-bottom:1.5rem;">
-        This project pushed me to think at the intersection of data, design, and code in ways I had not before. Transforming raw CSV datasets into a visual, emotional experience taught me that data visualization is as much an editorial discipline as a technical one.
-      </p>
-      <p style="margin-bottom:1.5rem;">
-        Working with D3.js and Three.js simultaneously &mdash; and making them cooperate with GSAP scroll triggers &mdash; gave me a much deeper understanding of the browser's rendering model and performance constraints.
-      </p>
-      <p style="margin-bottom:1.5rem;">
-        Beyond the technical side, I learned how powerful storytelling structure is in data work. The order in which information is revealed, the pace of transitions, and the choice of what to show vs. what to hide are all UX decisions that directly affect comprehension.
-      </p>
-      <p>
-        Working as a team on a complex, technically diverse project also taught me how important shared design systems and component agreements are from day one.
-      </p>
-    </div>
-    <div class="reveal" style="display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:2rem;">
-      <span class="skill-badge">Data Visualization</span>
-      <span class="skill-badge">Scrollytelling</span>
-      <span class="skill-badge">3D on the web</span>
-      <span class="skill-badge">D3.js</span>
-      <span class="skill-badge">Three.js</span>
-      <span class="skill-badge">GSAP</span>
-      <span class="skill-badge">React</span>
-      <span class="skill-badge">Data Storytelling</span>
-      <span class="skill-badge">UX/UI Design</span>
-      <span class="skill-badge">Team collaboration</span>
-    </div>
-  </div>
-</section>
-
-<!-- Next Project -->
-<section style="padding-block: 3rem 5rem;">
-  <div class="container" style="max-width:800px;">
-    <p class="text-label" style="margin-bottom:1.5rem;">Next project</p>
-    <a href="crewup.html" class="next-project reveal">
-      <div>
-        <div class="next-project__label">Next</div>
-        <div class="next-project__title">CrewUp</div>
-      </div>
-      <div class="next-project__arrow">&rarr;</div>
-    </a>
-  </div>
-</section>
-
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <div class="logo-mark">NA</div>
-        <p style="margin-top:1rem;" data-i18n="footer.brand">Designing and building digital experiences with curiosity.</p>
-      </div>
-      <div class="footer__nav">
-        <div class="footer__nav-group">
-          <div class="footer__nav-label" data-i18n="footer.nav-label">Navigation</div>
-          <ul class="footer__nav-links">
-            <li><a href="../index.html"         class="footer__nav-link">Home</a></li>
-            <li><a href="../index.html#work"    class="footer__nav-link" data-i18n="nav.work">Work</a></li>
-            <li><a href="../about.html"         class="footer__nav-link" data-i18n="nav.about">About</a></li>
-            <li><a href="../contact.html"       class="footer__nav-link" data-i18n="nav.contact">Contact</a></li>
-          </ul>
+          <div class="hero-enter hero-enter-4" style="margin-top: 2.5rem">
+            <a
+              href="https://f1-project.fleak-media.com/"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Visiter le projet en ligne ↗
+            </a>
+          </div>
         </div>
-        <div class="footer__nav-group">
-          <div class="footer__nav-label" data-i18n="footer.soc-label">Social</div>
-          <ul class="footer__nav-links">
-            <li><a href="https://www.linkedin.com/in/amaro-nuno/" class="footer__nav-link" target="_blank" rel="noopener">LinkedIn &#8599;</a></li>
-            <li><a href="https://github.com/Pantufas17"           class="footer__nav-link" target="_blank" rel="noopener">GitHub &#8599;</a></li>
-          </ul>
+      </section>
+
+      <!-- Cover image -->
+      <div class="container" style="margin-block: 2rem">
+        <div
+          class="case-img-placeholder reveal"
+          style="aspect-ratio: 21/9; min-height: 300px"
+        >
+          <img
+            src="../assets/img/projets/f1/f1HeroSection.png"
+            alt="The Evolution of F1 Safety Cover"
+            style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-lg);"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <p style="display:none;">[AJOUTER LA CAPTURE D'ÉCRAN HERO DU PROJET F1]</p>
         </div>
       </div>
-    </div>
-    <div class="footer__bottom">
-      <span class="footer__copyright" data-i18n="footer.copy">&#169; 2026 Nuno Amaro. All rights reserved.</span>
-      <span class="footer__tagline" data-i18n-html="footer.tagline">Designed &amp; built with curiosity.</span>
-    </div>
-  </div>
-</footer>
 
-<script src="../js/i18n.js"       defer></script>
-<script src="../js/main.js"       defer></script>
-<script src="../js/cursor.js"     defer></script>
-<script src="../js/animations.js" defer></script>
-</body>
+      <!-- 01 - Overview -->
+      <section class="case-section">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">01 — Vue d'ensemble</div>
+          <h2 class="case-section__title reveal">Le défi.</h2>
+          <div class="reveal">
+            <p style="margin-bottom: 1.5rem">
+              Comment raconter plus de 70 ans d'histoire de la Formule 1 — en
+              croisant données de performance, réglementations de sécurité et
+              historique des accidents — tout en proposant une expérience à la
+              fois claire, captivante et accessible à tous les publics ?
+            </p>
+            <p>
+              C'était le défi central de ce projet réalisé dans le cadre du
+              cours VisualDon à la HEIG-VD. L'objectif était de transformer des
+              jeux de données historiques complexes et multidimensionnels en un
+              récit visuel fluide — qui guide l'utilisateur à travers le temps,
+              révèle les tendances clés et suscite de l'émotion sans saturer
+              l'écran.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 - Data -->
+      <section class="case-section" style="background: var(--surface-alt)">
+        <div class="container">
+          <div class="case-section__num reveal">02 — Données</div>
+          <h2 class="case-section__title reveal">
+            Les données au cœur du récit.
+          </h2>
+          <div class="reveal">
+            <p style="max-width: 60ch">
+              Le projet a nécessité de collecter, nettoyer et corréler plusieurs
+              jeux de données indépendants pour reconstituer une chronologie
+              cohérente de l'histoire de la F1.
+            </p>
+          </div>
+          <div class="data-list reveal">
+            <div class="data-list__item">
+              <span class="data-list__icon">⏱️</span>
+              <div class="data-list__label">
+                Évolution des temps au tour par saison et circuit
+              </div>
+            </div>
+            <div class="data-list__item">
+              <span class="data-list__icon">🏎️</span>
+              <div class="data-list__label">
+                Indicateurs de performance des monoplaces à travers les
+                décennies
+              </div>
+            </div>
+            <div class="data-list__item">
+              <span class="data-list__icon">📋</span>
+              <div class="data-list__label">
+                Évolutions des réglementations et introductions de règles
+              </div>
+            </div>
+            <div class="data-list__item">
+              <span class="data-list__icon">💥</span>
+              <div class="data-list__label">
+                Historique des accidents et décès (1950–2024)
+              </div>
+            </div>
+            <div class="data-list__item">
+              <span class="data-list__icon">🛡️</span>
+              <div class="data-list__label">
+                Innovations de sécurité : HANS, HALO, barrières, combinaisons
+              </div>
+            </div>
+            <div class="data-list__item">
+              <span class="data-list__icon">⚙️</span>
+              <div class="data-list__label">
+                Grandes étapes techniques : aéro, moteurs, pneumatiques
+              </div>
+            </div>
+          </div>
+          <div class="reveal" style="margin-top: 2rem">
+            <div class="case-img-placeholder">
+              <p>
+                [AJOUTER CAPTURE VISUALISATION DE DONNÉES — graphiques / charts]
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 - UX & Storytelling -->
+      <section class="case-section">
+        <div class="container">
+          <div class="case-section__num reveal">03 — UX &amp; Storytelling</div>
+          <h2 class="case-section__title reveal">
+            Conception de la narration.
+          </h2>
+
+          <div class="process-row reveal" style="margin-bottom: 3rem">
+            <span class="process-pill active">Analyse des données</span>
+            <span class="process-arrow">→</span>
+            <span class="process-pill">Architecture de l'info</span>
+            <span class="process-arrow">→</span>
+            <span class="process-pill">Wireframes</span>
+            <span class="process-arrow">→</span>
+            <span class="process-pill">Structure Scrollytelling</span>
+            <span class="process-arrow">→</span>
+            <span class="process-pill">Design UI</span>
+            <span class="process-arrow">→</span>
+            <span class="process-pill">Développement</span>
+          </div>
+
+          <div class="grid-2 reveal">
+            <div>
+              <h4
+                style="margin-bottom: 0.75rem; font-family: var(--font-display)"
+              >
+                Architecture de l'information
+              </h4>
+              <p>
+                Nous avons structuré l'expérience sous la forme d'un voyage
+                chronologique : chaque décennie de l'histoire de la F1 constitue
+                un chapitre. L'utilisateur est guidé progressivement dans le
+                temps : le scroll rythme le récit.
+              </p>
+            </div>
+            <div>
+              <h4
+                style="margin-bottom: 0.75rem; font-family: var(--font-display)"
+              >
+                Scrollytelling
+              </h4>
+              <p>
+                Le scrollytelling donne à l'utilisateur un contrôle total sur le
+                rythme de sa découverte. Chaque défilement déclenche
+                l'apparition d'un nouveau graphique, une transition ou une
+                animation 3D.
+              </p>
+            </div>
+          </div>
+
+          <div class="reveal" style="margin-top: 2.5rem">
+            <div class="case-img-placeholder" style="aspect-ratio: 16/7">
+              <p>[AJOUTER WIREFRAMES / PROTOTYPE FIGMA]</p>
+            </div>
+          </div>
+          <div class="grid-2 reveal" style="margin-top: 1.5rem; gap: 1.5rem">
+            <div class="case-img-placeholder" style="aspect-ratio: 4/3">
+              <p>[AJOUTER FLUX UTILISATEUR / SCHÉMA]</p>
+            </div>
+            <div class="case-img-placeholder" style="aspect-ratio: 4/3">
+              <p>[AJOUTER WIREFRAME — MOBILE]</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 - Visual Design -->
+      <section class="case-section" style="background: var(--surface-alt)">
+        <div class="container">
+          <div class="case-section__num reveal">04 — Design Visuel</div>
+          <h2 class="case-section__title reveal">
+            Interface &amp; esthétique.
+          </h2>
+          <div class="reveal" style="max-width: 60ch; margin-bottom: 2rem">
+            <p>
+              La direction artistique s'est articulée autour de la précision, de
+              la vitesse et de l'intensité dramatique propre à la Formule 1. Des
+              fonds sombres, des graphiques contrastés et une typographie
+              percutante créent une immersion éditoriale forte.
+            </p>
+          </div>
+          <div class="case-img-placeholder reveal" style="aspect-ratio: 16/8">
+            <p>[AJOUTER CAPTURE D'ÉCRAN UI GLOBALE — DESKTOP]</p>
+          </div>
+          <div class="grid-2 reveal" style="gap: 1.5rem; margin-top: 1.5rem">
+            <div class="case-img-placeholder" style="aspect-ratio: 1/1">
+              <p>[AJOUTER PALETTE DE COULEURS / PLANCHE TYPO]</p>
+            </div>
+            <div class="case-img-placeholder" style="aspect-ratio: 1/1">
+              <p>[AJOUTER CAPTURE COMPOSANTS UI]</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 - Development -->
+      <section class="case-section">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">05 — Développement</div>
+          <h2 class="case-section__title reveal">Technologies utilisées.</h2>
+          <div class="tech-grid reveal">
+            <div class="tech-item">
+              <div class="tech-item__name">React</div>
+              <div class="tech-item__role">
+                Architecture de l'application et structure en composants
+              </div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-item__name">Vite</div>
+              <div class="tech-item__role">
+                Outillage de développement rapide et build de production
+              </div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-item__name">Tailwind CSS</div>
+              <div class="tech-item__role">
+                Stylisation de l'interface et mise en page responsive
+              </div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-item__name">D3.js</div>
+              <div class="tech-item__role">
+                Visualisations de données dynamiques — graphes, timelines,
+                courbes
+              </div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-item__name">Three.js</div>
+              <div class="tech-item__role">
+                Modèle 3D de la monoplace et rendu WebGL temps réel
+              </div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-item__name">GSAP</div>
+              <div class="tech-item__role">
+                Animations au défilement et transitions fluides
+              </div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-item__name">Figma</div>
+              <div class="tech-item__role">
+                Design UX/UI, wireframes et prototypage interactif
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 - 3D Experience -->
+      <section class="case-section" style="background: var(--surface-alt)">
+        <div class="container">
+          <div class="case-section__num reveal">
+            06 — Expérience 3D &amp; Interactive
+          </div>
+          <h2 class="case-section__title reveal">La monoplace qui évolue.</h2>
+          <div class="reveal" style="max-width: 62ch; margin-bottom: 2.5rem">
+            <p style="margin-bottom: 1.25rem">
+              Un élément central de l'expérience est la F1 en 3D — rendue en
+              WebGL avec Three.js — qui se métamorphose visuellement au fil des
+              décennies. À mesure que les règlements changent et que les
+              innovations sécuritaires apparaissent, la géométrie,
+              l'aérodynamique et le cockpit s'adaptent en temps réel.
+            </p>
+            <p>
+              Cet objet 3D sert à la fois de repère visuel et de support
+              narratif, rendant tangibles et concrètes des données
+              réglementaires parfois abstraites.
+            </p>
+          </div>
+          <div
+            class="case-img-placeholder reveal"
+            style="aspect-ratio: 16/8; min-height: 280px"
+          >
+            <p>[AJOUTER CAPTURE DU MODÈLE 3D — Rendu Three.js]</p>
+          </div>
+          <div class="grid-2 reveal" style="margin-top: 1.5rem; gap: 1.5rem">
+            <div class="case-img-placeholder" style="aspect-ratio: 4/3">
+              <p>[AJOUTER MODÈLE 3D — Années 1970]</p>
+            </div>
+            <div class="case-img-placeholder" style="aspect-ratio: 4/3">
+              <p>[AJOUTER MODÈLE 3D — Ère moderne]</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 - My Contribution -->
+      <section class="case-section">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">07 — Mes Contributions</div>
+          <h2 class="case-section__title reveal">
+            Mon rôle au sein de l'équipe.
+          </h2>
+          <div class="reveal" style="margin-bottom: 1rem">
+            <p>
+              Ce projet a été réalisé en groupe. Voici la distinction entre mes
+              responsabilités individuelles et le travail collectif.
+            </p>
+          </div>
+          <div class="contrib-list reveal">
+            <div class="contrib-item">
+              <span class="contrib-item__badge">Moi</span>
+              <p class="contrib-item__text">
+                Analyse et traitement des données : corrélation entre temps au
+                tour, changements de règlement et accidents sur 70+ ans.
+              </p>
+            </div>
+            <div class="contrib-item">
+              <span class="contrib-item__badge">Moi</span>
+              <p class="contrib-item__text">
+                Design UX/UI et wireframing sur Figma : définition de la
+                direction artistique, des composants et des layouts.
+              </p>
+            </div>
+            <div class="contrib-item">
+              <span class="contrib-item__badge">Moi</span>
+              <p class="contrib-item__text">
+                Structuration du récit en scrollytelling : chapitrage,
+                transitions et hiérarchie de révélation des informations.
+              </p>
+            </div>
+            <div class="contrib-item">
+              <span class="contrib-item__badge">Moi</span>
+              <p class="contrib-item__text">
+                Développement front-end avec React, Vite et Tailwind CSS.
+              </p>
+            </div>
+            <div class="contrib-item">
+              <span class="contrib-item__badge">Moi</span>
+              <p class="contrib-item__text">
+                Création des visualisations de données dynamiques avec D3.js.
+              </p>
+            </div>
+            <div class="contrib-item">
+              <span class="contrib-item__badge contrib-item__badge--team"
+                >Équipe</span
+              >
+              <p class="contrib-item__text">
+                Intégration 3D avec Three.js : modèle de la voiture et pipeline
+                de rendu WebGL développés conjointement.
+              </p>
+            </div>
+            <div class="contrib-item">
+              <span class="contrib-item__badge contrib-item__badge--team"
+                >Équipe</span
+              >
+              <p class="contrib-item__text">
+                Animations au scroll avec GSAP implémentées en collaboration
+                avec l'équipe.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08 - Final Experience -->
+      <section class="case-section" style="background: var(--surface-alt)">
+        <div class="container">
+          <div class="case-section__num reveal">08 — Résultat Final</div>
+          <h2 class="case-section__title reveal">L'expérience en ligne.</h2>
+          <div class="case-img-placeholder reveal" style="aspect-ratio: 16/8">
+            <p>[AJOUTER CAPTURE PROJET F1 — PLEINE PAGE]</p>
+          </div>
+          <div class="grid-2 reveal" style="gap: 1.5rem; margin-top: 1.5rem">
+            <div class="case-img-placeholder" style="aspect-ratio: 4/3">
+              <p>[AJOUTER CAPTURE — Section timeline / données]</p>
+            </div>
+            <div class="case-img-placeholder" style="aspect-ratio: 4/3">
+              <p>[AJOUTER CAPTURE — Section interaction 3D voiture]</p>
+            </div>
+          </div>
+          <div
+            class="case-img-placeholder reveal"
+            style="aspect-ratio: 16/5; margin-top: 1.5rem"
+          >
+            <p>[AJOUTER VIDÉO / GIF DU PROJET F1 — animation scrollytelling]</p>
+          </div>
+          <div class="reveal" style="text-align: center; margin-top: 3rem">
+            <a
+              href="https://f1-project.fleak-media.com/"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+              style="font-size: 1rem; padding: 1rem 2.5rem"
+            >
+              Visiter le projet en direct ↗
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 09 - Reflections -->
+      <section class="case-section">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">
+            09 — Bilan &amp; Apprentissages
+          </div>
+          <h2 class="case-section__title reveal">Ce que j'ai appris.</h2>
+          <div class="reveal">
+            <p style="margin-bottom: 1.5rem">
+              Ce projet m'a permis de pousser la réflexion à l'intersection
+              exacte de la data, du design et du code. Transformer des données
+              brutes en une expérience visuelle et engageante m'a appris que la
+              dataviz est autant une discipline éditoriale qu'une compétence
+              technique.
+            </p>
+            <p style="margin-bottom: 1.5rem">
+              Faire cohabiter D3.js et Three.js tout en synchronisant les
+              triggers de scroll avec GSAP m'a apporté une compréhension
+              beaucoup plus fine du moteur de rendu du navigateur et de la
+              gestion de la performance.
+            </p>
+            <p style="margin-bottom: 1.5rem">
+              Au-delà de la technique, j'ai mesuré la puissance du storytelling
+              appliqué à la donnée : le rythme d'apparition, les transitions et
+              les choix de hiérarchie visuelle sont autant de décisions UX qui
+              impactent directement la compréhension.
+            </p>
+            <p>
+              Enfin, collaborer en équipe sur un projet aux briques
+              technologiques variées a renforcé l'importance d'adopter un design
+              system et des conventions de composants partagés dès les premiers
+              jours.
+            </p>
+          </div>
+          <div
+            class="reveal"
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              gap: 0.75rem;
+              margin-top: 2rem;
+            "
+          >
+            <span class="skill-badge">Visualisation de données</span>
+            <span class="skill-badge">Scrollytelling</span>
+            <span class="skill-badge">3D sur le web</span>
+            <span class="skill-badge">D3.js</span>
+            <span class="skill-badge">Three.js</span>
+            <span class="skill-badge">GSAP</span>
+            <span class="skill-badge">React</span>
+            <span class="skill-badge">Data Storytelling</span>
+            <span class="skill-badge">Design UX/UI</span>
+            <span class="skill-badge">Travail d'équipe</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next Project -->
+      <section style="padding-block: 3rem 5rem">
+        <div class="container" style="max-width: 800px">
+          <p class="text-label" style="margin-bottom: 1.5rem">Projet suivant</p>
+          <a href="crewup.html" class="next-project reveal">
+            <div>
+              <div class="next-project__label">Suivant</div>
+              <div class="next-project__title">CrewUp</div>
+            </div>
+            <div class="next-project__arrow">→</div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <div class="logo-mark">NA</div>
+            <p style="margin-top: 1rem" data-i18n="footer.brand">
+              Conception et développement d'expériences digitales avec
+              curiosité.
+            </p>
+          </div>
+          <div class="footer__nav">
+            <div class="footer__nav-group">
+              <div class="footer__nav-label" data-i18n="footer.nav-label">
+                Navigation
+              </div>
+              <ul class="footer__nav-links">
+                <li>
+                  <a href="../index.html" class="footer__nav-link">Accueil</a>
+                </li>
+                <li>
+                  <a
+                    href="../index.html#work"
+                    class="footer__nav-link"
+                    data-i18n="nav.work"
+                    >Projets</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../about.html"
+                    class="footer__nav-link"
+                    data-i18n="nav.about"
+                    >À propos</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../contact.html"
+                    class="footer__nav-link"
+                    data-i18n="nav.contact"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="footer__nav-group">
+              <div class="footer__nav-label" data-i18n="footer.soc-label">
+                Réseaux
+              </div>
+              <ul class="footer__nav-links">
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/amaro-nuno/"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener"
+                    >LinkedIn ↗</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/Pantufas17"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub ↗</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span class="footer__copyright" data-i18n="footer.copy"
+            >© 2026 Nuno Amaro. Tous droits réservés.</span
+          >
+          <span class="footer__tagline" data-i18n-html="footer.tagline"
+            >Conçu et développé avec curiosité.</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/cursor.js" defer></script>
+    <script src="../js/animations.js" defer></script>
+  </body>
 </html>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="fr" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blood Donation / HUG — Nuno Amaro</title>
-  <meta name="description" content="HUG Blood Donation — A web platform promoting blood donation in collaboration with Geneva University Hospitals. Case study by Nuno Amaro." />
+  <meta name="description" content="HUG Don du sang — Plateforme web de sensibilisation au don du sang en collaboration avec les Hôpitaux Universitaires de Genève. Étude de cas par Nuno Amaro." />
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,14 +25,19 @@
       <span class="logo-text">Nuno Amaro</span>
     </a>
     <nav class="navbar__links">
-      <a href="../index.html#work" class="navbar__link active">Work</a>
-      <a href="../about.html"      class="navbar__link">About</a>
-      <a href="../index.html#skills" class="navbar__link">Skills</a>
-      <a href="../contact.html"    class="navbar__link">Contact</a>
+      <a href="../index.html#work"   class="navbar__link active" data-i18n="nav.work">Projets</a>
+      <a href="../about.html"        class="navbar__link"        data-i18n="nav.about">À propos</a>
+      <a href="../index.html#skills" class="navbar__link"        data-i18n="nav.skills">Compétences</a>
+      <a href="../contact.html"      class="navbar__link"        data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="navbar__actions">
+      <div class="lang-switcher" aria-label="Language switcher">
+        <button class="lang-btn"             data-lang="en" aria-pressed="false" aria-label="Switch to English">EN</button>
+        <div class="lang-divider" aria-hidden="true"></div>
+        <button class="lang-btn lang-active" data-lang="fr" aria-pressed="true"  aria-label="Passer en français">FR</button>
+      </div>
       <button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">☾</span></button>
-      <a href="../contact.html" class="navbar__cta">Let's talk ↗</a>
+      <a href="../contact.html" class="navbar__cta" data-i18n="nav.cta">Me contacter ↗</a>
       <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -40,13 +45,13 @@
 
 <nav class="mobile-nav">
   <ul class="mobile-nav__links">
-    <li><a href="../index.html#work" class="mobile-nav__link">Work</a></li>
-    <li><a href="../about.html"      class="mobile-nav__link">About</a></li>
-    <li><a href="../contact.html"    class="mobile-nav__link">Contact</a></li>
+    <li><a href="../index.html#work" class="mobile-nav__link" data-i18n="nav.work">Projets</a></li>
+    <li><a href="../about.html"      class="mobile-nav__link" data-i18n="nav.about">À propos</a></li>
+    <li><a href="../contact.html"    class="mobile-nav__link" data-i18n="nav.contact">Contact</a></li>
   </ul>
   <div class="mobile-nav__footer">
-    <a href="https://linkedin.com/in/nunoamaro" class="mobile-nav__social" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/nunoamaro"      class="mobile-nav__social" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/amaro-nuno/" class="mobile-nav__social" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/Pantufas17"           class="mobile-nav__social" target="_blank" rel="noopener">GitHub</a>
   </div>
 </nav>
 
@@ -54,36 +59,36 @@
 
 <section class="case-hero">
   <div class="container">
-    <a href="../index.html#work" class="back-link">
+    <a href="index.html" class="back-link">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M3 8l5-5M3 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      All projects
+      Tous les projets
     </a>
 
     <div class="section-header__meta" style="margin-bottom:1.5rem;">
-      <span class="section-header__number" style="color:var(--accent);">UX/UI · Web · Real-world collaboration</span>
+      <span class="section-header__number" style="color:var(--accent);">UX/UI · Web · Collaboration réelle</span>
     </div>
 
     <h1 class="hero-enter hero-enter-1" style="margin-bottom:1.5rem;">Blood Donation<br /><span style="color:var(--accent);">HUG</span></h1>
     <p class="text-lead hero-enter hero-enter-2" style="max-width:54ch; margin-bottom:2.5rem;">
-      A one-month integration project created in collaboration with the Geneva University Hospitals (HUG), building a web platform to promote blood donation — from real need to digital solution.
+      Projet d'intégration d'un mois réalisé en collaboration directe avec les Hôpitaux Universitaires de Genève (HUG), concevant une plateforme web pour encourager et faciliter le don du sang.
     </p>
 
     <div class="case-meta-grid hero-enter hero-enter-3">
       <div class="case-meta-item">
-        <div class="case-meta-item__label">Client / Partner</div>
-        <div class="case-meta-item__value">HUG Geneva</div>
+        <div class="case-meta-item__label">Partenaire / Mandant</div>
+        <div class="case-meta-item__value">HUG Genève</div>
       </div>
       <div class="case-meta-item">
-        <div class="case-meta-item__label">Duration</div>
-        <div class="case-meta-item__value">1 month</div>
+        <div class="case-meta-item__label">Durée</div>
+        <div class="case-meta-item__value">1 mois (Atelier d'intégration)</div>
       </div>
       <div class="case-meta-item">
-        <div class="case-meta-item__label">Role</div>
-        <div class="case-meta-item__value">[ADD ROLE]</div>
+        <div class="case-meta-item__label">Rôle</div>
+        <div class="case-meta-item__value">UX Research · UI Design · Développement Web</div>
       </div>
       <div class="case-meta-item">
-        <div class="case-meta-item__label">Tools</div>
-        <div class="case-meta-item__value">HTML · CSS · JS · Figma</div>
+        <div class="case-meta-item__label">Outils</div>
+        <div class="case-meta-item__value">HTML5 · CSS3 · JavaScript · Figma</div>
       </div>
     </div>
   </div>
@@ -91,24 +96,23 @@
 
 <div class="container" style="margin-block:2rem;">
   <div class="case-img-placeholder reveal" style="aspect-ratio:21/9; min-height:300px;">
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="8" fill="currentColor" opacity=".1"/><path d="M10 34L18 22l8 10 6-7 6 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <p>[ADD HUG PROJECT HERO IMAGE]</p>
+    <img src="../assets/img/projets/HUG/HUG_HeroSection.png" alt="HUG Blood Donation Cover" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-lg);" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+    <p style="display:none;">[AJOUTER IMAGE HERO DU PROJET HUG]</p>
   </div>
 </div>
 
 <!-- 01 Challenge -->
 <section class="case-section">
   <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">01 — Context &amp; Challenge</div>
-    <h2 class="case-section__title reveal">A real-world brief.</h2>
+    <div class="case-section__num reveal">01 — Contexte &amp; Défi</div>
+    <h2 class="case-section__title reveal">Un mandat en conditions réelles.</h2>
     <div class="reveal">
       <p style="margin-bottom:1.5rem;">
-        This project was carried out as part of a one-month integration course. Working directly with the Geneva University Hospitals (HUG), the goal was to create a web platform that communicates the importance of blood donation and encourages people to take action.
+        Ce projet s'est déroulé dans le cadre d'un cours d'intégration intensif d'un mois. En collaboration directe avec les Hôpitaux Universitaires de Genève (HUG), la mission consistait à imaginer une expérience numérique incitant le grand public à franchir le pas du don du sang.
       </p>
       <p style="margin-bottom:1.5rem;">
-        The challenge was not just technical — it required understanding the public health communication context, the target audience, and the sensitivities around the topic.
+        Le défi dépassait le simple cadre technique : il fallait appréhender les codes de la communication en santé publique, déconstruire les craintes légitimes des donneurs potentiels et clarifier les critères d'éligibilité.
       </p>
-      <p>[ADD: Any additional context from the brief or client requirements.]</p>
     </div>
   </div>
 </section>
@@ -116,10 +120,12 @@
 <!-- 02 My Role -->
 <section class="case-section" style="background:var(--surface-alt);">
   <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">02 — My Role</div>
-    <h2 class="case-section__title reveal">What I contributed.</h2>
+    <div class="case-section__num reveal">02 — Mon Rôle</div>
+    <h2 class="case-section__title reveal">Mes contributions.</h2>
     <div class="reveal">
-      <p>[ADD: Describe your specific role — UX research, UI design, development, content strategy? Individual or team project?]</p>
+      <p>
+        J'ai participé à l'ensemble du cycle de conception : immersion dans la problématique, élaboration de personas, prototypage interactif sur Figma et intégration front-end du site web.
+      </p>
     </div>
   </div>
 </section>
@@ -127,31 +133,31 @@
 <!-- 03 Process -->
 <section class="case-section">
   <div class="container">
-    <div class="case-section__num reveal">03 — Process</div>
-    <h2 class="case-section__title reveal">From need to experience.</h2>
+    <div class="case-section__num reveal">03 — Processus</div>
+    <h2 class="case-section__title reveal">Du besoin au produit digital.</h2>
 
     <div class="process-row reveal" style="margin-bottom:3rem;">
       <span class="process-pill active">Brief</span>
       <span class="process-arrow">→</span>
-      <span class="process-pill">Research</span>
+      <span class="process-pill">Recherche</span>
       <span class="process-arrow">→</span>
       <span class="process-pill">UX</span>
       <span class="process-arrow">→</span>
       <span class="process-pill">UI</span>
       <span class="process-arrow">→</span>
-      <span class="process-pill">Dev</span>
+      <span class="process-pill">Dév</span>
       <span class="process-arrow">→</span>
-      <span class="process-pill">Delivery</span>
+      <span class="process-pill">Restitution</span>
     </div>
 
     <div class="grid-2 reveal">
       <div>
-        <h4 style="margin-bottom:0.75rem; font-family:var(--font-display);">Understanding the audience</h4>
-        <p>[ADD: Who is the target audience? What motivates or prevents people from donating blood? What did you discover through research?]</p>
+        <h4 style="margin-bottom:0.75rem; font-family:var(--font-display);">Comprendre le public cible</h4>
+        <p>Identifier les freins psychologiques et organisationnels (manque de temps, appréhension de la piqûre, méconnaissance des lieux de collecte) pour apporter des réponses concrètes et rassurantes.</p>
       </div>
       <div>
-        <h4 style="margin-bottom:0.75rem; font-family:var(--font-display);">Communication strategy</h4>
-        <p>[ADD: How did you decide to communicate the message? What tone, content structure, and visual language did you choose?]</p>
+        <h4 style="margin-bottom:0.75rem; font-family:var(--font-display);">Stratégie de communication</h4>
+        <p>Adopter un ton bienveillant et positif, axé sur l'impact humain du geste, tout en proposant un questionnaire d'éligibilité interactif et instantané.</p>
       </div>
     </div>
   </div>
@@ -160,18 +166,15 @@
 <!-- 04 UX -->
 <section class="case-section" style="background:var(--surface-alt);">
   <div class="container">
-    <div class="case-section__num reveal">04 — UX &amp; Design</div>
-    <h2 class="case-section__title reveal">Interface design.</h2>
+    <div class="case-section__num reveal">04 — Design UX/UI</div>
+    <h2 class="case-section__title reveal">Conception de l'interface.</h2>
 
     <div class="case-img-placeholder reveal" style="margin-bottom:2rem;">
-      <p>[ADD WIREFRAMES / UX FLOW]</p>
+      <p>[AJOUTER WIREFRAMES / PARCOURS UTILISATEUR]</p>
     </div>
     <div class="grid-2 reveal" style="gap:1.5rem;">
-      <div class="case-img-placeholder" style="aspect-ratio:4/3;"><p>[ADD UI SCREENSHOT 1]</p></div>
-      <div class="case-img-placeholder" style="aspect-ratio:4/3;"><p>[ADD UI SCREENSHOT 2]</p></div>
-    </div>
-    <div class="reveal" style="margin-top:2rem;">
-      <p>[ADD: Describe your design approach. How did you balance sensitivity of the topic with clear, engaging UX?]</p>
+      <div class="case-img-placeholder" style="aspect-ratio:4/3;"><p>[CAPTURE UI 1]</p></div>
+      <div class="case-img-placeholder" style="aspect-ratio:4/3;"><p>[CAPTURE UI 2]</p></div>
     </div>
   </div>
 </section>
@@ -179,43 +182,27 @@
 <!-- 05 Development -->
 <section class="case-section">
   <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">05 — Development</div>
-    <h2 class="case-section__title reveal">Built with.</h2>
+    <div class="case-section__num reveal">05 — Développement</div>
+    <h2 class="case-section__title reveal">Technologies &amp; Outils.</h2>
     <div class="reveal" style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:2rem;">
-      <span class="skill-badge">HTML</span>
-      <span class="skill-badge">CSS</span>
+      <span class="skill-badge">HTML5</span>
+      <span class="skill-badge">CSS3</span>
       <span class="skill-badge">JavaScript</span>
       <span class="skill-badge">Figma</span>
-      <span class="skill-badge">[ADD MORE]</span>
-    </div>
-    <div class="reveal">
-      <p>[ADD: Technical details about how the platform was built. Key challenges or solutions.]</p>
+      <span class="skill-badge">Git</span>
     </div>
   </div>
 </section>
 
-<!-- 06 Result -->
+<!-- 06 Reflections -->
 <section class="case-section" style="background:var(--surface-alt);">
-  <div class="container">
-    <div class="case-section__num reveal">06 — Final Result</div>
-    <h2 class="case-section__title reveal">The platform.</h2>
-    <div class="case-img-placeholder reveal" style="aspect-ratio:16/8;">
-      <p>[ADD FINAL PRODUCT — LARGE SCREENSHOT]</p>
-    </div>
-    <div class="grid-2 reveal" style="gap:1.5rem;margin-top:1.5rem;">
-      <div class="case-img-placeholder" style="aspect-ratio:4/3;"><p>[ADD RESULT IMAGE 2]</p></div>
-      <div class="case-img-placeholder" style="aspect-ratio:4/3;"><p>[ADD RESULT IMAGE 3]</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 07 Reflections -->
-<section class="case-section">
   <div class="container" style="max-width:800px;">
-    <div class="case-section__num reveal">07 — Reflections</div>
-    <h2 class="case-section__title reveal">What I learned.</h2>
+    <div class="case-section__num reveal">06 — Bilan &amp; Retours</div>
+    <h2 class="case-section__title reveal">Ce que j'ai appris.</h2>
     <div class="reveal">
-      <p>[ADD: Reflections on working with a real organisation, on designing for a sensitive topic, and on what you'd do differently with more time.]</p>
+      <p>
+        Travailler avec un partenaire institutionnel de santé m'a permis de comprendre l'exigence d'accessibilité et de clarté dans la formulation de messages d'intérêt public.
+      </p>
     </div>
   </div>
 </section>
@@ -223,11 +210,11 @@
 <!-- Next Project -->
 <section style="padding-block:3rem 5rem;">
   <div class="container" style="max-width:800px;">
-    <p class="text-label" style="margin-bottom:1.5rem;">Next project</p>
+    <p class="text-label" style="margin-bottom:1.5rem;">Projet suivant</p>
     <a href="odds.html" class="next-project reveal">
       <div>
-        <div class="next-project__label">Next</div>
-        <div class="next-project__title">ODDS — Organ Donation Platform</div>
+        <div class="next-project__label">Suivant</div>
+        <div class="next-project__title">ODDS — Plateforme Don d'organes</div>
       </div>
       <div class="next-project__arrow">→</div>
     </a>
@@ -241,34 +228,35 @@
     <div class="footer__top">
       <div class="footer__brand">
         <div class="logo-mark">NA</div>
-        <p style="margin-top:1rem;">Designing and building digital experiences with curiosity.</p>
+        <p style="margin-top:1rem;" data-i18n="footer.brand">Conception et développement d'expériences digitales avec curiosité.</p>
       </div>
       <div class="footer__nav">
         <div class="footer__nav-group">
-          <div class="footer__nav-label">Navigation</div>
+          <div class="footer__nav-label" data-i18n="footer.nav-label">Navigation</div>
           <ul class="footer__nav-links">
-            <li><a href="../index.html"      class="footer__nav-link">Home</a></li>
-            <li><a href="../index.html#work" class="footer__nav-link">Work</a></li>
-            <li><a href="../about.html"      class="footer__nav-link">About</a></li>
-            <li><a href="../contact.html"    class="footer__nav-link">Contact</a></li>
+            <li><a href="../index.html"         class="footer__nav-link">Accueil</a></li>
+            <li><a href="../index.html#work"    class="footer__nav-link" data-i18n="nav.work">Projets</a></li>
+            <li><a href="../about.html"         class="footer__nav-link" data-i18n="nav.about">À propos</a></li>
+            <li><a href="../contact.html"       class="footer__nav-link" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer__nav-group">
-          <div class="footer__nav-label">Social</div>
+          <div class="footer__nav-label" data-i18n="footer.soc-label">Réseaux</div>
           <ul class="footer__nav-links">
-            <li><a href="https://linkedin.com/in/nunoamaro" class="footer__nav-link" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-            <li><a href="https://github.com/nunoamaro"      class="footer__nav-link" target="_blank" rel="noopener">GitHub ↗</a></li>
+            <li><a href="https://www.linkedin.com/in/amaro-nuno/" class="footer__nav-link" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+            <li><a href="https://github.com/Pantufas17"           class="footer__nav-link" target="_blank" rel="noopener">GitHub ↗</a></li>
           </ul>
         </div>
       </div>
     </div>
     <div class="footer__bottom">
-      <span class="footer__copyright">© 2026 Nuno Amaro.</span>
-      <span class="footer__tagline">Designed &amp; built with curiosity.</span>
+      <span class="footer__copyright" data-i18n="footer.copy">© 2026 Nuno Amaro. Tous droits réservés.</span>
+      <span class="footer__tagline" data-i18n-html="footer.tagline">Conçu et développé avec curiosité.</span>
     </div>
   </div>
 </footer>
 
+<script src="../js/i18n.js"       defer></script>
 <script src="../js/main.js"       defer></script>
 <script src="../js/cursor.js"     defer></script>
 <script src="../js/animations.js" defer></script>
