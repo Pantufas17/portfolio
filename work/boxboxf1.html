@@ -67,6 +67,95 @@
         gap: 1rem;
         margin-top: 1.5rem;
       }
+      .pillar-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.25rem;
+        margin-top: 1.5rem;
+      }
+      .pillar-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        transition:
+          transform 0.3s ease,
+          border-color 0.3s ease;
+      }
+      .pillar-card:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent);
+      }
+      .pillar-card__tag {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.5rem;
+      }
+      .pillar-card__title {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 0.5rem;
+      }
+      .pillar-card__desc {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+      .stat-highlight {
+        display: inline-block;
+        padding: 0.2rem 0.6rem;
+        background: var(--accent-light);
+        color: var(--accent);
+        border-radius: var(--radius-sm);
+        font-weight: 700;
+      }
+      .case-grid-2col {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 3.5rem;
+        align-items: end;
+      }
+      .case-col-text {
+        padding-bottom: clamp(3rem, 6vw, 5rem);
+      }
+      .persona-photo-wrapper {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        height: 100%;
+        line-height: 0;
+      }
+      .persona-photo {
+        width: 100%;
+        max-width: 440px;
+        height: auto;
+        display: block;
+        vertical-align: bottom;
+        margin-bottom: 0;
+        filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
+        transition: transform 0.3s ease;
+      }
+      .persona-photo:hover {
+        transform: translateY(-4px) scale(1.02);
+      }
+      @media (max-width: 960px) {
+        .case-grid-2col {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .case-col-text {
+          padding-bottom: 0;
+        }
+        .persona-photo {
+          max-width: 320px;
+          margin-inline: auto;
+        }
+      }
     </style>
   </head>
   <body>
@@ -194,23 +283,25 @@
 
           <div class="section-header__meta" style="margin-bottom: 1.5rem">
             <span class="section-header__number" style="color: var(--accent)"
-              >E-Commerce · WordPress · WooCommerce</span
+              >E-Commerce · Stratégie Digitale · WordPress &amp;
+              WooCommerce</span
             >
           </div>
 
           <h1 class="hero-enter hero-enter-1" style="margin-bottom: 1.5rem">
             BoxBoxF1<br /><span style="color: var(--accent)"
-              >E-Commerce Suisse</span
+              >La Boutique Suisse des Passionnés de Formule 1</span
             >
           </h1>
           <p
             class="text-lead hero-enter hero-enter-2"
-            style="max-width: 54ch; margin-bottom: 2rem"
+            style="max-width: 58ch; margin-bottom: 2rem"
             data-i18n="boxboxf1.lead"
           >
-            Plateforme e-commerce conçue sous WordPress &amp; WooCommerce pour
-            les passionnés suisses de Formule 1, combinant boutique spécialisée
-            et espace blog d'actualités.
+            Conception et déploiement d'un écosystème e-commerce complet sous
+            WordPress &amp; WooCommerce pour les passionnés suisses : modèle
+            hybride (vente directe, Print-on-Demand, affiliation), blog
+            éditorial SEO, marketing automation et démarche éco-responsable.
           </p>
 
           <div class="project-actions hero-enter hero-enter-2">
@@ -231,7 +322,7 @@
           >
             <div class="case-meta-item">
               <div class="case-meta-item__label" data-i18n="case.context-label">
-                Contexte
+                Cadre
               </div>
               <div class="case-meta-item__value">
                 Cours E-Commerce (HEIG-VD)
@@ -241,33 +332,53 @@
               <div class="case-meta-item__label" data-i18n="case.date-label">
                 Période
               </div>
-              <div class="case-meta-item__value">2025 – 2026</div>
+              <div class="case-meta-item__value">
+                Novembre 2025 – Janvier 2026
+              </div>
             </div>
             <div class="case-meta-item">
               <div class="case-meta-item__label" data-i18n="case.role-label">
-                Rôle
+                Rôle &amp; Périmètre
               </div>
               <div class="case-meta-item__value">
-                Développement, E-Commerce, UX/UI
+                Projet individuel (Stratégie, UX/UI, Dév, Logistique, Marketing)
               </div>
             </div>
             <div class="case-meta-item">
               <div class="case-meta-item__label" data-i18n="case.tech-label">
-                Technologies
+                Écosystème Technique
               </div>
               <div class="case-meta-item__value">
-                WordPress · WooCommerce · PHP · CSS · SEO
+                WordPress · WooCommerce · Astra · Printify · Brevo · GA4 · Yoast
+                SEO
               </div>
             </div>
           </div>
-          <div class="hero-enter hero-enter-4" style="margin-top: 2.5rem">
+
+          <div
+            class="hero-enter hero-enter-4"
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              gap: 1rem;
+              margin-top: 2.5rem;
+            "
+          >
             <a
               href="https://boxboxf1.ch/"
               class="btn btn-primary"
               target="_blank"
               rel="noopener"
             >
-              Visiter le projet en ligne ↗
+              Visiter la boutique en ligne ↗
+            </a>
+            <a
+              href="../assets/pdf/BoxBoxF1.pdf"
+              class="btn btn-secondary"
+              target="_blank"
+              rel="noopener"
+            >
+              Consulter le rapport de projet PDF ↗
             </a>
           </div>
         </div>
@@ -286,50 +397,136 @@
         >
           <img
             src="../assets/img/projets/BoxBoxF1/BoxBoxF1_HeroSection.png"
-            alt="Aperçu du site BoxBoxF1"
+            alt="Aperçu de la page d'accueil du site BoxBoxF1"
             style="width: 100%; height: auto; display: block"
           />
         </div>
       </div>
 
       <!-- 01 Contexte & Problématique -->
-      <section class="case-section">
-        <div class="container" style="max-width: 800px">
-          <div class="case-section__num reveal">01 — Contexte &amp; Défi</div>
-          <h2 class="case-section__title reveal" data-i18n="boxboxf1.s1-title">
-            Un shop F1 dédié au public suisse.
-          </h2>
-          <div class="reveal">
-            <p style="margin-bottom: 1.5rem" data-i18n="boxboxf1.s1-p1">
-              Dans le cadre du cours d'E-Commerce à la HEIG-VD, le projet
-              consistait à créer de bout en bout une boutique en ligne
-              fonctionnelle et optimisée. Passionné de sport automobile, j'ai
-              identifié une opportunité claire : le manque d'offre e-commerce F1
-              dédiée au marché suisse, où les fans se heurtent souvent à des
-              frais de douane imprévus et des délais de livraison longs depuis
-              l'étranger.
-            </p>
-            <p style="margin-bottom: 1.5rem" data-i18n="boxboxf1.s1-p2">
-              Le défi était double : proposer une expérience d'achat fluide
-              (catalogue clair, tunnel de commande optimisé, modes de paiement
-              adaptés) tout en intégrant un volet éditorial (blog d'actualités
-              F1) pour générer du trafic organique et fédérer une communauté
-              locale.
-            </p>
+      <section class="case-section" style="padding-bottom: 0">
+        <div class="container">
+          <div class="case-grid-2col">
+            <div class="reveal case-col-text">
+              <div class="case-section__num">
+                01 — Contexte &amp; Opportunité de Marché
+              </div>
+              <h2 class="case-section__title" data-i18n="boxboxf1.s1-title">
+                Combler le vide du e-commerce F1 en Suisse.
+              </h2>
+              <p style="margin-bottom: 1.5rem" data-i18n="boxboxf1.s1-p1">
+                Porté par le renouveau médiatique mondial et la série
+                <em>Drive to Survive</em>, l'engouement pour la Formule 1
+                connaît une croissance fulgurante, particulièrement auprès des
+                18-35 ans. Pourtant, le public suisse se heurte à une friction
+                majeure : l'absence d'acteurs e-commerce locaux spécialisés.
+                Commander sur des boutiques internationales implique des délais
+                imprévisibles, des frais de port prohibitifs et des taxes
+                douanières surprises.
+              </p>
+              <p style="margin-bottom: 1.5rem" data-i18n="boxboxf1.s1-p2">
+                <strong>Le positionnement de BoxBoxF1 :</strong> Devenir la
+                première référence helvétique dédiée aux passionnés de F1 en
+                alliant ancrage local (prix nets en CHF, livraison rapide La
+                Poste Suisse, service client en français), communauté active et
+                offre personnalisée.
+              </p>
+
+              <div class="pillar-card" style="margin-top: 1.75rem">
+                <div class="pillar-card__tag">
+                  Cible &amp; Persona Principal
+                </div>
+                <div class="pillar-card__title">
+                  Elias, 22 ans — Étudiant en mécanique à Lausanne
+                </div>
+                <p class="pillar-card__desc">
+                  Passionné depuis l'adolescence, il suit chaque Grand Prix en
+                  direct et est actif sur Instagram et TikTok. Ses freins
+                  actuels : les prix excessifs du merchandising officiel, les
+                  frais de livraison transfrontaliers et le manque d'accessoires
+                  personnalisés. BoxBoxF1 répond à ses attentes grâce à des
+                  tarifs étudiants accessibles, une livraison nationale en 2-3
+                  jours et des créations uniques.
+                </p>
+              </div>
+            </div>
+
+            <div class="reveal">
+              <div class="persona-photo-wrapper">
+                <img
+                  src="../assets/img/projets/BoxBoxF1/elias.png"
+                  alt="Portrait d'Elias, étudiant passionné de F1"
+                  class="persona-photo"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- 02 Fonctionnalités -->
+      <!-- 02 Modèle Commercial Hybride -->
       <section class="case-section" style="background: var(--surface-alt)">
         <div class="container" style="max-width: 800px">
-          <div class="case-section__num reveal">
-            02 — Architecture &amp; Fonctionnalités
-          </div>
-          <h2 class="case-section__title reveal" data-i18n="boxboxf1.s2-title">
-            Une solution complète sous WordPress &amp; WooCommerce.
+          <div class="case-section__num reveal">02 — Modèle Économique</div>
+          <h2 class="case-section__title reveal">
+            Une architecture d'offre hybride à 3 piliers.
           </h2>
           <div class="reveal">
+            <p style="margin-bottom: 1.5rem">
+              Afin de limiter les risques financiers liés au stockage physique
+              tout en offrant un catalogue étendu d'une trentaine de références,
+              le projet combine trois canaux complémentaires :
+            </p>
+            <div class="pillar-grid">
+              <div class="pillar-card">
+                <div class="pillar-card__tag">Pilier 01 · Stock Local</div>
+                <div class="pillar-card__title">Vente Directe (Paddock)</div>
+                <div class="pillar-card__desc">
+                  Produits physiques phares stockés en Suisse : miniatures
+                  officielles 1:43 &amp; 1:18 (Ferrari SF-24, McLaren),
+                  casquettes d'écuries et le
+                  <em>Couteau Suisse F1</em> exclusif. Expédition express
+                  garantie.
+                </div>
+              </div>
+              <div class="pillar-card">
+                <div class="pillar-card__tag">Pilier 02 · Zéro Stock</div>
+                <div class="pillar-card__title">Print-on-Demand (POD)</div>
+                <div class="pillar-card__desc">
+                  Gamme <em>BoxBox Originals</em> connectée via Printify :
+                  T-shirts en coton bio, hoodies, mugs céramiques et posters
+                  graphiques produits à la commande. Zéro surproduction textile.
+                </div>
+              </div>
+              <div class="pillar-card">
+                <div class="pillar-card__tag">Pilier 03 · Contenu</div>
+                <div class="pillar-card__title">Affiliation (Amazon Club)</div>
+                <div class="pillar-card__desc">
+                  Biographies de pilotes de légende (Senna, Hamilton,
+                  Schumacher), sets Lego Technic F1 et équipements de simracing,
+                  générant des revenus complémentaires sans logistique.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 Identité Visuelle & UX -->
+      <section class="case-section">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">
+            03 — Identité Visuelle &amp; Ergonomie UX
+          </div>
+          <h2 class="case-section__title reveal">
+            Vitesse, précision et conformité ergonomique.
+          </h2>
+          <div class="reveal">
+            <p style="margin-bottom: 1.5rem">
+              L'univers graphique s'inspire du dynamisme des paddocks tout en
+              conservant la sobriété et la rigueur attendues d'un acteur suisse
+              :
+            </p>
             <ul
               style="
                 list-style: disc;
@@ -339,64 +536,226 @@
               "
             >
               <li>
-                <strong>Boutique en ligne complète :</strong> Gestion du
-                catalogue de produits (vêtements, accessoires, miniatures et
-                goodies), gestion des stocks et variations (tailles, écuries).
+                <strong>Branding &amp; Logo Vectoriel :</strong> Création sous
+                Adobe Illustrator d'un logotype dynamique reprenant le terme
+                culte <em>« Box, Box »</em> et le graphisme iconique de la F1
+                (drapeau à damier stylisé et lignes de vitesse).
               </li>
               <li>
-                <strong>Tunnel de commande &amp; Paiements :</strong> Processus
-                de checkout épuré en quelques étapes, intégration des
-                passerelles de paiement sécurisées et calcul automatique des
-                frais de livraison suisses.
+                <strong>Palette Chromatique :</strong> Rouge Racing (<span
+                  class="stat-highlight"
+                  >#D6001C</span
+                >) pour les CTA et zones chaudes, Noir Carbone (<span
+                  class="stat-highlight"
+                  >#0A0A0A</span
+                >) pour l'élégance du Dark Mode et Blanc Pur (<span
+                  class="stat-highlight"
+                  >#FFFFFF</span
+                >) pour un contraste optimal.
               </li>
               <li>
-                <strong>Espace Blog &amp; Actualités F1 :</strong> Articles
-                réguliers sur les Grands Prix, analyses de transferts et récaps
-                de courses, favorisant l'engagement et le référencement naturel
-                (SEO).
+                <strong>Loi de Jakob &amp; Navigation :</strong> Structure
+                standardisée rassurante pour l'acheteur (panier en haut à droite
+                avec montant en CHF en temps réel, fil d'Ariane SEO, menu
+                déroulant Aide et retour accueil à gauche).
               </li>
               <li>
-                <strong>Design responsive &amp; Branding F1 :</strong> Interface
-                dynamique aux teintes rouge et sombre inspirée de l'univers de
-                la course, parfaitement adaptée sur smartphone, tablette et
-                desktop.
-              </li>
-              <li>
-                <strong>Optimisation SEO &amp; Performance :</strong> Balisage
-                sémantique, métadonnées structurées et optimisation du
-                chargement des images.
+                <strong>Sticky Cart &amp; Reassurance :</strong> Bouton de
+                panier flottant persistant au scroll avec badge de notification
+                vert en direct, garantissant que la commande reste accessible en
+                1 clic.
               </li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- 03 Résultats -->
+      <!-- 04 Logistique, Prix & Paiements -->
+      <section class="case-section" style="background: var(--surface-alt)">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">
+            04 — Logistique, Tarification &amp; Paiement
+          </div>
+          <h2 class="case-section__title reveal">
+            Transparence tarifaire et logistique suisse.
+          </h2>
+          <div class="reveal">
+            <p style="margin-bottom: 1.5rem">
+              Conformément aux normes du SECO et à l'Ordonnance sur l'indication
+              des prix (OIP), la stratégie tarifaire privilégie une lisibilité
+              totale sans coûts cachés :
+            </p>
+            <div class="pillar-grid">
+              <div class="pillar-card">
+                <div class="pillar-card__tag">Stratégie Prix</div>
+                <div class="pillar-card__title">Free Shipping Inclus</div>
+                <div class="pillar-card__desc">
+                  Les frais de port et d'emballage sont directement intégrés
+                  dans le prix affiché (TTC avec TVA suisse 8.1%), neutralisant
+                  la 1ère cause d'abandon de panier en e-commerce.
+                </div>
+              </div>
+              <div class="pillar-card">
+                <div class="pillar-card__tag">Acheminement</div>
+                <div class="pillar-card__title">
+                  🇨🇭 La Poste Suisse (PostPac)
+                </div>
+                <div class="pillar-card__desc">
+                  Expédition en 24/48h avec numéro de suivi
+                  <em>Track &amp; Trace</em>. Emballage segmenté RAJA (tubes
+                  triangulaires Trapez pour posters, calage Kraft recyclé pour
+                  miniatures).
+                </div>
+              </div>
+              <div class="pillar-card">
+                <div class="pillar-card__tag">Monétique</div>
+                <div class="pillar-card__title">Paiements Sécurisés</div>
+                <div class="pillar-card__desc">
+                  Paiement express PayPal, virement bancaire sécurisé (BACS) et
+                  étude théorique d'intégration de TWINT via PSP (Worldline /
+                  Payrexx).
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 Inbound Marketing & SEO -->
       <section class="case-section">
         <div class="container" style="max-width: 800px">
           <div class="case-section__num reveal">
-            03 — Bilan &amp; Compétences
+            05 — Inbound Marketing, Blog &amp; IA
           </div>
-          <h2 class="case-section__title reveal" data-i18n="boxboxf1.s3-title">
-            Apprentissages &amp; Impact.
+          <h2 class="case-section__title reveal">
+            Le Blog « Pit Lane » &amp; Rédaction Assistée par IA.
           </h2>
           <div class="reveal">
-            <p style="margin-bottom: 1.5rem" data-i18n="boxboxf1.s3-p1">
-              Le déploiement de BoxBoxF1 a permis de maîtriser l'ensemble du
-              cycle de vie d'un projet e-commerce : du choix des plugins à la
-              configuration des taxes, en passant par la personnalisation CSS
-              poussée de thèmes WordPress et l'élaboration d'une stratégie de
-              contenu ciblée.
+            <p style="margin-bottom: 1.5rem">
+              Pour attirer un trafic qualifié sans dépendre uniquement de la
+              publicité payante, BoxBoxF1 intègre un média spécialisé
+              d'actualités et d'analyses :
             </p>
-            <div style="display: flex; gap: 1rem; margin-top: 2rem">
+            <ul
+              style="
+                list-style: disc;
+                padding-left: 1.5rem;
+                line-height: 1.8;
+                margin-bottom: 2rem;
+              "
+            >
+              <li>
+                <strong>4 Univers Éditoriaux :</strong>
+                <em>Actu &amp; Paddock</em> (derniers transferts),
+                <em>Tech &amp; Performance</em> (analyse technique 2026),
+                <em>Histoire &amp; Légendes</em> (archives et circuits
+                mythiques) et <em>Lifestyle &amp; Guides</em> (idées cadeaux
+                F1).
+              </li>
+              <li>
+                <strong>Prompt Engineering Hybride :</strong> Utilisation
+                avancée de ChatGPT, Google Gemini et Perplexity pour structurer
+                les articles avec la méthode AIDA et injecter du storytelling
+                émotionnel F1 retravaillé manuellement.
+              </li>
+              <li>
+                <strong>SEO Longue Traîne :</strong> Ciblage de requêtes
+                précises à forte intention d'achat (ex:
+                <em>« Boutique F1 livraison Suisse »</em>,
+                <em>« Miniature Ferrari SF-24 »</em>) via Yoast SEO, atteignant
+                un
+                <strong
+                  >score SEO de 100/100 sur Google PageSpeed Insights</strong
+                >.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 Relation Client & Green IT -->
+      <section class="case-section" style="background: var(--surface-alt)">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">
+            06 — Relation Client &amp; Numérique Responsable
+          </div>
+          <h2 class="case-section__title reveal">
+            Service « Pit Wall » et démarche éco-responsable.
+          </h2>
+          <div class="reveal">
+            <div class="grid-2" style="gap: 1.5rem; margin-bottom: 2rem">
+              <div class="pillar-card">
+                <div class="pillar-card__tag">Support &amp; Omnicanal</div>
+                <div class="pillar-card__title">
+                  Centre d'Aide &amp; WhatsApp
+                </div>
+                <div class="pillar-card__desc">
+                  FAQ structurée en accordéons pour le self-care et bouton
+                  flottant WhatsApp <em>« Contacter le stand »</em> (Click to
+                  Chat) adapté aux habitudes suisses (> 80% de pénétration).
+                  Lead Magnet avec réduction de 10% (code
+                  <span class="stat-highlight">Rookie10</span>) et email de
+                  bienvenue automatisé sur Brevo.
+                </div>
+              </div>
+              <div class="pillar-card">
+                <div class="pillar-card__tag">Green IT (Stratégie 3P)</div>
+                <div class="pillar-card__title">Éco-Conception Numérique</div>
+                <div class="pillar-card__desc">
+                  <strong>Plateforme :</strong> Hébergement vert chez Infomaniak
+                  (Genève, 200% renouvelable, refroidissement naturel sans
+                  climatisation).<br />
+                  <strong>Produit :</strong> Zéro surproduction textile via le
+                  Print-on-Demand.<br />
+                  <strong>Packet :</strong> Expéditions compensées carbone via
+                  le label <em>Pro Clima</em> de La Poste.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 Bilan & Livrables -->
+      <section class="case-section">
+        <div class="container" style="max-width: 800px">
+          <div class="case-section__num reveal">
+            07 — Synthèse &amp; Livrables
+          </div>
+          <h2 class="case-section__title reveal">
+            Bilan d'un projet e-commerce de grande envergure.
+          </h2>
+          <div class="reveal">
+            <p style="margin-bottom: 1.5rem">
+              Ce projet a permis de développer une vision 360° du commerce en
+              ligne moderne : de l'analyse juridique (nLPD, CGV suisses) à la
+              rentabilité unitaire (marge brute, fiscalité TVA), en passant par
+              l'intégration d'APIs tierces, l'optimisation mobile et
+              l'automatisation marketing.
+            </p>
+            <div
+              style="
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                margin-top: 2.5rem;
+              "
+            >
               <a
-                href="https://boxboxf1.ch/shop/"
+                href="https://boxboxf1.ch/"
                 target="_blank"
                 rel="noopener"
                 class="btn btn-primary"
-                data-i18n="boxboxf1.cta-link"
               >
-                Explorer la boutique en ligne ↗
+                Explorer la boutique boxboxf1.ch ↗
+              </a>
+              <a
+                href="../assets/pdf/BoxBoxF1.pdf"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-secondary"
+              >
+                Télécharger le rapport de projet complet (PDF) ↗
               </a>
             </div>
           </div>
@@ -407,10 +766,17 @@
       <section class="case-section" style="border-top: 1px solid var(--border)">
         <div class="container">
           <a href="savoir-vivre.html" class="next-project reveal">
-            <div class="next-project__bg" style="background-image: url('../assets/img/projets/SavoirVivre/Savoir_Vivre2.png');"></div>
+            <div
+              class="next-project__bg"
+              style="
+                background-image: url(&quot;../assets/img/projets/SavoirVivre/Savoir_Vivre2.png&quot;);
+              "
+            ></div>
             <div class="next-project__overlay"></div>
             <div class="next-project__info">
-              <div class="next-project__label" data-i18n="case.next">Projet suivant</div>
+              <div class="next-project__label" data-i18n="case.next">
+                Projet suivant
+              </div>
               <div class="next-project__title">Savoir-Vivre</div>
             </div>
             <div class="next-project__arrow">→</div>

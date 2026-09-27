@@ -131,14 +131,14 @@ const TRANSLATIONS = {
     'case.next':         'Next project',
 
     /* BoxBoxF1 Case Study */
-    'boxboxf1.lead':     'Swiss e-commerce platform built on WordPress & WooCommerce for Formula 1 fans, combining a specialised shop with a motorsport news blog.',
+    'boxboxf1.lead':     'Full Swiss e-commerce ecosystem built on WordPress & WooCommerce for Formula 1 fans: hybrid business model (direct stock, Print-on-Demand, affiliate), editorial SEO blog, marketing automation, and green IT practices.',
     'boxboxf1.live-btn': 'Visit boxboxf1.ch ↗',
-    'boxboxf1.s1-title': 'An F1 shop tailored for Swiss fans.',
-    'boxboxf1.s1-p1':    'Developed for an E-Commerce course at HEIG-VD, this project created a fully functional online shop from scratch. Being passionate about motorsport, I identified a clear gap: the lack of dedicated F1 e-commerce options for the Swiss market with optimized customs and shipping.',
-    'boxboxf1.s1-p2':    'The dual challenge was offering a seamless shopping experience while maintaining an active news blog to drive organic traffic (SEO) and build a loyal local community.',
-    'boxboxf1.s2-title': 'A robust solution powered by WordPress & WooCommerce.',
+    'boxboxf1.s1-title': 'Bridging the F1 e-commerce gap in Switzerland.',
+    'boxboxf1.s1-p1':    'With the rising global popularity of Formula 1 and Netflix’s Drive to Survive, Swiss fans faced a key friction: ordering from abroad meant unexpected customs duties, long delivery delays, and high shipping costs. BoxBoxF1 fills this void with a 100% Swiss-focused value proposition (net CHF prices, fast Swiss Post delivery, French customer support).',
+    'boxboxf1.s1-p2':    'The goal was to design an end-to-end e-commerce brand combining a hybrid 3-pillar product catalog with an active editorial blog (Pit Lane) to build organic traffic and foster a passionate local community.',
+    'boxboxf1.s2-title': 'A 3-pillar hybrid business model.',
     'boxboxf1.s3-title': 'Learnings & Impact.',
-    'boxboxf1.s3-p1':    'Deploying BoxBoxF1 covered the entire e-commerce lifecycle: plugin selection, tax setup, custom CSS styling, and content strategy.',
+    'boxboxf1.s3-p1':    'Deploying BoxBoxF1 provided a 360° mastery of modern e-commerce: legal compliance (nLPD, Swiss GTC), unit economics, multi-channel logistics, mobile UX optimization, and marketing automation.',
     'boxboxf1.cta-link': 'Explore the live shop ↗',
 
     /* Savoir-Vivre Case Study */
