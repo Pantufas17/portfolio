@@ -294,16 +294,19 @@
       <!-- Cover image -->
       <div class="container" style="margin-block: 2rem">
         <div
-          class="case-img-placeholder reveal"
-          style="aspect-ratio: 21/9; min-height: 300px"
+          class="reveal"
+          style="
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+          "
         >
           <img
             src="../assets/img/projets/f1/f1HeroSection.png"
             alt="The Evolution of F1 Safety Cover"
-            style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-lg);"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+            style="width: 100%; height: auto; display: block"
           />
-          <p style="display:none;">[AJOUTER LA CAPTURE D'ÉCRAN HERO DU PROJET F1]</p>
         </div>
       </div>
 
@@ -317,15 +320,18 @@
               Comment raconter plus de 70 ans d'histoire de la Formule 1 — en
               croisant données de performance, réglementations de sécurité et
               historique des accidents — tout en proposant une expérience à la
-              fois claire, captivante et accessible à tous les publics ?
+              fois claire, captivante et accessible à tous les publics?
             </p>
             <p>
               C'était le défi central de ce projet réalisé dans le cadre du
               cours VisualDon à la HEIG-VD. L'objectif était de transformer des
               jeux de données historiques complexes et multidimensionnels en un
-              récit visuel fluide — qui guide l'utilisateur à travers le temps,
-              révèle les tendances clés et suscite de l'émotion sans saturer
-              l'écran.
+              récit visuel fluide. <br /><br />
+              <strong style="color: var(--accent, #e8003d)"
+                >L'objectif principal était donc de démontrer que même en allant
+                de plus en plus vite en Formule 1 que ceci ne devient pas plus
+                dangereux pour autant, bien au contraire.</strong
+              >
             </p>
           </div>
         </div>
@@ -347,48 +353,57 @@
           </div>
           <div class="data-list reveal">
             <div class="data-list__item">
-              <span class="data-list__icon">⏱️</span>
+              <span class="data-list__icon"></span>
               <div class="data-list__label">
                 Évolution des temps au tour par saison et circuit
               </div>
             </div>
             <div class="data-list__item">
-              <span class="data-list__icon">🏎️</span>
+              <span class="data-list__icon"></span>
               <div class="data-list__label">
                 Indicateurs de performance des monoplaces à travers les
                 décennies
               </div>
             </div>
             <div class="data-list__item">
-              <span class="data-list__icon">📋</span>
+              <span class="data-list__icon"></span>
               <div class="data-list__label">
                 Évolutions des réglementations et introductions de règles
               </div>
             </div>
             <div class="data-list__item">
-              <span class="data-list__icon">💥</span>
+              <span class="data-list__icon"></span>
               <div class="data-list__label">
                 Historique des accidents et décès (1950–2024)
               </div>
             </div>
             <div class="data-list__item">
-              <span class="data-list__icon">🛡️</span>
+              <span class="data-list__icon"></span>
               <div class="data-list__label">
                 Innovations de sécurité : HANS, HALO, barrières, combinaisons
               </div>
             </div>
             <div class="data-list__item">
-              <span class="data-list__icon">⚙️</span>
+              <span class="data-list__icon"></span>
               <div class="data-list__label">
                 Grandes étapes techniques : aéro, moteurs, pneumatiques
               </div>
             </div>
           </div>
-          <div class="reveal" style="margin-top: 2rem">
-            <div class="case-img-placeholder">
-              <p>
-                [AJOUTER CAPTURE VISUALISATION DE DONNÉES — graphiques / charts]
-              </p>
+          <div class="reveal" style="margin-top: 2.5rem">
+            <div
+              style="
+                border-radius: var(--radius-xl);
+                overflow: hidden;
+                border: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+              "
+            >
+              <img
+                src="../assets/img/projets/f1/Graphique_Evolution.png"
+                alt="Graphique de l'évolution de la sécurité en F1 à travers les années"
+                style="width: 100%; height: auto; display: block"
+              />
             </div>
           </div>
         </div>
@@ -396,25 +411,11 @@
 
       <!-- 03 - UX & Storytelling -->
       <section class="case-section">
-        <div class="container">
+        <div class="container" style="max-width: 800px">
           <div class="case-section__num reveal">03 — UX &amp; Storytelling</div>
           <h2 class="case-section__title reveal">
             Conception de la narration.
           </h2>
-
-          <div class="process-row reveal" style="margin-bottom: 3rem">
-            <span class="process-pill active">Analyse des données</span>
-            <span class="process-arrow">→</span>
-            <span class="process-pill">Architecture de l'info</span>
-            <span class="process-arrow">→</span>
-            <span class="process-pill">Wireframes</span>
-            <span class="process-arrow">→</span>
-            <span class="process-pill">Structure Scrollytelling</span>
-            <span class="process-arrow">→</span>
-            <span class="process-pill">Design UI</span>
-            <span class="process-arrow">→</span>
-            <span class="process-pill">Développement</span>
-          </div>
 
           <div class="grid-2 reveal">
             <div>
@@ -444,20 +445,6 @@
               </p>
             </div>
           </div>
-
-          <div class="reveal" style="margin-top: 2.5rem">
-            <div class="case-img-placeholder" style="aspect-ratio: 16/7">
-              <p>[AJOUTER WIREFRAMES / PROTOTYPE FIGMA]</p>
-            </div>
-          </div>
-          <div class="grid-2 reveal" style="margin-top: 1.5rem; gap: 1.5rem">
-            <div class="case-img-placeholder" style="aspect-ratio: 4/3">
-              <p>[AJOUTER FLUX UTILISATEUR / SCHÉMA]</p>
-            </div>
-            <div class="case-img-placeholder" style="aspect-ratio: 4/3">
-              <p>[AJOUTER WIREFRAME — MOBILE]</p>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -476,15 +463,49 @@
               percutante créent une immersion éditoriale forte.
             </p>
           </div>
-          <div class="case-img-placeholder reveal" style="aspect-ratio: 16/8">
-            <p>[AJOUTER CAPTURE D'ÉCRAN UI GLOBALE — DESKTOP]</p>
+          <div
+            class="reveal"
+            style="
+              border-radius: var(--radius-xl);
+              overflow: hidden;
+              border: 1px solid var(--border);
+              box-shadow: var(--shadow-md);
+            "
+          >
+            <img
+              src="../assets/img/projets/f1/design_1.png"
+              alt="Design du site sombre f1 avec des tons rouges et noirs"
+              style="width: 100%; height: auto; display: block"
+            />
           </div>
           <div class="grid-2 reveal" style="gap: 1.5rem; margin-top: 1.5rem">
-            <div class="case-img-placeholder" style="aspect-ratio: 1/1">
-              <p>[AJOUTER PALETTE DE COULEURS / PLANCHE TYPO]</p>
+            <div
+              style="
+                border-radius: var(--radius-xl);
+                overflow: hidden;
+                border: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+              "
+            >
+              <img
+                src="../assets/img/projets/f1/design_2.png"
+                alt="Design du site sombre f1 avec des tons rouges et noirs"
+                style="width: 100%; height: auto; display: block"
+              />
             </div>
-            <div class="case-img-placeholder" style="aspect-ratio: 1/1">
-              <p>[AJOUTER CAPTURE COMPOSANTS UI]</p>
+            <div
+              style="
+                border-radius: var(--radius-xl);
+                overflow: hidden;
+                border: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+              "
+            >
+              <img
+                src="../assets/img/projets/f1/design_3.png"
+                alt="Design du site sombre f1 avec des tons rouges et noirs"
+                style="width: 100%; height: auto; display: block"
+              />
             </div>
           </div>
         </div>
@@ -565,24 +586,55 @@
             </p>
           </div>
           <div
-            class="case-img-placeholder reveal"
-            style="aspect-ratio: 16/8; min-height: 280px"
+            class="reveal"
+            style="
+              border-radius: var(--radius-xl);
+              overflow: hidden;
+              border: 1px solid var(--border);
+              box-shadow: var(--shadow-md);
+            "
           >
-            <p>[AJOUTER CAPTURE DU MODÈLE 3D — Rendu Three.js]</p>
+            <img
+              src="../assets/img/projets/f1/voiture3D_1.png"
+              alt="3D Model of the F1 car"
+              style="width: 100%; height: auto; display: block"
+            />
           </div>
           <div class="grid-2 reveal" style="margin-top: 1.5rem; gap: 1.5rem">
-            <div class="case-img-placeholder" style="aspect-ratio: 4/3">
-              <p>[AJOUTER MODÈLE 3D — Années 1970]</p>
+            <div
+              style="
+                border-radius: var(--radius-xl);
+                overflow: hidden;
+                border: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+              "
+            >
+              <img
+                src="../assets/img/projets/f1/voiture3D_2.png"
+                alt="3D model of the Halo"
+                style="width: 100%; height: auto; display: block"
+              />
             </div>
-            <div class="case-img-placeholder" style="aspect-ratio: 4/3">
-              <p>[AJOUTER MODÈLE 3D — Ère moderne]</p>
+            <div
+              style="
+                border-radius: var(--radius-xl);
+                overflow: hidden;
+                border: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+              "
+            >
+              <img
+                src="../assets/img/projets/f1/voiture3D_3.png"
+                alt="3D model of the new lights system"
+                style="width: 100%; height: auto; display: block"
+              />
             </div>
           </div>
         </div>
       </section>
 
       <!-- 07 - My Contribution -->
-      <section class="case-section">
+      <!-- <section class="case-section">
         <div class="container" style="max-width: 800px">
           <div class="case-section__num reveal">07 — Mes Contributions</div>
           <h2 class="case-section__title reveal">
@@ -648,14 +700,14 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!-- 08 - Final Experience -->
       <section class="case-section" style="background: var(--surface-alt)">
         <div class="container">
           <div class="case-section__num reveal">08 — Résultat Final</div>
           <h2 class="case-section__title reveal">L'expérience en ligne.</h2>
-          <div class="case-img-placeholder reveal" style="aspect-ratio: 16/8">
+          <!-- <div class="case-img-placeholder reveal" style="aspect-ratio: 16/8">
             <p>[AJOUTER CAPTURE PROJET F1 — PLEINE PAGE]</p>
           </div>
           <div class="grid-2 reveal" style="gap: 1.5rem; margin-top: 1.5rem">
@@ -671,7 +723,7 @@
             style="aspect-ratio: 16/5; margin-top: 1.5rem"
           >
             <p>[AJOUTER VIDÉO / GIF DU PROJET F1 — animation scrollytelling]</p>
-          </div>
+          </div> -->
           <div class="reveal" style="text-align: center; margin-top: 3rem">
             <a
               href="https://f1-project.fleak-media.com/"
@@ -748,7 +800,9 @@
         <div class="container" style="max-width: 800px">
           <p class="text-label" style="margin-bottom: 1.5rem">Projet suivant</p>
           <a href="crewup.html" class="next-project reveal">
-            <div>
+            <div class="next-project__bg" style="background-image: url('../assets/img/projets/CrewUp/CrewUp_HeroSection.png');"></div>
+            <div class="next-project__overlay"></div>
+            <div class="next-project__info">
               <div class="next-project__label">Suivant</div>
               <div class="next-project__title">CrewUp</div>
             </div>

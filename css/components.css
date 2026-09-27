@@ -1880,6 +1880,7 @@
 
 /* ─── Next project nav ───────────────────────────────────────── */
 .next-project {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1888,14 +1889,55 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  transition: all var(--duration-base) var(--ease-out);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: none;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.next-project__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center right;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 0.55s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.next-project__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10, 10, 15, 0.95) 0%, rgba(10, 10, 15, 0.85) 45%, rgba(10, 10, 15, 0.35) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .next-project:hover {
-  border-color: var(--accent);
+  border-color: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.next-project:hover .next-project__bg {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.next-project:hover .next-project__overlay {
+  opacity: 1;
+}
+
+.next-project__info,
+.next-project__label,
+.next-project__title,
+.next-project__arrow {
+  position: relative;
+  z-index: 3;
 }
 
 .next-project__label {
@@ -1905,6 +1947,7 @@
   text-transform: uppercase;
   color: var(--text-subtle);
   margin-bottom: var(--space-2);
+  transition: color 0.3s var(--ease-out);
 }
 
 .next-project__title {
@@ -1913,6 +1956,16 @@
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.02em;
+  transition: color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+.next-project:hover .next-project__label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.next-project:hover .next-project__title {
+  color: #ffffff;
+  transform: translateX(6px);
 }
 
 .next-project__arrow {
@@ -1932,5 +1985,5 @@
   background: var(--accent);
   border-color: var(--accent);
   color: #fff;
-  transform: translateX(4px);
+  transform: translateX(4px) scale(1.05);
 }
