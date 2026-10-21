@@ -15,17 +15,8 @@ const CustomCursor = {
   isVisible: false,
 
   init() {
-    // Only on devices with a real pointer
-    if (window.matchMedia('(hover: none)').matches) return;
-
-    this.dot  = document.querySelector('.cursor-dot');
-    this.ring = document.querySelector('.cursor-ring');
-    this.label = this.ring?.querySelector('.cursor-label');
-
-    if (!this.dot || !this.ring) return;
-
-    this.bindEvents();
-    this.startRaf();
+    // Custom cursor disabled — native browser cursor is used
+    return;
   },
 
   bindEvents() {

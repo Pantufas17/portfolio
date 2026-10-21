@@ -200,7 +200,9 @@ function initContactForm() {
     const btn = form.querySelector('button[type="submit"]');
     if (!btn) return;
     const original = btn.textContent;
-    btn.textContent = 'Message sent ✓';
+    const lang = window.I18n?.current || 'en';
+    const sentMsg = lang === 'pt' ? 'Mensagem enviada ✓' : (lang === 'fr' ? 'Message envoyé ✓' : 'Message sent ✓');
+    btn.textContent = sentMsg;
     btn.disabled = true;
     btn.style.background = '#22c55e';
     setTimeout(() => {
