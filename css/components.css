@@ -415,11 +415,306 @@
 
 .project-card__img-wrap {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 10.5;
   position: relative;
   overflow: hidden;
-  background: var(--surface-alt);
+  background: radial-gradient(circle at 50% 40%, #1e222b 0%, #0c0d11 100%);
   border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.4rem 1.25rem 1.1rem;
+  box-sizing: border-box;
+}
+
+/* Individual atmospheric stage glows */
+.project-card__img-wrap--f1 {
+  background: radial-gradient(circle at 50% 35%, #2a1820 0%, #0d090c 100%);
+}
+.project-card__img-wrap--crewup {
+  background: radial-gradient(circle at 50% 35%, #152438 0%, #091018 100%);
+}
+.project-card__img-wrap--hug {
+  background: radial-gradient(circle at 50% 35%, #2e161c 0%, #10080a 100%);
+}
+.project-card__img-wrap--odds {
+  background: radial-gradient(circle at 50% 35%, #182232 0%, #0a0e16 100%);
+}
+.project-card__img-wrap--cdf {
+  background: radial-gradient(circle at 50% 35%, #222224 0%, #0d0d0f 100%);
+}
+.project-card__img-wrap--eb {
+  background: radial-gradient(circle at 50% 35%, #1f2029 0%, #0c0c11 100%);
+}
+.project-card__img-wrap--boxbox {
+  background: radial-gradient(circle at 50% 35%, #2c1618 0%, #0e0809 100%);
+}
+.project-card__img-wrap--sv {
+  background: radial-gradient(circle at 50% 35%, #1e1d24 0%, #0a0a0d 100%);
+}
+.project-card__img-wrap--natura {
+  background: radial-gradient(circle at 50% 35%, #12281e 0%, #07120d 100%);
+}
+.project-card__img-wrap--petcare {
+  background: radial-gradient(circle at 50% 35%, #13272d 0%, #071216 100%);
+}
+
+/* Subtle stage floor glow */
+.project-card__img-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 24px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ============================================================
+   MOCKUP COMPONENTS (MacBook, iPhone, Cinema)
+   ============================================================ */
+
+/* ─── 1. Laptop (MacBook Style) ────────────────────────────── */
+.mockup-laptop {
+  width: 90%;
+  max-width: 390px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.75));
+  z-index: 1;
+}
+
+.project-card:hover .mockup-laptop {
+  transform: translateY(-5px) scale(1.02);
+  filter: drop-shadow(0 22px 38px rgba(0, 0, 0, 0.9));
+}
+
+.mockup-laptop__screen {
+  width: 100%;
+  background: #0f1013;
+  border-radius: 10px 10px 0 0;
+  padding: 7px 7px 0 7px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: none;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.mockup-laptop__camera {
+  position: absolute;
+  top: 2.5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3.5px;
+  height: 3.5px;
+  background: #000;
+  border-radius: 50%;
+  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.4);
+  z-index: 2;
+}
+
+.mockup-laptop__display {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 4px 4px 0 0;
+  background: #000;
+}
+
+.mockup-laptop__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.project-card:hover .mockup-laptop__img {
+  transform: scale(1.04);
+}
+
+.mockup-laptop__display::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(125deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 60%);
+  pointer-events: none;
+}
+
+.mockup-laptop__base {
+  width: calc(100% + 24px);
+  height: 8px;
+  background: linear-gradient(to bottom, #2d2f36 0%, #1c1d22 55%, #101114 100%);
+  border-radius: 0 0 7px 7px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: none;
+  position: relative;
+  margin-top: -1px;
+  box-sizing: border-box;
+}
+
+.mockup-laptop__lip {
+  width: 42px;
+  height: 3px;
+  background: #090a0d;
+  border-radius: 0 0 3px 3px;
+  margin: 0 auto;
+}
+
+/* ─── 2. Phone (iPhone Style) ──────────────────────────────── */
+.mockup-phones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  padding-block: 0.25rem;
+  z-index: 1;
+}
+
+.mockup-phone {
+  width: 110px;
+  height: 180px;
+  background: #111215;
+  border-radius: 24px;
+  border: 2px solid #2e3037;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.8), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+  padding: 3.5px;
+  box-sizing: border-box;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.7));
+}
+
+.project-card:hover .mockup-phone {
+  transform: translateY(-5px) scale(1.03);
+  filter: drop-shadow(0 20px 32px rgba(0, 0, 0, 0.85));
+}
+
+.mockup-phone__notch {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 7px;
+  background: #000;
+  border-radius: 999px;
+  z-index: 3;
+}
+
+.mockup-phone__screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 19px;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+
+.mockup-phone__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.project-card:hover .mockup-phone__img {
+  transform: scale(1.05);
+}
+
+.mockup-phone__screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.mockup-phone__bar {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  z-index: 3;
+}
+
+/* ─── 3. Cinema Display (Film Style) ───────────────────────── */
+.mockup-cinema {
+  width: 90%;
+  max-width: 390px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.75));
+  z-index: 1;
+}
+
+.project-card:hover .mockup-cinema {
+  transform: translateY(-5px) scale(1.02);
+  filter: drop-shadow(0 22px 36px rgba(0, 0, 0, 0.9));
+}
+
+.mockup-cinema__screen {
+  width: 100%;
+  aspect-ratio: 16 / 9.5;
+  background: #0c0d10;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.8);
+}
+
+.mockup-cinema__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.project-card:hover .mockup-cinema__img {
+  transform: scale(1.04);
+}
+
+.mockup-cinema__screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(130deg, rgba(255, 255, 255, 0.1) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.mockup-cinema__badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
 }
 
 .project-card__img {
