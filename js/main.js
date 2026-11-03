@@ -5,39 +5,24 @@
 
 'use strict';
 
-/* ─── Theme ─────────────────────────────────────────────────── */
+/* ─── Theme (Permanent Dark Theme) ───────────────────────────── */
 const ThemeManager = {
   STORAGE_KEY: 'na-theme',
 
   init() {
-    const saved = localStorage.getItem(this.STORAGE_KEY);
-    const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    this.apply(saved || system);
-    this.bindToggle();
+    document.documentElement.setAttribute('data-theme', 'dark');
+    try {
+      localStorage.removeItem(this.STORAGE_KEY);
+    } catch (_) {}
   },
 
-  apply(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem(this.STORAGE_KEY, theme);
-    this.updateIcon(theme);
+  apply() {
+    document.documentElement.setAttribute('data-theme', 'dark');
   },
 
-  toggle() {
-    const current = document.documentElement.getAttribute('data-theme');
-    this.apply(current === 'dark' ? 'light' : 'dark');
-  },
-
-  updateIcon(theme) {
-    const icon = document.querySelector('.theme-toggle-icon');
-    if (!icon) return;
-    icon.textContent = theme === 'dark' ? '☼' : '☾';
-  },
-
-  bindToggle() {
-    document.querySelectorAll('.theme-toggle').forEach(btn => {
-      btn.addEventListener('click', () => this.toggle());
-    });
-  }
+  toggle() {},
+  updateIcon() {},
+  bindToggle() {}
 };
 
 /* ─── Navbar ─────────────────────────────────────────────────── */

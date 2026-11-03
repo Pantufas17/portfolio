@@ -1,0 +1,10 @@
+{
+  "name": "portfolio-nuno",
+  "version": "1.0.0",
+  "description": "Portfolio de Nuno Amaro",
+  "scripts": {
+    "dev": "npx serve -l 3000 .",
+    "start": "npx serve -l 3000 ."
+  }
+}
+

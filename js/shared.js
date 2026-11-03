@@ -29,7 +29,6 @@ function nav(activePage) {
       <a href="${DEPTH}contact.html"       class="navbar__link${activePage==='contact'?' active':''}">Contact</a>
     </nav>
     <div class="navbar__actions">
-      <button class="theme-toggle" aria-label="Toggle dark/light mode"><span class="theme-toggle-icon">☾</span></button>
       <a href="${DEPTH}contact.html" class="navbar__cta">Let's talk ↗</a>
       <button class="menu-toggle" aria-label="Toggle mobile menu"><span></span><span></span><span></span></button>
     </div>
