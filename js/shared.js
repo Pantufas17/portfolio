@@ -29,7 +29,7 @@ function nav(activePage) {
       <a href="${DEPTH}contact.html"       class="navbar__link${activePage==='contact'?' active':''}">Contact</a>
     </nav>
     <div class="navbar__actions">
-      <a href="${DEPTH}contact.html" class="navbar__cta">Let's talk ↗</a>
+      <a href="${DEPTH}contact.html" class="navbar__cta">Let's talk →</a>
       <button class="menu-toggle" aria-label="Toggle mobile menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -71,8 +71,8 @@ function footer() {
         <div class="footer__nav-group">
           <div class="footer__nav-label">Social</div>
           <ul class="footer__nav-links" role="list">
-            <li><a href="https://linkedin.com/in/nunoamaro" class="footer__nav-link" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-            <li><a href="https://github.com/nunoamaro"      class="footer__nav-link" target="_blank" rel="noopener">GitHub ↗</a></li>
+            <li><a href="https://linkedin.com/in/nunoamaro" class="footer__nav-link" target="_blank" rel="noopener">LinkedIn →</a></li>
+            <li><a href="https://github.com/nunoamaro"      class="footer__nav-link" target="_blank" rel="noopener">GitHub →</a></li>
             <li><a href="mailto:[ADD EMAIL]"                class="footer__nav-link">[ADD EMAIL]</a></li>
           </ul>
         </div>

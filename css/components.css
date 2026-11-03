@@ -355,10 +355,7 @@
 }
 
 .section-header__meta {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  margin-bottom: var(--space-4);
+  display: none;
 }
 
 .section-header__number {
@@ -378,11 +375,7 @@
 }
 
 .section-header__label {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-subtle);
+  display: none;
 }
 
 .section-header__title {
@@ -717,6 +710,88 @@
   text-transform: uppercase;
 }
 
+.case-study-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(320px, 42vw, 620px);
+  margin-block: 2rem;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(255, 255, 255, 0.08), transparent 70%),
+    var(--surface);
+}
+
+.case-study-visual--laptop .mockup-laptop,
+.case-study-visual--cinema .mockup-cinema {
+  width: min(100%, 980px);
+  max-width: none;
+}
+
+.case-study-visual--laptop .mockup-laptop__screen {
+  padding: clamp(7px, 1.2vw, 14px) clamp(7px, 1.2vw, 14px) 0;
+  border-radius: 18px 18px 0 0;
+}
+
+.case-study-visual--laptop .mockup-laptop__camera {
+  top: 5px;
+  width: 5px;
+  height: 5px;
+}
+
+.case-study-visual--laptop .mockup-laptop__base {
+  height: clamp(8px, 1vw, 14px);
+}
+
+.case-study-visual--laptop .mockup-laptop__lip {
+  width: 60px;
+  height: 4px;
+}
+
+.case-study-visual--phone {
+  min-height: clamp(420px, 48vw, 640px);
+}
+
+.case-study-visual--phone .mockup-phone {
+  width: clamp(200px, 30vw, 280px);
+  height: auto;
+  aspect-ratio: 9 / 16;
+  border-radius: clamp(32px, 4vw, 44px);
+  padding: 7px;
+}
+
+.case-study-visual--phone .mockup-phone__screen {
+  border-radius: clamp(26px, 3.5vw, 37px);
+}
+
+.case-study-visual--phone .mockup-phone__notch {
+  top: 12px;
+  width: 62px;
+  height: 14px;
+}
+
+.case-study-visual--phone .mockup-phone__bar {
+  bottom: 12px;
+  width: 64px;
+  height: 4px;
+}
+
+.case-study-visual--phone .mockup-phone__img--contain {
+  object-fit: contain;
+  background: #d2e8de;
+}
+
+.case-study-visual--cinema {
+  min-height: clamp(320px, 40vw, 580px);
+}
+
+.case-study-visual--cinema .mockup-cinema__screen {
+  border-radius: 14px;
+}
+
 .project-card__img {
   width: 100%;
   height: 100%;
@@ -837,7 +912,7 @@
 }
 
 .project-card:hover .project-card__link svg {
-  transform: translate(3px, -3px);
+  transform: translateX(3px);
 }
 
 /* Featured large card */
@@ -1029,15 +1104,6 @@
   font-size: 1.25rem;
 }
 
-.skill-category__number {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: var(--space-3);
-}
-
 .skill-category__title {
   font-family: var(--font-display);
   font-size: 1.25rem;
@@ -1086,7 +1152,7 @@
 
 .skill-badge:hover .skill-badge__arrow {
   opacity: 1;
-  transform: translate(1px, -1px);
+  transform: translateX(1px);
 }
 
 /* ─── Process Steps ─────────────────────────────────────────── */
@@ -1450,12 +1516,7 @@
 }
 
 .case-section__num {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: var(--space-3);
+  display: none;
 }
 
 .case-section__title {
@@ -1623,7 +1684,7 @@
 }
 
 .contact-link:hover .contact-link__arrow {
-  transform: translate(3px, -3px);
+  transform: translateX(3px);
   color: var(--accent);
 }
 
@@ -1786,7 +1847,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #8bb4ff;
-  display: inline-block;
+  display: none;
   margin-bottom: 0.2rem;
 }
 
@@ -1840,10 +1901,7 @@
 }
 
 .interest-preview__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.5rem;
+  display: none;
 }
 
 .interest-preview__tag {
@@ -1919,7 +1977,7 @@
 }
 
 .interest-card:hover .interest-preview__arrow-btn {
-  transform: translate(2px, -2px) scale(1.08);
+  transform: translateX(2px) scale(1.08);
   box-shadow: 0 6px 20px rgba(15, 82, 186, 0.7);
 }
 

@@ -14,7 +14,7 @@ const TRANSLATIONS = {
     'nav.about':    'About',
     'nav.skills':   'Skills',
     'nav.contact':  'Contact',
-    'nav.cta':      "Let's talk ↗",
+    'nav.cta':      "Let's talk →",
 
     /* Hero */
     'hero.badge':        'Available for opportunities',
@@ -35,18 +35,14 @@ const TRANSLATIONS = {
     'about.p1':      "I'm a 3rd-year Media Engineering student at HEIG-VD in Switzerland, with a strong interest in building digital experiences that sit at the intersection of design, technology, and user experience.",
     'about.p2':      "My training gives me a global view of projects — from understanding a user's need and thinking through the experience, to crafting the interface and contributing to its development.",
     'about.more':    'More about me',
-    'about.what':    'What I do',
-    'about.p1-num':  '01 — Design',
     'about.p1-title':'UX / UI',
     'about.p1-i1':   'Wireframes &amp; prototypes',
     'about.p1-i2':   'User experience design',
     'about.p1-i3':   'Visual design &amp; design systems',
-    'about.p2-num':  '02 — Development',
     'about.p2-title':'Front-end &amp; Web',
     'about.p2-i1':   'HTML, CSS, JavaScript',
     'about.p2-i2':   'Vue.js, PHP, Laravel',
     'about.p2-i3':   'Responsive &amp; accessible code',
-    'about.p3-num':  '03 — Digital',
     'about.p3-title':'Media &amp; Communication',
     'about.p3-i1':   'Project management',
     'about.p3-i2':   'Digital communication &amp; strategy',
@@ -132,14 +128,14 @@ const TRANSLATIONS = {
 
     /* BoxBoxF1 Case Study */
     'boxboxf1.lead':     'Full Swiss e-commerce ecosystem built on WordPress & WooCommerce for Formula 1 fans: hybrid business model (direct stock, Print-on-Demand, affiliate), editorial SEO blog, marketing automation, and green IT practices.',
-    'boxboxf1.live-btn': 'Visit boxboxf1.ch ↗',
+    'boxboxf1.live-btn': 'Visit boxboxf1.ch →',
     'boxboxf1.s1-title': 'Bridging the F1 e-commerce gap in Switzerland.',
     'boxboxf1.s1-p1':    'With the rising global popularity of Formula 1 and Netflix’s Drive to Survive, Swiss fans faced a key friction: ordering from abroad meant unexpected customs duties, long delivery delays, and high shipping costs. BoxBoxF1 fills this void with a 100% Swiss-focused value proposition (net CHF prices, fast Swiss Post delivery, French customer support).',
     'boxboxf1.s1-p2':    'The goal was to design an end-to-end e-commerce brand combining a hybrid 3-pillar product catalog with an active editorial blog (Pit Lane) to build organic traffic and foster a passionate local community.',
     'boxboxf1.s2-title': 'A 3-pillar hybrid business model.',
     'boxboxf1.s3-title': 'Learnings & Impact.',
     'boxboxf1.s3-p1':    'Deploying BoxBoxF1 provided a 360° mastery of modern e-commerce: legal compliance (nLPD, Swiss GTC), unit economics, multi-channel logistics, mobile UX optimization, and marketing automation.',
-    'boxboxf1.cta-link': 'Explore the live shop ↗',
+    'boxboxf1.cta-link': 'Explore the live shop →',
 
     /* Savoir-Vivre Case Study */
     'sv.lead':     'A dark comedy produced during an intensive 2-week video workshop, exploring with irony the real cost of courtesy and kindness in modern society.',
@@ -150,10 +146,10 @@ const TRANSLATIONS = {
     'sv.s2-p1':    'As cinematographer and director, my role involved shot-by-shot storyboarding, lighting, directing actors on set, and coordinating with the sound engineer under a strict 2-week deadline.',
     'sv.s3-title': 'Production & Deliverables.',
     'sv.s3-p1':    'The project resulted in a full production package complying with industry standards: 2-minute Full HD short film with live sound, 30s web teaser, 10s social teaser, A4 300dpi poster, and a 9-page production dossier.',
-    'sv.video-btn':   'Watch Short Film ↗',
-    'sv.teaser30-btn':'Watch 30s Teaser ↗',
-    'sv.teaser10-btn':'Watch 10s Teaser ↗',
-    'sv.pdf-btn':     'View Production Dossier (PDF) ↗',
+    'sv.video-btn':   'Watch Short Film →',
+    'sv.teaser30-btn':'Watch 30s Teaser →',
+    'sv.teaser10-btn':'Watch 10s Teaser →',
+    'sv.pdf-btn':     'View Production Dossier (PDF) →',
 
     /* NaturaQuest Case Study */
     'nq.lead':     'UX/UI design of an educational mobile game encouraging exploration of local biodiversity through geolocation quests, AI species recognition, and collectible cards.',
@@ -162,7 +158,7 @@ const TRANSLATIONS = {
     'nq.s1-p2':    'Together with Gabriel Cappai, we created NaturaQuest: a hybrid between an exploration game, naturalist Pokédex, and field science notebook.',
     'nq.s2-title': 'Engaging exploration mechanics.',
     'nq.s3-title': 'Standard quest workflow.',
-    'nq.pdf-btn':  'View Presentation Dossier (PDF) ↗',
+    'nq.pdf-btn':  'View Presentation Dossier (PDF) →',
 
     /* PetCare Case Study */
     'petcare.lead':     'Preventive animal health mobile app centralising IoT tracker data, weather, and medical history with instant QR code sharing for veterinarians.',
@@ -172,15 +168,15 @@ const TRANSLATIONS = {
     'petcare.s2-title': 'Aggregating 4 data sources.',
     'petcare.s3-title': 'From owner to veterinarian in one scan.',
     'petcare.s3-p1':    'Veterinarians scan the app\'s QR code to immediately view an interactive web dashboard with 7-day trends, anomalies, and vital alerts.',
-    'petcare.btn-synth':'Synthesis Document (PDF) ↗',
-    'petcare.btn-pitch':'Pitch Presentation (PDF) ↗',
-    'petcare.btn-figma':'Complete Mockups (PDF) ↗',
+    'petcare.btn-synth':'Synthesis Document (PDF) →',
+    'petcare.btn-pitch':'Pitch Presentation (PDF) →',
+    'petcare.btn-figma':'Complete Mockups (PDF) →',
 
     /* Footer */
     'footer.brand':     'Designing and building digital experiences with curiosity.',
     'footer.nav-label': 'Navigation',
     'footer.soc-label': 'Social',
-    'footer.cv':        'Resume (PDF) ↗',
+    'footer.cv':        'Resume (PDF) →',
     'footer.tagline':   'Designed &amp; built with curiosity.',
     'footer.copy':      '© 2026 Nuno Amaro. All rights reserved.',
 
@@ -205,7 +201,7 @@ const TRANSLATIONS = {
     'ap.edu-label':  'Education',
     'ap.edu-sub':    'Journey so far',
     'ap.edu-title':  'My journey.',
-    'ap.cv-btn':     'Download CV (PDF) ↗',
+    'ap.cv-btn':     'Download CV (PDF) →',
     'ap.edu-heig-period': '2023 — Present',
     'ap.edu-heig-title':  'Media Engineering — HEIG-VD',
     'ap.edu-heig-sub':    "Bachelor's degree · Yverdon-les-Bains, Switzerland",
@@ -314,7 +310,7 @@ const TRANSLATIONS = {
     'nav.about':    'À propos',
     'nav.skills':   'Compétences',
     'nav.contact':  'Contact',
-    'nav.cta':      'Parlons-en ↗',
+    'nav.cta':      'Parlons-en →',
 
     /* Hero */
     'hero.badge':        'Disponible pour des opportunités',
@@ -335,18 +331,14 @@ const TRANSLATIONS = {
     'about.p1':      "Je suis étudiant en 3e année d'Ingénierie des Médias à la HEIG-VD en Suisse, avec un fort intérêt pour la création d'expériences digitales à la croisée du design, de la technologie et de l'expérience utilisateur.",
     'about.p2':      "Ma formation me donne une vision globale des projets — de la compréhension du besoin utilisateur à la réflexion sur l'expérience, en passant par la conception de l'interface et la participation au développement.",
     'about.more':    'En savoir plus',
-    'about.what':    'Ce que je fais',
-    'about.p1-num':  '01 — Design',
     'about.p1-title':'UX / UI',
     'about.p1-i1':   'Wireframes &amp; prototypes',
     'about.p1-i2':   "Design de l'expérience utilisateur",
     'about.p1-i3':   'Design visuel &amp; systèmes de design',
-    'about.p2-num':  '02 — Développement',
     'about.p2-title':'Front-end &amp; Web',
     'about.p2-i1':   'HTML, CSS, JavaScript',
     'about.p2-i2':   'Vue.js, PHP, Laravel',
     'about.p2-i3':   'Code responsive &amp; accessible',
-    'about.p3-num':  '03 — Digital',
     'about.p3-title':'Médias &amp; Communication',
     'about.p3-i1':   'Gestion de projet',
     'about.p3-i2':   'Communication digitale &amp; stratégie',
@@ -432,14 +424,14 @@ const TRANSLATIONS = {
 
     /* BoxBoxF1 Case Study */
     'boxboxf1.lead':     "Plateforme e-commerce conçue sous WordPress & WooCommerce pour les passionnés suisses de Formule 1, combinant boutique spécialisée et espace blog d'actualités.",
-    'boxboxf1.live-btn': 'Visiter boxboxf1.ch ↗',
+    'boxboxf1.live-btn': 'Visiter boxboxf1.ch →',
     'boxboxf1.s1-title': 'Un shop F1 dédié au public suisse.',
     'boxboxf1.s1-p1':    "Dans le cadre du cours d'E-Commerce à la HEIG-VD, le projet consistait à créer de bout en bout une boutique en ligne fonctionnelle et optimisée. Passionné de sport automobile, j'ai identifié une opportunité claire : le manque d'offre e-commerce F1 dédiée au marché suisse, où les fans se heurtent souvent à des frais de douane imprévus et des délais de livraison longs depuis l'étranger.",
     'boxboxf1.s1-p2':    "Le défi était double : proposer une expérience d'achat fluide (catalogue clair, tunnel de commande optimisé, modes de paiement adaptés) tout en intégrant un volet éditorial (blog d'actualités F1) pour générer du trafic organique et fédérer une communauté locale.",
     'boxboxf1.s2-title': 'Une solution complète sous WordPress & WooCommerce.',
     'boxboxf1.s3-title': 'Apprentissages & Impact.',
     'boxboxf1.s3-p1':    "Le déploiement de BoxBoxF1 a permis de maîtriser l'ensemble du cycle de vie d'un projet e-commerce : du choix des plugins à la configuration des taxes, en passant par la personnalisation CSS poussée de thèmes WordPress et l'élaboration d'une stratégie de contenu ciblée.",
-    'boxboxf1.cta-link': 'Explorer la boutique en ligne ↗',
+    'boxboxf1.cta-link': 'Explorer la boutique en ligne →',
 
     /* Savoir-Vivre Case Study */
     'sv.lead':     "Comédie noire réalisée en atelier intensif de 2 semaines, explorant avec ironie le véritable coût de la courtoisie et de la gentillesse dans notre société moderne.",
@@ -450,10 +442,10 @@ const TRANSLATIONS = {
     'sv.s2-p1':    "En tant que cadreur et réalisateur, ma mission comprenait la scénarisation visuelle (découpage technique, choix des focales, gestion de la lumière), la direction des acteurs sur le plateau et la coordination avec le preneur de son live sous un délai strict de 2 semaines.",
     'sv.s3-title': 'Production & Livrables.',
     'sv.s3-p1':    "Le projet s'est conclu par la livraison d'un écosystème de diffusion complet respectant les normes professionnelles : film principal de 2 minutes Full HD avec son live, teaser web (30s), teaser réseaux sociaux (10s), affiche A4 300 dpi et dossier technique complet de 9 pages.",
-    'sv.video-btn':   'Consulter la vidéo de court-métrage ↗',
-    'sv.teaser30-btn':'Consulter le teaser de 30 secondes ↗',
-    'sv.teaser10-btn':'Consulter le teaser de 10 secondes ↗',
-    'sv.pdf-btn':     'Consulter le dossier de production (PDF) ↗',
+    'sv.video-btn':   'Consulter la vidéo de court-métrage →',
+    'sv.teaser30-btn':'Consulter le teaser de 30 secondes →',
+    'sv.teaser10-btn':'Consulter le teaser de 10 secondes →',
+    'sv.pdf-btn':     'Consulter le dossier de production (PDF) →',
 
     /* NaturaQuest Case Study */
     'nq.lead':     "Conception d'une application mobile ludo-éducative encourageant l'exploration de la biodiversité locale grâce à des quêtes géolocalisées, la reconnaissance d'espèces par IA et une collection de cartes.",
@@ -462,7 +454,7 @@ const TRANSLATIONS = {
     'nq.s1-p2':    "Avec mon binôme Gabriel Cappai, nous avons conçu NaturaQuest : une expérience hybride entre le jeu d'exploration, le Pokédex naturaliste et le carnet de terrain scientifique.",
     'nq.s2-title': "Une mécanique d'exploration engageante.",
     'nq.s3-title': "Déroulement type d'une mission.",
-    'nq.pdf-btn':  'Consulter le dossier de présentation complet (PDF) ↗',
+    'nq.pdf-btn':  'Consulter le dossier de présentation complet (PDF) →',
 
     /* PetCare Case Study */
     'petcare.lead':     "Application mobile de santé préventive pour animaux de compagnie, centralisant données IoT, météo et profil médical avec transmission instantanée au vétérinaire par QR code.",
@@ -472,15 +464,15 @@ const TRANSLATIONS = {
     'petcare.s2-title': 'Agrégation et croisement de 4 sources de données.',
     'petcare.s3-title': 'Du propriétaire au vétérinaire en un scan.',
     'petcare.s3-p1':    "Le vétérinaire scanne le QR code généré par l'application pour afficher instantanément un tableau de bord web synthétique résumant les tendances des 7 derniers jours et les alertes prioritaires.",
-    'petcare.btn-synth':'Document de Synthèse (PDF) ↗',
-    'petcare.btn-pitch':'Support de Présentation (PDF) ↗',
-    'petcare.btn-figma':'Maquettes Complètes (PDF) ↗',
+    'petcare.btn-synth':'Document de Synthèse (PDF) →',
+    'petcare.btn-pitch':'Support de Présentation (PDF) →',
+    'petcare.btn-figma':'Maquettes Complètes (PDF) →',
 
     /* Footer */
     'footer.brand':     "Conception et développement d'expériences digitales avec curiosité.",
     'footer.nav-label': 'Navigation',
     'footer.soc-label': 'Réseaux',
-    'footer.cv':        'CV (PDF) ↗',
+    'footer.cv':        'CV (PDF) →',
     'footer.tagline':   'Conçu &amp; développé avec curiosité.',
     'footer.copy':      '© 2026 Nuno Amaro. Tous droits réservés.',
 
@@ -505,7 +497,7 @@ const TRANSLATIONS = {
     'ap.edu-label':  'Formation',
     'ap.edu-sub':    'Mon parcours',
     'ap.edu-title':  'Mon parcours.',
-    'ap.cv-btn':     'Télécharger mon CV (PDF) ↗',
+    'ap.cv-btn':     'Télécharger mon CV (PDF) →',
     'ap.edu-heig-period': '2023 — Présent',
     'ap.edu-heig-title':  'Ingénierie des Médias — HEIG-VD',
     'ap.edu-heig-sub':    'Bachelor of Science · Yverdon-les-Bains, Suisse',
@@ -615,7 +607,7 @@ const TRANSLATIONS = {
     'nav.about':    'Sobre',
     'nav.skills':   'Competências',
     'nav.contact':  'Contacto',
-    'nav.cta':      'Vamos conversar ↗',
+    'nav.cta':      'Vamos conversar →',
 
     /* Hero */
     'hero.badge':        'Disponível para oportunidades',
@@ -636,18 +628,14 @@ const TRANSLATIONS = {
     'about.p1':      'Sou estudante do 3º ano de Engenharia dos Media na HEIG-VD na Suíça, com um forte interesse na criação de experiências digitais no cruzamento do design, da tecnologia e da experiência do utilizador.',
     'about.p2':      'A minha formação proporciona-me uma visão global dos projetos — desde a compreensão das necessidades do utilizador e conceção da experiência, até à criação da interface e à participação no desenvolvimento.',
     'about.more':    'Saber mais',
-    'about.what':    'O que faço',
-    'about.p1-num':  '01 — Design',
     'about.p1-title':'UX / UI',
     'about.p1-i1':   'Wireframes &amp; protótipos',
     'about.p1-i2':   'Design de experiência do utilizador',
     'about.p1-i3':   'Design visual &amp; design systems',
-    'about.p2-num':  '02 — Desenvolvimento',
     'about.p2-title':'Front-end &amp; Web',
     'about.p2-i1':   'HTML, CSS, JavaScript',
     'about.p2-i2':   'Vue.js, PHP, Laravel',
     'about.p2-i3':   'Código responsivo &amp; acessível',
-    'about.p3-num':  '03 — Digital',
     'about.p3-title':'Media &amp; Comunicação',
     'about.p3-i1':   'Gestão de projetos',
     'about.p3-i2':   'Comunicação digital &amp; estratégia',
@@ -733,14 +721,14 @@ const TRANSLATIONS = {
 
     /* BoxBoxF1 Case Study */
     'boxboxf1.lead':     'Ecossistema completo de e-commerce suíço construído em WordPress & WooCommerce para fãs de Fórmula 1: modelo de negócio híbrido (stock direto, Print-on-Demand, afiliados), blog editorial focado em SEO, automação de marketing e práticas de TI verde.',
-    'boxboxf1.live-btn': 'Visitar boxboxf1.ch ↗',
+    'boxboxf1.live-btn': 'Visitar boxboxf1.ch →',
     'boxboxf1.s1-title': 'Preencher a lacuna do e-commerce de F1 na Suíça.',
     'boxboxf1.s1-p1':    'Com a crescente popularidade global da Fórmula 1 e da série Drive to Survive da Netflix, os fãs suíços enfrentavam um obstáculo recorrente: encomendar do estrangeiro implicava custos aduaneiros imprevistos, longos prazos de entrega e portes elevados. O BoxBoxF1 responde a esta lacuna com uma proposta de valor 100% focada na Suíça (preços líquidos em CHF, envio rápido pelos CTT Suíços e apoio ao cliente em francês).',
     'boxboxf1.s1-p2':    'O objetivo foi conceber uma marca de e-commerce completa, combinando um catálogo de produtos híbrido assente em 3 pilares com um blog editorial ativo (Pit Lane) para gerar tráfego orgânico e criar uma comunidade local apaixonada.',
     'boxboxf1.s2-title': 'Um modelo de negócio híbrido em 3 pilares.',
     'boxboxf1.s3-title': 'Aprendizagens & Impacto.',
     'boxboxf1.s3-p1':    'A implementação do BoxBoxF1 permitiu dominar todo o ciclo de vida de um projeto de e-commerce: conformidade legal (nLPD, termos e condições suíços), economia unitária, logística multicanal, otimização de UX mobile e automação de marketing.',
-    'boxboxf1.cta-link': 'Explorar a loja online ↗',
+    'boxboxf1.cta-link': 'Explorar a loja online →',
 
     /* Savoir-Vivre Case Study */
     'sv.lead':     'Uma comédia negra realizada durante um workshop intensivo de vídeo de 2 semanas, explorando com ironia o verdadeiro custo da cortesia e da gentileza na sociedade moderna.',
@@ -751,10 +739,10 @@ const TRANSLATIONS = {
     'sv.s2-p1':    'Como diretor de fotografia e realizador, o meu papel incluiu a decupagem técnica, iluminação, direção de atores em estúdio e coordenação com o operador de som direto sob um prazo rigoroso de 2 semanas.',
     'sv.s3-title': 'Produção & Entregáveis.',
     'sv.s3-p1':    'O projeto resultou num pacote de produção completo de acordo com os padrões da indústria: curta-metragem de 2 minutos Full HD com som direto, teaser para web de 30s, teaser para redes sociais de 10s, cartaz A4 300dpi e dossier de produção de 9 páginas.',
-    'sv.video-btn':   'Ver Curta-Metragem ↗',
-    'sv.teaser30-btn':'Ver Teaser 30s ↗',
-    'sv.teaser10-btn':'Ver Teaser 10s ↗',
-    'sv.pdf-btn':     'Ver Dossier de Produção (PDF) ↗',
+    'sv.video-btn':   'Ver Curta-Metragem →',
+    'sv.teaser30-btn':'Ver Teaser 30s →',
+    'sv.teaser10-btn':'Ver Teaser 10s →',
+    'sv.pdf-btn':     'Ver Dossier de Produção (PDF) →',
 
     /* NaturaQuest Case Study */
     'nq.lead':     'Conceção UX/UI de um jogo mobile educativo que incentiva a exploração da biodiversidade local através de missões de geolocalização, reconhecimento de espécies por IA e cartas colecionáveis.',
@@ -763,7 +751,7 @@ const TRANSLATIONS = {
     'nq.s1-p2':    'Juntamente com o Gabriel Cappai, criámos o NaturaQuest: um híbrido entre jogo de exploração, Pokédex naturalista e diário científico de campo.',
     'nq.s2-title': 'Mecânicas de exploração envolventes.',
     'nq.s3-title': 'Fluxo padrão de uma missão.',
-    'nq.pdf-btn':  'Ver Dossier de Apresentação (PDF) ↗',
+    'nq.pdf-btn':  'Ver Dossier de Apresentação (PDF) →',
 
     /* PetCare Case Study */
     'petcare.lead':     'Aplicação móvel de saúde animal preventiva que centraliza dados de localizadores IoT, meteorologia e histórico médico com partilha instantânea por código QR para veterinários.',
@@ -773,15 +761,15 @@ const TRANSLATIONS = {
     'petcare.s2-title': 'Agregação de 4 fontes de dados.',
     'petcare.s3-title': 'Do tutor ao veterinário num só scan.',
     'petcare.s3-p1':    'O veterinário lê o código QR gerado pela app para aceder de imediato a um dashboard web interativo com as tendências dos últimos 7 dias, anomalias e alertas vitais.',
-    'petcare.btn-synth':'Documento de Síntese (PDF) ↗',
-    'petcare.btn-pitch':'Apresentação Pitch (PDF) ↗',
-    'petcare.btn-figma':'Maquetes Completas (PDF) ↗',
+    'petcare.btn-synth':'Documento de Síntese (PDF) →',
+    'petcare.btn-pitch':'Apresentação Pitch (PDF) →',
+    'petcare.btn-figma':'Maquetes Completas (PDF) →',
 
     /* Footer */
     'footer.brand':     'A conceber e a construir experiências digitais com curiosidade.',
     'footer.nav-label': 'Navegação',
     'footer.soc-label': 'Redes',
-    'footer.cv':        'Currículo (PDF) ↗',
+    'footer.cv':        'Currículo (PDF) →',
     'footer.tagline':   'Concebido &amp; desenvolvido com curiosidade.',
     'footer.copy':      '© 2026 Nuno Amaro. Todos os direitos reservados.',
 
@@ -806,7 +794,7 @@ const TRANSLATIONS = {
     'ap.edu-label':  'Formação',
     'ap.edu-sub':    'O meu percurso',
     'ap.edu-title':  'O meu percurso.',
-    'ap.cv-btn':     'Descarregar CV (PDF) ↗',
+    'ap.cv-btn':     'Descarregar CV (PDF) →',
     'ap.edu-heig-period': '2023 — Presente',
     'ap.edu-heig-title':  'Engenharia dos Media — HEIG-VD',
     'ap.edu-heig-sub':    'Licenciatura (BSc) · Yverdon-les-Bains, Suíça',

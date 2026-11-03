@@ -85,15 +85,6 @@
       .passion-img-wrap:hover img {
         transform: scale(1.05);
       }
-      .passion-tag {
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--accent);
-        margin-bottom: 0.5rem;
-        display: inline-block;
-      }
       .passion-title {
         font-family: var(--font-display);
         font-size: clamp(2rem, 3.5vw, 2.75rem);
@@ -219,7 +210,6 @@
         <div class="container">
           <div class="passion-grid">
             <div>
-              <span class="passion-tag">Passion 01</span>
               <h2 class="passion-title" data-i18n="pass.sport-title">Sport &amp; Discipline Athlétique</h2>
               <p class="passion-desc" data-i18n="pass.sport-desc">
                 Le sport est bien plus qu'un passe-temps : c'est un pilier fondamental de mon équilibre. Que ce soit sur le terrain de football, en suivant les grandes compétitions ou lors d'entraînements physiques réguliers, l'effort aiguise ma concentration et renforce ma rigueur.
@@ -254,7 +244,6 @@
               <img src="assets/img/cars.jpg" alt="Automotive passion photo" loading="lazy" />
             </div>
             <div>
-              <span class="passion-tag">Passion 02</span>
               <h2 class="passion-title" data-i18n="pass.cars-title">Design Automobile &amp; Motorsport</h2>
               <p class="passion-desc" data-i18n="pass.cars-desc">
                 De l'aérodynamisme à la précision mécanique en passant par la passion de la Formule 1, l'automobile représente pour moi la symbiose parfaite entre design industriel de pointe, innovation technologique et émotion pure.
@@ -283,7 +272,6 @@
         <div class="container">
           <div class="passion-grid">
             <div>
-              <span class="passion-tag">Passion 03</span>
               <h2 class="passion-title" data-i18n="pass.photo-title">Storytelling Visuel, Photo &amp; Vidéo</h2>
               <p class="passion-desc" data-i18n="pass.photo-desc">
                 La photographie et la vidéo entraînent mon œil à observer la lumière, le cadrage et l'émotion brute. Cette sensibilité visuelle nourrit directement mon travail de designer UI/UX pour créer des interfaces harmonieuses avec du rythme et du contraste.
@@ -318,7 +306,6 @@
               <img src="assets/img/animals.jpg" alt="Animals and nature" loading="lazy" style="object-position: center top;" />
             </div>
             <div>
-              <span class="passion-tag">Passion 04</span>
               <h2 class="passion-title" data-i18n="pass.animals-title">Animaux &amp; Reconnexion à la Nature</h2>
               <p class="passion-desc" data-i18n="pass.animals-desc">
                 Les animaux apportent une loyauté et une énergie positive incomparables. Passer du temps avec eux et être au grand air est ma manière préférée de m'éloigner des écrans, de décompresser et de garder les pieds sur terre.
@@ -347,7 +334,6 @@
         <div class="container">
           <div class="passion-grid">
             <div>
-              <span class="passion-tag">Passion 05</span>
               <h2 class="passion-title" data-i18n="pass.gaming-title">Jeux Vidéo, Univers Immersifs &amp; UI Interactive</h2>
               <p class="passion-desc" data-i18n="pass.gaming-desc">
                 Le jeu vidéo est une incroyable référence en matière d'expérience utilisateur. Des interfaces diégétiques intégrées au gameplay jusqu'aux retours haptiques et à la narration interactive, il démontre comment la technologie peut susciter des émotions fortes.
@@ -382,7 +368,6 @@
               <img src="assets/img/friends.jpg" alt="Friends hanging out" loading="lazy" />
             </div>
             <div>
-              <span class="passion-tag">Passion 06</span>
               <h2 class="passion-title" data-i18n="pass.friends-title">Amis, Moments Partagés &amp; Énergie</h2>
               <p class="passion-desc" data-i18n="pass.friends-desc">
                 Au final, ce sont les liens humains qui donnent du sens à tout le reste. Brainstormer des projets ambitieux, partager des rires autour d'une table ou partir à l'aventure entre amis proches me procure une énergie et une motivation constantes.
@@ -424,28 +409,98 @@
     </main>
 
     <!-- ─── Footer ────────────────────────────────────────────────── -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <div class="container">
-        <div class="footer__inner">
-          <div class="footer__left">
-            <a href="index.html" class="navbar__logo">
-              <div class="logo-mark">NA</div>
-              <span class="logo-text">Nuno Amaro</span>
-            </a>
-            <p class="footer__tagline" data-i18n="footer.tagline">
-              Front-End Developer &amp; UX/UI Designer based in Switzerland.
+        <div class="footer__top">
+          <div class="footer__brand">
+            <div class="logo-mark" aria-hidden="true">NA</div>
+            <p style="margin-top: 1rem" data-i18n="footer.brand">
+              Designing and building digital experiences with curiosity.
             </p>
           </div>
-          <div class="footer__right">
-            <nav class="footer__links">
-              <a href="index.html#work" class="footer__link" data-i18n="nav.work">Work</a>
-              <a href="about.html" class="footer__link" data-i18n="nav.about">About</a>
-              <a href="contact.html" class="footer__link" data-i18n="nav.contact">Contact</a>
-            </nav>
-            <div class="footer__copy">
-              © <span id="year">2026</span> Nuno Amaro. <span data-i18n="footer.rights">All rights reserved.</span>
+
+          <div class="footer__nav">
+            <div class="footer__nav-group">
+              <div class="footer__nav-label" data-i18n="footer.nav-label">
+                Navigation
+              </div>
+              <ul class="footer__nav-links" role="list">
+                <li><a href="index.html" class="footer__nav-link">Home</a></li>
+                <li>
+                  <a
+                    href="index.html#work"
+                    class="footer__nav-link"
+                    data-i18n="nav.work"
+                    >Work</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="about.html"
+                    class="footer__nav-link"
+                    data-i18n="nav.about"
+                    >About</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="contact.html"
+                    class="footer__nav-link"
+                    data-i18n="nav.contact"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="footer__nav-group">
+              <div class="footer__nav-label" data-i18n="footer.soc-label">
+                Social
+              </div>
+              <ul class="footer__nav-links" role="list">
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/amaro-nuno/"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener"
+                    >LinkedIn</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/Pantufas17"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="assets/pdf/CV_NunoAmaro.pdf"
+                    class="footer__nav-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-i18n="footer.cv"
+                    >CV (PDF)</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="mailto:nunoamarofaria@hotmail.com"
+                    class="footer__nav-link"
+                    >Email</a
+                  >
+                </li>
+              </ul>
             </div>
           </div>
+        </div>
+
+        <div class="footer__bottom">
+          <span class="footer__copyright" data-i18n="footer.copy"
+            >© 2026 Nuno Amaro. All rights reserved.</span
+          >
         </div>
       </div>
     </footer>
