@@ -511,10 +511,10 @@ button {
   z-index: 3;
   inset: 0;
   background: var(--hero-subject-overlay-color);
-  -webkit-mask: url('/assets/img/sillouetteMoi.png') center / 100% 100% no-repeat;
-  mask: url('/assets/img/sillouetteMoi.png') center / 100% 100% no-repeat;
-  -webkit-mask-image: url('/assets/img/sillouetteMoi.png'), linear-gradient(to bottom, #000 var(--hero-subject-fade-start), transparent 100%);
-  mask-image: url('/assets/img/sillouetteMoi.png'), linear-gradient(to bottom, #000 var(--hero-subject-fade-start), transparent 100%);
+  -webkit-mask: url('/assets/img/sillouetteMoi.webp') center / 100% 100% no-repeat;
+  mask: url('/assets/img/sillouetteMoi.webp') center / 100% 100% no-repeat;
+  -webkit-mask-image: url('/assets/img/sillouetteMoi.webp'), linear-gradient(to bottom, #000 var(--hero-subject-fade-start), transparent 100%);
+  mask-image: url('/assets/img/sillouetteMoi.webp'), linear-gradient(to bottom, #000 var(--hero-subject-fade-start), transparent 100%);
   pointer-events: none;
 }
 @keyframes hero-subject-breathe {
