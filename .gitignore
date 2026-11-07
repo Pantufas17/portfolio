@@ -1,4 +1,10 @@
-assets/videos/
-*.mp4
-*.MOV
+node_modules
+dist
+.env
+.DS_Store
 *.mov
+*.MOV
+
+# Vidéos de projets trop lourdes pour GitHub
+public/assets/videos/EtoileBlanche/
+public/assets/videos/SavoirVivre/
