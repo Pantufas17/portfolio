@@ -537,7 +537,7 @@ button {
   text-align: center;
 }
 /* ============ product index ============ */
-.pindex { padding: 0 var(--pad-x) clamp(36px, 4vw, 72px); }
+.pindex { padding: clamp(56px, 7vh, 96px) var(--pad-x) clamp(80px, 7vw, 120px); }
 .pindex-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -560,13 +560,13 @@ button {
 
 /* ============ selected projects ============ */
 .projects-title {
-  padding: clamp(48px, 8vh, 110px) var(--pad-x) clamp(24px, 4vw, 56px);
+  padding: clamp(96px, 12vh, 168px) var(--pad-x) clamp(40px, 5vw, 72px);
 }
 .projects-filterbar {
   display: flex;
   align-items: center;
   gap: clamp(22px, 3.2vw, 48px);
-  margin-bottom: clamp(20px, 3vw, 40px);
+  margin-bottom: clamp(40px, 5vw, 72px);
   padding: 0 var(--pad-x);
   overflow-x: auto;
   scrollbar-width: none;
@@ -607,6 +607,7 @@ button {
   overflow: hidden;
   touch-action: pan-y;
 }
+.projects-section { padding-bottom: clamp(56px, 8vh, 112px); }
 .pcard {
   position: absolute;
   top: 50%;
@@ -678,7 +679,7 @@ button {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   gap: clamp(24px, 4vw, 72px);
-  padding: clamp(48px, 8vh, 110px) var(--pad-x);
+  padding: clamp(96px, 12vh, 176px) var(--pad-x);
   align-items: start;
 }
 .split-left { position: relative; }
@@ -750,7 +751,7 @@ button {
 .svc-row:hover .svc-arrow svg,
 .svc-row[data-open="true"] .svc-arrow svg { transform: rotate(45deg); }
 /* ============ tools marquee ============ */
-.tools-section { padding: clamp(48px, 8vh, 110px) 0 clamp(88px, 12vh, 160px); }
+.tools-section { padding: clamp(96px, 12vh, 168px) 0 clamp(136px, 16vh, 220px); }
 .tools-section > .section-title { padding: 0 var(--pad-x); }
 .tools-marquee {
   margin-top: clamp(34px, 5vw, 72px);
@@ -798,10 +799,10 @@ button {
 
 /* ============ footer ============ */
 .footer {
-  padding: clamp(56px, 9vh, 120px) var(--pad-x) clamp(20px, 2.4vw, 32px);
+  padding: clamp(96px, 12vh, 168px) var(--pad-x) clamp(20px, 2.4vw, 32px);
   display: flex;
   flex-direction: column;
-  gap: clamp(40px, 6vh, 80px);
+  gap: clamp(80px, 9vh, 128px);
 }
 .footer-cta {
   position: relative;
@@ -877,7 +878,7 @@ button {
 
 /* ============ responsive ============ */
 @media (max-width: 1024px) {
-  .split { grid-template-columns: 1fr; gap: 32px; }
+  .split { grid-template-columns: 1fr; gap: 40px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .hero-word-top { font-size: clamp(80px, 11vw, 124px); }
   .hero-word-bottom { font-size: clamp(60px, 7.5vw, 78px); }
@@ -906,7 +907,7 @@ button {
   .tools-marquee { margin-top: 30px; }
   .tools-list { gap: 30px; }
   .tool-item { font-size: clamp(26px, 8vw, 38px); }
-  .projects-filterbar { gap: 24px; margin-bottom: 20px; }
+  .projects-filterbar { gap: 24px; margin-bottom: 32px; }
   .projects-filter { font-size: 15px; padding-bottom: 9px; }
   .pcards { height: clamp(360px, 62svh, 560px); }
   .pcard {
