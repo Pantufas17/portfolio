@@ -8,7 +8,6 @@ import {
   footer,
 } from './content';
 import { homeTranslations, type HomeLanguage } from './translations';
-import { setFloatingWords } from './floating-words';
 
 const arrowSvg = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
@@ -88,7 +87,6 @@ export function renderAll(language: HomeLanguage): void {
     copy.hero.headlineTop,
     copy.hero.headlineBottom,
     copy.hero.intro,
-    copy.hero.floatingWords,
   );
   renderProductIndex(copy.productIndex.columns);
   renderProductCards(copy.products.categories, copy.products.imageAlts, copy.products.filters);
@@ -114,18 +112,15 @@ function renderHeroIntro(
   headlineTop: string,
   headlineBottom: string,
   introCopy: string,
-  floatingWords: readonly string[],
 ): void {
   const intro = document.getElementById('hero-intro');
   if (intro) intro.textContent = introCopy;
   const titleLead = document.getElementById('hero-title-lead');
   const titleTop = document.getElementById('hero-title-top');
   const titleBottom = document.getElementById('hero-title-bottom');
-  const wordCloud = document.getElementById('hero-word-cloud');
   if (titleLead) titleLead.textContent = headlineLead;
   if (titleTop) titleTop.textContent = headlineTop;
   if (titleBottom) titleBottom.textContent = headlineBottom;
-  if (wordCloud) setFloatingWords(floatingWords);
 }
 
 function renderProductIndex(columns: readonly (readonly [string, string])[]): void {

@@ -568,10 +568,9 @@ function setupHeroScrollTransition(): void {
   const titleTop = document.querySelectorAll<HTMLElement>('.hero-lead, .hero-word-top');
   const titleBottom = document.querySelector<HTMLElement>('.hero-word-bottom');
   const subject = document.querySelector<HTMLElement>('.hero-subject-transition');
-  const words = document.getElementById('hero-word-cloud');
   const intro = document.getElementById('hero-intro');
   const orbits = document.querySelector<HTMLElement>('.hero-orbits');
-  if (!hero || !media || !titleTop.length || !titleBottom || !subject || !words || !intro || !orbits) return;
+  if (!hero || !media || !titleTop.length || !titleBottom || !subject || !intro || !orbits) return;
 
   const timeline = gsap.timeline({
     scrollTrigger: {
@@ -596,7 +595,7 @@ function setupHeroScrollTransition(): void {
       duration: 0.3,
       ease: 'power2.in',
     }, 0)
-    .to([words, intro], {
+    .to(intro, {
       autoAlpha: 0,
       duration: 0.3,
       ease: 'none',

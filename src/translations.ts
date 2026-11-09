@@ -9,7 +9,6 @@ type HomeCopy = {
     headlineLead: string;
     headlineTop: string;
     headlineBottom: string;
-    floatingWords: string[];
     intro: string;
     imageAlt: string;
   };
@@ -64,7 +63,6 @@ export const homeTranslations: Record<HomeLanguage, HomeCopy> = {
       headlineLead: 'Du',
       headlineTop: 'design',
       headlineBottom: 'au digital',
-      floatingWords: ['Interfaces', 'Curiosité', 'Prototypage', 'Mouvement', 'Récit interactif', 'Nouvelles idées', 'Expérimentation', 'Design', 'Code', 'Données', 'Animation', 'Idées', 'Détails', 'Systèmes', 'Usages'],
       intro:
         'Étudiant en ingénierie des médias à la HEIG-VD, je conçois et développe des expériences digitales à la rencontre du design, de la technologie et des besoins des utilisateurs.',
       imageAlt: 'Silhouette de Nuno Amaro assis, vu de trois quarts arrière',
@@ -197,7 +195,6 @@ export const homeTranslations: Record<HomeLanguage, HomeCopy> = {
       headlineLead: 'From',
       headlineTop: 'design',
       headlineBottom: 'to digital',
-      floatingWords: ['Interfaces', 'Curiosity', 'Prototyping', 'Motion', 'Interactive stories', 'Fresh ideas', 'Experimentation', 'Design', 'Code', 'Data', 'Animation', 'Ideas', 'Details', 'Systems', 'Uses'],
       intro:
         'Media Engineering student at HEIG-VD, designing and building digital experiences where design, technology and people’s needs meet.',
       imageAlt: 'Silhouette of Nuno Amaro seated, seen from behind at an angle',
@@ -330,7 +327,6 @@ export const homeTranslations: Record<HomeLanguage, HomeCopy> = {
       headlineLead: 'Do',
       headlineTop: 'design',
       headlineBottom: 'ao digital',
-      floatingWords: ['Interfaces', 'Curiosidade', 'Prototipagem', 'Movimento', 'Narrativas interativas', 'Novas ideias', 'Experimentação', 'Design', 'Código', 'Dados', 'Animação', 'Ideias', 'Detalhes', 'Sistemas', 'Usos'],
       intro:
         'Estudante de Engenharia de Media na HEIG-VD, concebo e desenvolvo experiências digitais que cruzam design, tecnologia e as necessidades das pessoas.',
       imageAlt: 'Silhueta de Nuno Amaro sentado, visto de trás em três quartos',
